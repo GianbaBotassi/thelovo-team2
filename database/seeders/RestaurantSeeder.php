@@ -38,5 +38,35 @@ class RestaurantSeeder extends Seeder
 
         $restaurant -> save();
 
+        $restaurant -> email = "andrearossi@mail.com";
+        $restaurant -> password = "password1";
+        $restaurant -> nome_attività = "Ristorante Italiano";
+        $restaurant -> indirizzo = "Via Roma n 123";
+        $restaurant -> partita_iva = "12345678901";
+        $restaurant -> image = "";
+
+        $restaurant -> save();
+
+        $restaurant = new Restaurant();
+
+        $restaurant -> email = "sarabianchi@mail.com";
+        $restaurant -> password = "password2";
+        $restaurant -> nome_attività = "Ristorante Giapponese";
+        $restaurant -> indirizzo = "Via Venezia n 456";
+        $restaurant -> partita_iva = "23456789012";
+        $restaurant -> image = "";
+
+        $restaurant -> save();
+
+        $restaurant = new Restaurant();
+
+        $restaurant -> email = "lucamarini@mail.com";
+        $restaurant -> password = "password3";
+        $restaurant -> nome_attività = "Ristorante Messicano";
+        $restaurant -> indirizzo = "Via Napoli n 789";
+        $restaurant -> partita_iva = "34567890123";
+        $restaurant -> image = "";
+
+        $restaurant -> save();
     }
 }
