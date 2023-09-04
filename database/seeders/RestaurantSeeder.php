@@ -23,7 +23,7 @@ class RestaurantSeeder extends Seeder
                 'nome_attività' => 'Ristorante da Mario',
                 'indirizzo' => 'Via Roma, 123',
                 'partita_iva' => '12345678901',
-                'image' => 'immagine1.jpg',
+                'image' => null,
             ],
             [
                 'email' => 'bellaitalia@trattoriabellaitalia.com',
@@ -31,7 +31,7 @@ class RestaurantSeeder extends Seeder
                 'nome_attività' => 'Trattoria Bella Italia',
                 'indirizzo' => 'Piazza Venezia, 456',
                 'partita_iva' => '23456789012',
-                'image' => 'immagine2.jpg',
+                'image' => null,
             ],
             [
                 'email' => 'osteriarustica@osteriarustica.com',
@@ -39,7 +39,7 @@ class RestaurantSeeder extends Seeder
                 'nome_attività' => 'Osteria Rustica',
                 'indirizzo' => 'Via Firenze, 789',
                 'partita_iva' => '34567890123',
-                'image' => 'immagine3.jpg',
+                'image' => null,
             ],
             [
                 'email' => 'giuseppe@mangiaredagiuseppe.com',
@@ -47,7 +47,7 @@ class RestaurantSeeder extends Seeder
                 'nome_attività' => 'Mangiare da Giuseppe',
                 'indirizzo' => 'Corso Vittorio Emanuele, 101',
                 'partita_iva' => '45678901234',
-                'image' => 'immagine4.jpg',
+                'image' => null,
             ],
             [
                 'email' => 'napoli@pizzerianapoli.com',
@@ -55,7 +55,7 @@ class RestaurantSeeder extends Seeder
                 'nome_attività' => 'Pizzeria Napoli',
                 'indirizzo' => 'Via Napoli, 567',
                 'partita_iva' => '56789012345',
-                'image' => 'immagine5.jpg',
+                'image' => null,
             ]
         ];
 
