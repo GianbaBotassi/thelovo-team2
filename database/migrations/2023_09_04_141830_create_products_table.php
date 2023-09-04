@@ -20,7 +20,7 @@ return new class extends Migration
             $table-> string("descrizione");
             $table-> string("ingredienti");
             $table-> decimal("prezzo", 3,2);
-            $table-> string("is_visible")-> default("1");
+            $table-> tinyInteger("is_visible")-> default(1);
             $table-> string("image");
 
             $table->timestamps();
