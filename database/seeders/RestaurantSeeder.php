@@ -16,27 +16,49 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
-        $restaurant = new Restaurant();
+        $restaurants = [
+            [
+                'email' => 'mario@ristorantedamario.com',
+                'password' => bcrypt('ciao'),
+                'nome_attività' => 'Ristorante da Mario',
+                'indirizzo' => 'Via Roma, 123',
+                'partita_iva' => '12345678901',
+                'image' => 'immagine1.jpg',
+            ],
+            [
+                'email' => 'bellaitalia@trattoriabellaitalia.com',
+                'password' => bcrypt('come'),
+                'nome_attività' => 'Trattoria Bella Italia',
+                'indirizzo' => 'Piazza Venezia, 456',
+                'partita_iva' => '23456789012',
+                'image' => 'immagine2.jpg',
+            ],
+            [
+                'email' => 'osteriarustica@osteriarustica.com',
+                'password' => bcrypt('stai'),
+                'nome_attività' => 'Osteria Rustica',
+                'indirizzo' => 'Via Firenze, 789',
+                'partita_iva' => '34567890123',
+                'image' => 'immagine3.jpg',
+            ],
+            [
+                'email' => 'giuseppe@mangiaredagiuseppe.com',
+                'password' => bcrypt('tutto'),
+                'nome_attività' => 'Mangiare da Giuseppe',
+                'indirizzo' => 'Corso Vittorio Emanuele, 101',
+                'partita_iva' => '45678901234',
+                'image' => 'immagine4.jpg',
+            ],
+            [
+                'email' => 'napoli@pizzerianapoli.com',
+                'password' => bcrypt('bene'),
+                'nome_attività' => 'Pizzeria Napoli',
+                'indirizzo' => 'Via Napoli, 567',
+                'partita_iva' => '56789012345',
+                'image' => 'immagine5.jpg',
+            ]
+        ];
 
-        $restaurant -> email = "mariorossi@mail.com";
-        $restaurant -> password = "password";
-        $restaurant -> nome_attività = "Pizza Pazza";
-        $restaurant -> indirizzo = "Via Giovanni bosco n 44";
-        $restaurant -> partita_iva = "23471895043";
-        $restaurant -> image = "";
-
-        $restaurant -> save();
-
-        $restaurant = new Restaurant();
-
-        $restaurant -> email = "giovannamassselli@mail.com";
-        $restaurant -> password = "password";
-        $restaurant -> nome_attività = "Bella Vista";
-        $restaurant -> indirizzo = "Via della palma n 2";
-        $restaurant -> partita_iva = "32221895043";
-        $restaurant -> image = "";
-
-        $restaurant -> save();
-
+        Restaurant::insert($restaurants);
     }
 }
