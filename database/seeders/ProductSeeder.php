@@ -21,8 +21,8 @@ class ProductSeeder extends Seeder
         $product -> nome = "pasta rossa";
         $product -> descrizione = "pasta con sugo al pomodoro";
         $product -> ingredienti = "pasta, pomodori, formaggio";
-        $product -> prezzo = "5,50";
-        $product -> is_visible = "1";
+        $product -> prezzo = 5.50;
+        $product -> is_visible = 1;
         $product -> image = "";
 
         $product -> save();
