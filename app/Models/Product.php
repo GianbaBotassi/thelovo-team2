@@ -17,4 +17,8 @@ class Product extends Model
         "is_visible",
         "image"
     ];
+
+    function Restaurant(){
+        return $this->belongsTo(Product::class);
+    }
 }

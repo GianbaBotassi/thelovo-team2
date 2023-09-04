@@ -24,6 +24,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 8.99,
                 'is_visible' => true,
                 'image' => 'pizza_margherita.jpg',
+                'restaurant_id' => 2,
             ],
             [
                 'nome' => 'Coq au Vin',
@@ -32,6 +33,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 16.99,
                 'is_visible' => true,
                 'image' => 'coq_au_vin.jpg',
+                'restaurant_id' => 6,
             ],
             [
                 'nome' => 'Ramen al Tonkotsu',
@@ -40,6 +42,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 12.99,
                 'is_visible' => true,
                 'image' => 'ramen.jpg',
+                'restaurant_id' => 1,
             ],
             [
                 'nome' => 'Pad Thai',
@@ -48,6 +51,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 14.99,
                 'is_visible' => true,
                 'image' => 'pad_thai.jpg',
+                'restaurant_id' => 10,
             ],
             [
                 'nome' => 'Tofu al Curry',
@@ -56,6 +60,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 10.99,
                 'is_visible' => true,
                 'image' => 'tofu_curry.jpg',
+                'restaurant_id' => 4,
             ],
             [
                 'nome' => 'Hamburger Messicano',
@@ -64,6 +69,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 11.99,
                 'is_visible' => true,
                 'image' => 'hamburger_messicano.jpg',
+                'restaurant_id' => 7,
             ],
             [
                 'nome' => 'Paneer Tikka',
@@ -72,6 +78,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 9.99,
                 'is_visible' => true,
                 'image' => 'paneer_tikka.jpg',
+                'restaurant_id' => 2,
             ],
             [
                 'nome' => 'Risotto ai Funghi',
@@ -80,6 +87,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 13.99,
                 'is_visible' => true,
                 'image' => 'risotto_funghi.jpg',
+                'restaurant_id' => 5,
             ],
             [
                 'nome' => 'Dolce al Mango',
@@ -88,6 +96,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 6.99,
                 'is_visible' => true,
                 'image' => 'dolce_mango.jpg',
+                'restaurant_id' => 9,
             ],
             [
                 'nome' => 'Sushi Vegano',
@@ -96,6 +105,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 15.99,
                 'is_visible' => true,
                 'image' => 'sushi_vegano.jpg',
+                'restaurant_id' => 5,
             ],
             [
                 'nome' => 'Croissant al Cioccolato',
@@ -104,6 +114,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 3.99,
                 'is_visible' => true,
                 'image' => 'croissant_cioccolato.jpg',
+                'restaurant_id' => 2,
             ],
             [
                 'nome' => 'Noodles al Curry Verde',
@@ -112,6 +123,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 12.99,
                 'is_visible' => true,
                 'image' => 'noodles_curry_verde.jpg',
+                'restaurant_id' => 6,
             ],
             [
                 'nome' => 'Taco al Pastor',
@@ -120,6 +132,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 9.99,
                 'is_visible' => true,
                 'image' => 'taco_pastor.jpg',
+                'restaurant_id' => 7,
             ],
             [
                 'nome' => 'Tempura Misto',
@@ -128,6 +141,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 14.99,
                 'is_visible' => true,
                 'image' => 'tempura.jpg',
+                'restaurant_id' => 4,
             ],
             [
                 'nome' => 'Insalata Waldorf',
@@ -136,6 +150,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 7.99,
                 'is_visible' => true,
                 'image' => 'insalata_waldorf.jpg',
+                'restaurant_id' => 8,
             ],
             [
                 'nome' => 'Sushi Sashimi Deluxe',
@@ -144,6 +159,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 18.99,
                 'is_visible' => true,
                 'image' => 'sushi_sashimi.jpg',
+                'restaurant_id' => 1,
             ],
             [
                 'nome' => 'Ratatouille',
@@ -152,6 +168,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 10.99,
                 'is_visible' => true,
                 'image' => 'ratatouille.jpg',
+                'restaurant_id' => 10,
             ],
             [
                 'nome' => 'Hamburger Vegetariano',
@@ -160,6 +177,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 10.99,
                 'is_visible' => true,
                 'image' => 'hamburger_vegetariano.jpg',
+                'restaurant_id' => 10,
             ],
             [
                 'nome' => 'Curry Massaman',
@@ -168,6 +186,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 12.99,
                 'is_visible' => true,
                 'image' => 'curry_massaman.jpg',
+                'restaurant_id' => 3,
             ],
             [
                 'nome' => 'Dal Makhani',
@@ -176,6 +195,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 11.99,
                 'is_visible' => true,
                 'image' => 'dal_makhani.jpg',
+                'restaurant_id' => 5,
             ]
         ];
 

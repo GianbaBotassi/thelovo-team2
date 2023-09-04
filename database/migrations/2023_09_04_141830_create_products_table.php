@@ -23,6 +23,8 @@ return new class extends Migration
             $table->tinyInteger("is_visible")->default(1);
             $table->string("image");
 
+            $table-> foreignId("restaurant_id")-> constrained();
+
             $table->timestamps();
         });
     }
@@ -34,6 +36,12 @@ return new class extends Migration
      */
     public function down()
     {
+
+        Schema::table("products", function (Blueprint $table){
+            $table ->dropForeign('products_restaurant_id_foreign');
+            $table ->dropColumn("restaurant_id");
+        });
+
         Schema::dropIfExists('products');
     }
 };

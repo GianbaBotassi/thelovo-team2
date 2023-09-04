@@ -17,4 +17,8 @@ class Restaurant extends Model
         "partita_iva",
         "image"
     ];
+
+    function Product(){
+        return $this->hasMany(Restaurant::class);
+    }
 }
