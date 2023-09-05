@@ -23,7 +23,7 @@ return new class extends Migration
 
             // aggiunta della colonna quantità del prodotto, come defould 1,
             // a seconda dell'eseginza al massimo si agginge uno
-            $table->integer('quantity')->defoult(1);
+            $table->integer('quantity')->default(1);
         });
     }
 
