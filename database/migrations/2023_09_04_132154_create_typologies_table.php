@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text("descrizione");
             $table->string("image")->nullable();
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

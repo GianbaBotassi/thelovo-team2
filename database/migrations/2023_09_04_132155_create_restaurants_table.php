@@ -23,7 +23,7 @@ return new class extends Migration
             $table-> string("partita_iva") -> unique();
             $table-> string("image") -> nullable();
 
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
