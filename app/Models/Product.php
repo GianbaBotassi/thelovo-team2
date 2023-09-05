@@ -18,7 +18,14 @@ class Product extends Model
         "image"
     ];
 
+
+    // collegamento tra i prodotti e i ristoranti
     function Restaurant(){
         return $this->belongsTo(Product::class);
+    }
+
+    // collegamento tra i prodotti e gli ordini
+    function product(){
+        return $this->belongsToMany(Product::class);
     }
 }

@@ -15,6 +15,7 @@ class Typology extends Model
         "image"
     ];
 
+    // collegamento tra i ristoranti e i typology ( Many to Many )
     function restaurant(){
         return $this->belongsToMany(Restaurant::class);
     }
