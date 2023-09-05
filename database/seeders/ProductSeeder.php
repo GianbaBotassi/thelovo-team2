@@ -24,7 +24,7 @@ class ProductSeeder extends Seeder
                 'prezzo' => 8.99,
                 'is_visible' => true,
                 'image' => 'pizza_margherita.jpg',
-                'restaurant_id' => 2,
+                'restaurant_id' => 1,
             ],
             [
                 'nome' => 'Coq au Vin',

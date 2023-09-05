@@ -16,12 +16,10 @@ return new class extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
 
-            $table-> string("email") -> unique();
-            $table-> string("password");
-            $table-> string("nome_attività");
-            $table-> string("indirizzo");
-            $table-> string("partita_iva") -> unique();
-            $table-> string("image") -> nullable();
+            $table->foreignId('user_id')->constrained();
+            $table->string("indirizzo");
+            $table->string("partita_iva")->unique();
+            $table->string("image")->nullable();
 
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
@@ -34,6 +32,10 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('restaurants', function (Blueprint $table) {
+            $table->dropForeign('restaurants_user_id_foreign');
+            $table->dropColumn('user_id');
+        });
 
         Schema::dropIfExists('restaurants');
     }

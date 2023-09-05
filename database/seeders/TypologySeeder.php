@@ -69,24 +69,22 @@ class TypologySeeder extends Seeder
         Typology::insert($typologies);
 
         $relation = [
-            1 => [ 1, 6, 7 ],
-            2 => [ 1 ],
-            3 => [ 8, 6 ],
-            4 => [ 3 ],
-            5 => [ 3, 9 ],
-            6 => [ 2, 6, 7 ],
-            7 => [ 5, 4 ],
-            8 => [ 1, 2, 8 ],
-            9 => [ 1, 6 ],
-            10 => [ 2, 7 ]
+            1 => [1, 6, 7],
+            2 => [1],
+            3 => [9],
+            4 => [1, 2],
+            5 => [3, 2],
+            6 => [7, 8],
+            7 => [1, 2],
+            8 => [4, 5],
+            9 => [3, 2],
+            10 => [3, 6]
         ];
 
-        foreach($relation as $restaurantId => $typologyId) {
+        foreach ($relation as $restaurantId => $typologyId) {
             $restaurant = Restaurant::find($restaurantId);
 
-            $restaurant -> typology() -> attach($typologyId);
+            $restaurant->typology()->attach($typologyId);
         }
-
-
     }
 }

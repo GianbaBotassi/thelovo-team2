@@ -19,12 +19,18 @@ class Restaurant extends Model
     ];
 
     // collegamento tra i ristoranti e i prodotti ( One to Many )
-    function product(){
+    function product()
+    {
         return $this->hasMany(Restaurant::class);
     }
 
-     // collegamento tra i ristoranti e le tipologie ( Many to Many )
-    function typology(){
+    // collegamento tra i ristoranti e le tipologie ( Many to Many )
+    function typology()
+    {
         return $this->belongsToMany(Typology::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

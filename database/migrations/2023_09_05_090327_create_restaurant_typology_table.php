@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('restaurant_typology', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 
             $table->foreignId('restaurant_id')->constrained();
             $table->foreignId('typology_id')->constrained();
@@ -41,7 +41,5 @@ return new class extends Migration
         });
 
         Schema::dropIfExists('restaurant_typology');
-
-
     }
 };
