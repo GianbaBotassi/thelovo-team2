@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use App\Models\Typology;
+use App\Models\Restaurant;
 
 class TypologySeeder extends Seeder
 {
@@ -66,5 +67,26 @@ class TypologySeeder extends Seeder
 
 
         Typology::insert($typologies);
+
+        $relation = [
+            1 => [ 1, 6, 7 ],
+            2 => [ 1 ],
+            3 => [ 9 ],
+            4 => [ 1,2 ],
+            5 => [ 3,2 ],
+            6 => [ 7,8 ],
+            7 => [ 1,2 ],
+            8 => [ 4,5 ],
+            9 => [ 3,2 ],
+            10 => [ 3,6 ]
+        ];
+
+        foreach($relation as $restaurantId => $typologyId) {
+            $restaurant = Restaurant::find($restaurantId);
+
+            $restaurant -> typology() -> attach($typologyId);
+        }
+
+
     }
 }

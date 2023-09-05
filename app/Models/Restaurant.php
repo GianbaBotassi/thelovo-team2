@@ -18,11 +18,11 @@ class Restaurant extends Model
         "image"
     ];
 
-    function Product(){
+    function product(){
         return $this->hasMany(Restaurant::class);
     }
 
-    function Typology(){
-        return $this->belongsToMany('App\Models\Typology');
+    function typology(){
+        return $this->belongsToMany(Typology::class);
     }
 }

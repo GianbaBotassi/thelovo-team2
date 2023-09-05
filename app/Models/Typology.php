@@ -15,7 +15,7 @@ class Typology extends Model
         "image"
     ];
 
-    function Restaurant(){
-        return $this->belongsToMany('App\Models\Restaurant');
+    function restaurant(){
+        return $this->belongsToMany(Restaurant::class);
     }
 }
