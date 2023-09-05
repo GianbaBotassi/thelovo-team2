@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        // Array users associati ai ristoranti
         $users = [
             [
                 'name' => 'Ristorante da Mario',
@@ -71,6 +72,7 @@ class UserSeeder extends Seeder
             ]
         ];
 
+        // inserito array multidimensionale
         User::insert($users);
     }
 }

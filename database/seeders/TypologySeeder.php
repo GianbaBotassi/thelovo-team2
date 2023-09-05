@@ -17,6 +17,8 @@ class TypologySeeder extends Seeder
      */
     public function run()
     {
+
+        // Array tipologie
         $typologies = [
             [
                 'nome' => 'Italiano',
@@ -65,9 +67,11 @@ class TypologySeeder extends Seeder
             ],
         ];
 
-
+        // Inserite tipologie
         Typology::insert($typologies);
 
+
+        // Array con relazione tra ristorante(key) e tipologie (value)
         $relation = [
             1 => [1, 6, 7],
             2 => [1],
@@ -81,6 +85,7 @@ class TypologySeeder extends Seeder
             10 => [3, 6]
         ];
 
+        // Ciclo le chiavi e i valori inserendo per ogni relazione una row nella tabella ponte restaurant-typology
         foreach ($relation as $restaurantId => $typologyId) {
             $restaurant = Restaurant::find($restaurantId);
 

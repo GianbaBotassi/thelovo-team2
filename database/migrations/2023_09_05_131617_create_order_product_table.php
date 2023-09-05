@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained();
             $table->foreignId('product_id')->constrained();
 
-            // aggiunta della colonna quantità del prodotto, come defould 1,
-            // a seconda dell'eseginza al massimo si agginge uno
+            // aggiunta della colonna quantità del prodotto, come default 1,
+            // a seconda dell'esigenza al massimo si aggiunge uno
             $table->integer('quantity')->default(1);
         });
     }

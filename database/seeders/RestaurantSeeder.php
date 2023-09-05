@@ -16,6 +16,8 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
+
+        // Array ristoranti con associato id user
         $restaurants = [
             [
                 'user_id' => 1,
@@ -79,6 +81,7 @@ class RestaurantSeeder extends Seeder
             ]
         ];
 
+        // Inserisce ristoranti nell'array multidimensionale
         Restaurant::insert($restaurants);
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('restaurant_typology', function (Blueprint $table) {
             $table->id();
+            // Inserito DB::raw perchè importava in db timestamp null
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 
             $table->foreignId('restaurant_id')->constrained();

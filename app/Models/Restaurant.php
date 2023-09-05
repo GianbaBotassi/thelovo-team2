@@ -29,6 +29,7 @@ class Restaurant extends Model
     {
         return $this->belongsToMany(Typology::class);
     }
+    // Relazione onetoone tra ristoranti e user
     public function user()
     {
         return $this->belongsTo(User::class);

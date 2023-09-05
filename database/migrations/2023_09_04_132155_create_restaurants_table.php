@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("partita_iva")->unique();
             $table->string("image")->nullable();
 
+            // Inserito DB::raw perchè importava in db timestamp null
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }

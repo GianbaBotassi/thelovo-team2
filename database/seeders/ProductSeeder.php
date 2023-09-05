@@ -16,6 +16,8 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+
+        // Array prodotti ristoranti, già associato l'id del ristorante
         $products = [
             [
                 'nome' => 'Pizza Margherita',
@@ -199,6 +201,7 @@ class ProductSeeder extends Seeder
             ]
         ];
 
+        // Inserisce prodotti nell'array multidimensionale
         Product::insert($products);
     }
 }
