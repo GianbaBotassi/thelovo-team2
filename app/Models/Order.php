@@ -19,4 +19,9 @@ class Order extends Model
         "data",
         "totale"
     ];
+
+    // collegamento tra i prodotti e gli ordini ( Many to Many )
+    function product(){
+        return $this->belongsToMany(Product::class);
+    }
 }
