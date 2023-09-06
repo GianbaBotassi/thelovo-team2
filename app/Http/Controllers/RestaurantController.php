@@ -47,7 +47,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        return response()->json([
+            "restaurants" => $restaurants
+        ]);
     }
 
     /**
@@ -58,7 +60,14 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request -> all();
+
+        $restaurant = Restaurant::create([
+            "nome" => $data['nome'],
+            "indirizzo" => $data['indirizzo'],
+            "partita_iva" => $data['partita_iva'],
+            "image" => $data['image']
+        ]);
     }
 
 
