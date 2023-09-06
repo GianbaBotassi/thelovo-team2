@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Restaurant;
+use App\Models\Typology;
 
 class RestaurantController extends Controller
 {
@@ -21,6 +22,21 @@ class RestaurantController extends Controller
         // Crea json tutti i ristoranti
         return response()->json([
             "restaurants" => $restaurants
+        ]);
+    }
+
+       /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $restaurant = Restaurant::with('typology')->findOrFail($id);
+
+        return response()->json([
+            "restaurant" => $restaurant
         ]);
     }
 
@@ -45,16 +61,7 @@ class RestaurantController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.

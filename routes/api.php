@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route api CRUD restaurants
 Route::get('restaurants', [RestaurantController::class, 'index']);
+
+Route::get('/show-restaurant/{id}', [RestaurantController::class, 'show'])->name('show-restaurant');
