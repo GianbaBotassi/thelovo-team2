@@ -26,5 +26,6 @@ Route::get('restaurants', [RestaurantController::class, 'index']);
 Route::get('/show-restaurant/{id}', [RestaurantController::class, 'show'])->name('show-restaurant');
 
 //Route api CRUD restaurants create and store
+// DA VEDERE COME FARLE FUNZIONARE
 Route::get('/create', [RestaurantController::class, 'create']);
 Route::post('/restaurants-create', [RestaurantController::class, 'store']);

@@ -45,6 +45,9 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
+
     public function create()
     {
         return response()->json([
@@ -58,6 +61,8 @@ class RestaurantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
     public function store(Request $request)
     {
         $data = $request -> all();
