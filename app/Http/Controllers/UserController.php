@@ -12,7 +12,7 @@ class UserController extends Controller
 
         $data = $request -> all();
         // $userId = User :: user()->id;
-        // $data ['user_id'] = $userId;
+        $data ['password'] = bcrypt($data ['password']);
         $user = User::create($data);
 
         return response() -> json([
