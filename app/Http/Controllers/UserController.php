@@ -13,29 +13,28 @@ class UserController extends Controller
         $users = User::all();
 
         // Crea json tutti i ristoranti
-        return response()->json([
-            "users" => $users
-        ]);
+        // return response()->json([
+        //     "users" => $users
+        // ]);
     }
     public function show($id)
     {
         $user = User::findOrFail($id);
 
-        return response()->json([
-            "user" => $user
-        ]);
+        // return response()->json([
+        //     "user" => $user
+        // ]);
     }
     public function store(Request $request)
     {
 
-        $data = $request -> all();
+        $data = $request->all();
 
-        $data ['password'] = bcrypt($data ['password']);
+        $data['password'] = bcrypt($data['password']);
         $user = User::create($data);
 
         return response()->json([
             "user" => $user
         ]);
-
     }
 }

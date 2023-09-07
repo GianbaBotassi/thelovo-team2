@@ -75,7 +75,7 @@ class RestaurantController extends Controller
 
 
 
-        return redirect()->route('show-restaurant', $restaurant->id);
+        return redirect()->route('dashboard', $restaurant->id);
     }
 
 

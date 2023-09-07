@@ -32,7 +32,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-// Rotte per blade restaurants
+// ------------------------ ROTTE PER BLADE RESTAURANTS ---------------------
+
 Route::get('/', [RestaurantController::class, 'index'])->name('welcome');
 Route::get('users', [UserController::class, 'index']);
 
@@ -42,6 +43,8 @@ Route::get('/show-restaurant/{id}', [RestaurantController::class, 'show'])->name
 Route::get('/create', [RestaurantController::class, 'create'])->name('create-restaurant');
 
 Route::post('/store-restaurant', [RestaurantController::class, 'store'])->name('store-restaurant');
+
+
 
 //Route api CRUD restaurants create and store
 // DA VEDERE COME FARLE FUNZIONARE

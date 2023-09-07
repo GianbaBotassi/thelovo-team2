@@ -16,15 +16,29 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+                        @if (!auth()->user()->restaurant)
+                            <p class="text-center offset-4 col-4">
+                                Questo è il tuo pannello di amministrazione, da qua potrai inserire un ristorante.
+                            </p>
+                            <div class="container d-flex justify-content-around py-4">
+                                <a class="btn btn-info text-light" style="font-size: 2rem"
+                                    href="{{ route('create-restaurant') }}">Crea Ristorante</a>
 
-                        <p class="text-center offset-4 col-4">
-                            Questo è il tuo pannello di amministrazione, da qua potrai inserire un ristorante.
-                        </p>
-                        <div class="container d-flex justify-content-around py-4">
-                            <a class="btn btn-info text-light" style="font-size: 2rem"
-                                href="{{ route('create-restaurant') }}">Crea Ristorante</a>
+                            </div>
+                        @else
+                            <div>
+                                {{ auth()->user()->restaurant->nome }}
+                                {{ auth()->user()->restaurant->indirizzo }}
 
-                        </div>
+                                {{ auth()->user()->restaurant->partita_iva }}
+                                {{ auth()->user()->restaurant->image }}
+
+                                {{-- Da capire come stampare la tipologia --}}
+                                {{-- {{ auth()->user()->restaurant->typology->nome }} --}}
+                            </div>
+                        @endif
+
+
 
 
                     </div>

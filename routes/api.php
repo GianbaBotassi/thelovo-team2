@@ -33,6 +33,6 @@ Route::get('/show-restaurant/{id}', [RestaurantController::class, 'show'])->name
 Route::get('/create/{id}', [RestaurantController::class, 'create']);
 Route::post('/restaurants-create/{id}', [RestaurantController::class, 'store']);
 
-Route::post('/user-create', [UserController::class, 'store']);
+// Route::post('/user-create', [UserController::class, 'store']);
 
-Route::post('/user-login', [AuthenticatedSessionController::class, 'store']);
+// Route::post('/user-login', [AuthenticatedSessionController::class, 'store']);
