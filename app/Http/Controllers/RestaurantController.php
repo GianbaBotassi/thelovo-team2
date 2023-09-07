@@ -38,7 +38,7 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        $restaurant = Restaurant::with('typology')->findOrFail($id);
+        $restaurant = Restaurant::with('typologies')->findOrFail($id);
 
 
         return view('pages.restaurant.restaurant', compact('restaurant'));
