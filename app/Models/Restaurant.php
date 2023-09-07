@@ -10,7 +10,6 @@ class Restaurant extends Model
     use HasFactory;
 
     protected $fillable = [
-
         "user_id",
         "nome",
         "indirizzo",
@@ -19,16 +18,17 @@ class Restaurant extends Model
     ];
 
     // collegamento tra i ristoranti e i prodotti ( One to Many )
-    function products()
+    public function products()
     {
-        return $this->hasMany(Restaurant::class);
+        return $this->hasMany(Product::class); // Assumendo che il nome del modello sia "Product"
     }
 
     // collegamento tra i ristoranti e le tipologie ( Many to Many )
-    function typologies()
+    public function typologies()
     {
         return $this->belongsToMany(Typology::class);
     }
+
     // Relazione onetoone tra ristoranti e user
     public function user()
     {
