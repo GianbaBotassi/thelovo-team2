@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">Benvenuto {{ auth()->user()->email }}</div>
+                    <div class="card-header">Benvenuto {{ ucfirst(auth()->user()->name) }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -26,24 +26,42 @@
 
                             </div>
                         @else
-                            <div>
+                            <div class="my-3">
+                                <label class="form-label me-3" for="nome"><strong>Nome:</strong></label>
                                 {{ auth()->user()->restaurant->nome }}
+
+                            </div>
+                            <div class="my-3">
+                                <label class="form-label me-3"><strong>Indirizzo:</strong></label>
                                 {{ auth()->user()->restaurant->indirizzo }}
 
+                            </div>
+                            <div class="my-3">
+                                <label class="form-label me-3"><strong>Partita Iva:</strong></label>
                                 {{ auth()->user()->restaurant->partita_iva }}
+
+                            </div>
+                            <div class="my-3">
+                                <label class="form-label me-3"><strong>Immagine:</strong></label>
                                 {{ auth()->user()->restaurant->image }}
 
-                                {{-- Da capire come stampare la tipologia --}}
-                                {{-- {{ auth()->user()->restaurant->typology->nome }} --}}
                             </div>
-                        @endif
-
-
-
+                            <div>
+                                <label for="typology"><strong>Tipologie: </strong></label>
+                                @foreach (auth()->user()->restaurant->typologies as $typology)
+                                    {{ $typology->nome }}
+                                @endforeach
+                            </div>
 
                     </div>
+                    @endif
+
+
+
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

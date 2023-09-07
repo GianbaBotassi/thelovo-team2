@@ -24,11 +24,13 @@
             </div>
             <div>
                 <label for="typology"><strong>Tipologie: </strong></label>
-                <select name="typology" id="typology">
-                    @foreach ($typology as $typology)
-                        <option :value="$typology - > id">{{ $typology->nome }}</option>
-                    @endforeach
-                </select>
+                @foreach ($typologies as $typology)
+                    <div>
+                        <input type="checkbox" name="typology[]" id="typology{{ $typology->id }}"
+                            value="{{ $typology->id }}">
+                        <label for="typology{{ $typology->id }}">{{ $typology->nome }}</label>
+                    </div>
+                @endforeach
             </div>
 
 

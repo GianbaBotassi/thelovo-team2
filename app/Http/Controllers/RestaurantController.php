@@ -55,9 +55,9 @@ class RestaurantController extends Controller
 
     public function create()
     {
-        $typology = Typology::all();
+        $typologies = Typology::all();
 
-        return view('pages.restaurant.create-restaurant', compact('typology'));
+        return view('pages.restaurant.create-restaurant', compact('typologies'));
     }
 
     public function store(Request $request)
@@ -70,11 +70,11 @@ class RestaurantController extends Controller
 
         $restaurant = Restaurant::create($data);
 
+        // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
+        if (array_key_exists('typology', $data))
+            $restaurant->typologies()->attach($data['typology']);
+
         // $restaurant->user()->attach();
-
-
-
-
         return redirect()->route('dashboard', $restaurant->id);
     }
 
