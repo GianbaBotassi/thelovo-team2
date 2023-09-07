@@ -69,7 +69,13 @@ class UserSeeder extends Seeder
 
                 'email' => 'veganvibes@plantbasebdeats.com',
                 'password' => bcrypt('vegan')
+            ],
+            [
+
+                'email' => 'cioa@plantbasebdeats.com',
+                'password' => bcrypt('ciao')
             ]
+
         ];
 
         // inserito array multidimensionale

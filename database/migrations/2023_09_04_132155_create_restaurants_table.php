@@ -24,7 +24,9 @@ return new class extends Migration
             $table->string("image")->nullable();
 
             // Inserito DB::raw perchè importava in db timestamp null
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+
         });
     }
 
