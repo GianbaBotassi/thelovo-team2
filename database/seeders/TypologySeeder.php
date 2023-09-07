@@ -89,7 +89,7 @@ class TypologySeeder extends Seeder
         foreach ($relation as $restaurantId => $typologyId) {
             $restaurant = Restaurant::find($restaurantId);
 
-            $restaurant->typology()->attach($typologyId);
+            $restaurant->typologies()->attach($typologyId);
         }
     }
 }
