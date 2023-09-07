@@ -1,8 +1,29 @@
 @extends('layouts.app')
 @section('content')
-    {{ $restaurant->id }}
-    {{ $restaurant->nome }}
-    {{ $restaurant->indirizzo }}
-    {{ $restaurant->partita_iva }}
-    {{ $restaurant->image }}
+
+    <section class="container">
+        <div class="text-center my-3">
+
+            <div class="row">
+                <div class="my-2 py-3 col-md-5 offset-md-4 card fs-2 text-bg-info"> ID: <span class="text-danger"> {{ $restaurant->id }} </span> </div>
+            </div>
+
+            <div class="row">
+                <div class="my-2 py-3 col-md-5 offset-md-4 card fs-2 text-bg-info"> Attività: <span class="text-danger"> {{ $restaurant->nome }} </span> </div>
+            </div>
+
+            <div class="row">
+                <div class="my-2 py-3 col-md-5 offset-md-4 card fs-2 text-bg-info"> Via: <span class="text-danger"> {{ $restaurant->indirizzo }} </span> </div>
+            </div>
+
+            <div class="row">
+                <div class="my-2 py-3 col-md-5 offset-md-4 card fs-2 text-bg-info"> Fatturazione: <span class="text-danger"> {{ $restaurant->partita_iva }} </span> </div>
+            </div>
+
+            <div class="row">
+                <div class="my-2 py-3 col-md-5 offset-md-4 card fs-2 text-bg-info"> Aspetto: <img src="{{ $restaurant->image }}" alt="No image"> </div>
+            </div>
+
+        </div>
+    </section>
 @endsection
