@@ -73,8 +73,10 @@ class RestaurantController extends Controller
     {
 
         $data = $request -> all();
-        // $userId = User :: user()->id;
+
         // $data ['user_id'] = $userId;
+        // $userId = User :: user()->id;
+
         $restaurant = Restaurant::create($data);
 
         return response() -> json([
