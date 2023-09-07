@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->unique()->constrained();
             $table->string('nome');
             $table->string("indirizzo");
             $table->string("partita_iva")->unique();
