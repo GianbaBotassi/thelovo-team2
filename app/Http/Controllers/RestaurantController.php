@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+
 use App\Models\Restaurant;
 use App\Models\User;
 use App\Models\Typology;
@@ -50,15 +51,14 @@ class RestaurantController extends Controller
 
      //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
 
-    public function create()
+    public function create($id)
     {
-        // header("Access-Control-Allow-Origin: http://localhost:5173");
-        // header("Access-Control-Allow-Headers: X-Requested-With");
-        // header('Content-Type: application/json');
+        $user= User::findOrFail($id);
 
-        // return response()->json([
-        //     "restaurants" => $restaurants
-        // ]);
+        // Crea json tutti i ristoranti
+        return response()->json([
+            "user" => $user
+        ]);
     }
 
     /**
@@ -69,19 +69,23 @@ class RestaurantController extends Controller
      */
 
     //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
 
-        $data = $request -> all();
+    // QUESTA è PER
+        // $data = $request->validate(
+        //     $this->getValidations(),
+        //     $this->getValidationMessages(),
+        // );
+        // $userId = Auth::user()->id;
 
-        // $data ['user_id'] = $userId;
-        // $userId = User :: user()->id;
+        $data = $request -> all();
+        $data['user_id'] = $id;
 
         $restaurant = Restaurant::create($data);
-
-        return response() -> json([
-            'restaurant_id' => $restaurant -> id
-        ]);
+        // return response()->json([
+        //     "user" => $user
+        // ]);
 
     }
 

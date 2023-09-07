@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\UserController;
-
+use App\http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,7 +30,9 @@ Route::get('/show-restaurant/{id}', [RestaurantController::class, 'show'])->name
 
 //Route api CRUD restaurants create and store
 // DA VEDERE COME FARLE FUNZIONARE
-Route::get('/create', [RestaurantController::class, 'create']);
-Route::post('/restaurants-create', [RestaurantController::class, 'store']);
+Route::get('/create/{id}', [RestaurantController::class, 'create']);
+Route::post('/restaurants-create/{id}', [RestaurantController::class, 'store']);
 
 Route::post('/user-create', [UserController::class, 'store']);
+
+Route::post('/user-login', [AuthenticatedSessionController::class, 'store']);

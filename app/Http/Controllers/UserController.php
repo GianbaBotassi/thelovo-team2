@@ -17,6 +17,14 @@ class UserController extends Controller
             "users" => $users
         ]);
     }
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+
+        return response()->json([
+            "user" => $user
+        ]);
+    }
     public function store(Request $request)
     {
 
@@ -24,6 +32,10 @@ class UserController extends Controller
 
         $data ['password'] = bcrypt($data ['password']);
         $user = User::create($data);
+
+        return response()->json([
+            "user" => $user
+        ]);
 
     }
 }
