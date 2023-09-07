@@ -23,12 +23,14 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::all();
 
         // Crea json tutti i ristoranti
-        return response()->json([
-            "restaurants" => $restaurants
-        ]);
+
+        return view('welcome', compact('restaurants'));
+        // return response()->json([
+        //     "restaurants" => $restaurants
+        // ]);
     }
 
-       /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -38,9 +40,11 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::with('typology')->findOrFail($id);
 
-        return response()->json([
-            "restaurant" => $restaurant
-        ]);
+
+        return view('pages.restaurant.restaurant', compact('restaurant'));
+        // return response()->json([
+        //     "restaurant" => $restaurant
+        // ]);
     }
 
     /**
@@ -49,17 +53,48 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
-
-    public function create($id)
+    public function create()
     {
-        $user= User::findOrFail($id);
+        $typology = Typology::all();
 
-        // Crea json tutti i ristoranti
-        return response()->json([
-            "user" => $user
-        ]);
+        return view('pages.restaurant.create-restaurant', compact('typology'));
     }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        // dd($data);
+        $userId = Auth::user()->id;
+
+        $data['user_id'] = $userId;
+
+        $restaurant = Restaurant::create($data);
+
+        // $restaurant->user()->attach();
+
+
+
+
+        return redirect()->route('show-restaurant', $restaurant->id);
+    }
+
+
+
+
+
+
+
+    //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
+
+    // public function create($id)
+    // {
+    //     $user = User::findOrFail($id);
+
+    //     // Crea json tutti i ristoranti
+    //     return response()->json([
+    //         "user" => $user
+    //     ]);
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -69,25 +104,25 @@ class RestaurantController extends Controller
      */
 
     //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
-    public function store(Request $request, $id)
-    {
+    // public function store(Request $request, $id)
+    // {
 
-    // QUESTA è PER
-        // $data = $request->validate(
-        //     $this->getValidations(),
-        //     $this->getValidationMessages(),
-        // );
-        // $userId = Auth::user()->id;
+    //     // QUESTA è PER
+    //     // $data = $request->validate(
+    //     //     $this->getValidations(),
+    //     //     $this->getValidationMessages(),
+    //     // );
+    //     // $userId = Auth::user()->id;
 
-        $data = $request -> all();
-        $data['user_id'] = $id;
+    //     $data = $request->all();
+    //     $data['user_id'] = $id;
 
-        $restaurant = Restaurant::create($data);
-        // return response()->json([
-        //     "user" => $user
-        // ]);
+    //     $restaurant = Restaurant::create($data);
+    //     // return response()->json([
+    //     //     "user" => $user
+    //     // ]);
 
-    }
+    // }
 
 
 

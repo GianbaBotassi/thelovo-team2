@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\RestaurantController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,4 +30,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+// Rotte per blade restaurants
+Route::get('/', [RestaurantController::class, 'index'])->name('welcome');
+Route::get('users', [UserController::class, 'index']);
+
+Route::get('/show-restaurant/{id}', [RestaurantController::class, 'show'])->name('show-restaurant');
+
+// Rotta per creazione ristorante
+Route::get('/create', [RestaurantController::class, 'create'])->name('create-restaurant');
+
+Route::post('/store-restaurant', [RestaurantController::class, 'store'])->name('store-restaurant');
+
+//Route api CRUD restaurants create and store
+// DA VEDERE COME FARLE FUNZIONARE
+
+Route::post('/user-create', [UserController::class, 'store']);
+
+Route::post('/user-login', [AuthenticatedSessionController::class, 'store']);
