@@ -16,13 +16,13 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+
                         <hr>
-                        {{-- <ul>
-                            @foreach (auth()->user()->restaurant->products as $product)
-                                <li> {{ $product->nome }} </li>
-                            @endforeach
-                        </ul> --}}
-                        {{ auth()->user()->nome }}
+                        {{-- collegamento alla pagina index degli ordini --}}
+                        <a href="{{ route('orders.index') }}">vai a vedere gli ordini</a>
+                        <hr>
+                        <hr>
+                        {{-- collegamento alla pagina index dei prodotti --}}
                         <a href="{{ route('products.index') }}">vai a vedere i prodotti</a>
                         <hr>
                         @if (!auth()->user()->restaurant)

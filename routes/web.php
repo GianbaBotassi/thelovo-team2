@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,8 @@ Route::get('/', [RestaurantController::class, 'indexBE'])->name('home');
 Route::get('/create', [RestaurantController::class, 'createBE'])->name('create-restaurant');
 Route::post('/store-restaurant', [RestaurantController::class, 'storeBE'])->name('store-restaurant');
 
+// ROTTE PER I PRODOTTI
+// Route index
 Route::get('/index-product', [ProductController::class, 'indexBE'])->name('products.index');
 
 // Route show
@@ -59,3 +62,8 @@ Route::put('/update-product/{id}', [ProductController::class, 'updateBE'])->midd
 // Route destroy
 Route::delete('/delete-product/{id}', [ProductController::class, 'destroyBE'])->middleware(['auth', 'verified'])->name('products.delete');
 
+// ROTTE PER GLI ORDERS
+// route index
+Route::get('/index-order', [OrderController::class, 'indexBE'])->name('orders.index');
+// route show
+Route::get('/show-order/{id}', [OrderController::class, 'showBE'])->name('orders.show');
