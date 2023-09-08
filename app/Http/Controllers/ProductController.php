@@ -21,6 +21,7 @@ class ProductController extends Controller
         return view('pages.products.index', compact('products'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

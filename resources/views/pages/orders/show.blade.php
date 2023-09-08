@@ -4,7 +4,9 @@
     ORDIN di {{ $order->nome }}
     <hr>
 
-    ha ordinato
+    {{ $order->indirizzo }}
+
+    <h3>ha ordinao</h3>
     <ul>
         @foreach ($order->products as $product)
             <li>
