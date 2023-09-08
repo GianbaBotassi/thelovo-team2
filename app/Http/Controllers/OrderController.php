@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Order;
+use App\Models\Order;
 
 class OrderController extends Controller
 {
@@ -12,10 +12,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexBE()
     {
         $orders=Order::all();
-        view ('pages.orders.index', compact('orders'));
+        return view('pages.orders.index', compact('orders'));
     }
 
     /**
@@ -47,7 +47,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
