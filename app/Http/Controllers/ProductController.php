@@ -44,6 +44,7 @@ class ProductController extends Controller
 
         $data['restaurant_id'] = $restaurantId;
 // dd($data);
+// dd($data['restaurant_id']);
         $product=Product::create([
             "nome"=>$data["nome"],
             "descrizione"=>$data["descrizione"],
@@ -54,7 +55,7 @@ class ProductController extends Controller
             "restaurant_id"=>$data["restaurant_id"],
         ]);
 
-        return view('pages.products.edit', compact('product'));
+        return view('pages.products.index', compact('product'));
     }
 
     /**
