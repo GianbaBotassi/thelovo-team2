@@ -16,16 +16,17 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
-            $table-> string("nome", 64);
-            $table-> string("indirizzo", 128);
-            $table-> string("telefono", 20);
-            $table-> string("email", 64);
-            $table-> string("note") -> nullable();
-            $table-> string("status", 16);
-            $table-> date("data");
-            $table-> decimal("totale");
+            $table->string("nome", 64);
+            $table->string("indirizzo", 128);
+            $table->string("telefono", 20);
+            $table->string("email", 64);
+            $table->string("note")->nullable();
+            $table->string("status", 32);
+            $table->date("data");
+            $table->decimal("totale");
 
-            $table->timestamps();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

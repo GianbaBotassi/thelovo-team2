@@ -18,9 +18,9 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -38,7 +38,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('/', [RestaurantController::class, 'indexBE'])->name('home');
 
-// Route::get('/show-restaurant/{id}', [RestaurantController::class, 'showBE'])->name('show-restaurant');
+Route::get('/show-restaurant/{id}', [RestaurantController::class, 'showBE'])->name('restaurant.restaurant');
 
 // Rotta per creazione ristorante
 Route::get('/create', [RestaurantController::class, 'createBE'])->name('create-restaurant');
@@ -50,6 +50,7 @@ Route::get('/index-product', [ProductController::class, 'indexBE'])->name('produ
 
 // Route show
 Route::get('/show-product/{id}', [ProductController::class, 'showBE'])->middleware(['auth', 'verified'])->name('products.show');
+
 
 // Route create and store
 Route::get('/create-product', [ProductController::class, 'createBE'])->middleware(['auth', 'verified'])->name('products.create');
@@ -67,3 +68,7 @@ Route::delete('/delete-product/{id}', [ProductController::class, 'destroyBE'])->
 Route::get('/index-order', [OrderController::class, 'indexBE'])->name('orders.index');
 // route show
 Route::get('/show-order/{id}', [OrderController::class, 'showBE'])->name('orders.show');
+
+// Route create and store
+Route::get('/create-order', [OrderController::class, 'createBE'])->middleware(['auth', 'verified'])->name('orders.create');
+Route::post('/orders', [OrderController::class, 'storeBE'])->middleware(['auth', 'verified'])->name('orders.store');

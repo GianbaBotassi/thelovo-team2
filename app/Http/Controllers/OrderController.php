@@ -59,7 +59,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
