@@ -29,7 +29,7 @@
             </div>
             {{-- Bottone per tornare a index --}}
             <div class="text-center pt-1 col-md-5 offset-md-4 mt-3">
-                <a class="btn btn-secondary text-light" href="{{ route('welcome') }}">Indietro</a>
+                <a class="btn btn-secondary text-light" href="{{ route('home') }}">Indietro</a>
             </div>
         </div>
 

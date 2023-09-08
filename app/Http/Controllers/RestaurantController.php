@@ -19,10 +19,7 @@ class RestaurantController extends Controller
      */
     public function indexBE()
     {
-
         $restaurants = Restaurant::all();
-
-        // Crea json tutti i ristoranti
 
         return view('home', compact('restaurants'));
     }
@@ -33,15 +30,13 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(BE$id)
+    public function showBE($id)
     {
         $restaurant = Restaurant::with('typologies')->findOrFail($id);
 
 
         return view('pages.restaurant.restaurant', compact('restaurant'));
-        // return response()->json([
-        //     "restaurant" => $restaurant
-        // ]);
+
     }
 
     /**
@@ -50,7 +45,7 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function creatBEe()
+    public function createBE()
     {
         $typologies = Typology::all();
 
@@ -83,7 +78,7 @@ class RestaurantController extends Controller
 
     //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
 
-    // public function creatBEe($id)
+    // public function createBE($id)
     // {
     //     $user = User::findOrFail($id);
 
@@ -129,7 +124,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(BE$id)
+    public function editBE($id)
     {
         //
     }
@@ -141,7 +136,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updatBEe(Request $request, $id)
+    public function updateBE(Request $request, $id)
     {
         //
     }
@@ -152,7 +147,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destrBEoy($id)
+    public function destroyBE($id)
     {
         //
     }

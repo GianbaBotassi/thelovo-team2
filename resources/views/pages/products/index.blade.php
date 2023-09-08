@@ -8,9 +8,19 @@
         @foreach (auth()->user()->restaurant->products as $product)
             <li class="card">
 
-                <a href="{{ route('products.edit', $product->id) }}">{{ $product->nome }}</a>
+                <a href="{{ route('products.show', $product->id) }}">{{ $product->nome }}</a>
                 <br>
                 {{ $product->descrizione }}
+
+                <form method="post" action="{{ route('products.delete', $product->id) }}">
+                    @csrf
+                    @method('DELETE')
+
+                    <input type="submit" value='delete'>
+                </form>
+
+
+
             </li>
         @endforeach
     </ul>
