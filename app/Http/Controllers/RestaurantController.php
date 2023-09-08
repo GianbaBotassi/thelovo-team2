@@ -17,7 +17,7 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexBE()
     {
 
         $restaurants = Restaurant::all();
@@ -33,7 +33,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(BE$id)
     {
         $restaurant = Restaurant::with('typologies')->findOrFail($id);
 
@@ -50,20 +50,20 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function create()
+    public function creatBEe()
     {
         $typologies = Typology::all();
 
         return view('pages.restaurant.create-restaurant', compact('typologies'));
     }
 
-    public function store(Request $request)
+    public function storeBE(Request $request)
     {
         $data = $request->all();
         // dd($data);
         $userId = Auth::user()->id;
 
-        $data['user_id'] = $userId;
+        $data['restaurant_id'] = $userId;
 
         $restaurant = Restaurant::create($data);
 
@@ -83,7 +83,7 @@ class RestaurantController extends Controller
 
     //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
 
-    // public function create($id)
+    // public function creatBEe($id)
     // {
     //     $user = User::findOrFail($id);
 
@@ -101,7 +101,7 @@ class RestaurantController extends Controller
      */
 
     //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
-    // public function store(Request $request, $id)
+    // public function storeBE(Request $request, $id)
     // {
 
     //     // QUESTA è PER
@@ -129,7 +129,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(BE$id)
     {
         //
     }
@@ -141,7 +141,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatBEe(Request $request, $id)
     {
         //
     }
@@ -152,7 +152,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destrBEoy($id)
     {
         //
     }

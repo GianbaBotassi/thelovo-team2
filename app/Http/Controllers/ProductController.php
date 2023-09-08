@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Product;
+
 class ProductController extends Controller
 {
     /**
@@ -11,7 +14,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexBE()
     {
         $products = Product::all();
 
@@ -23,11 +26,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createBE()
     {
-        $products = Product::all();
-
-        // return view('dashboard', compact('product'));
+        return view('pages.products.create');
     }
 
     /**
@@ -36,9 +37,24 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeBE(Request $request)
     {
+        $data=$request->all();
+        $restaurantId = Auth::user()->id;
 
+        $data['restaurant_id'] = $restaurantId;
+// dd($data);
+        $product=Product::create([
+            "nome"=>$data["nome"],
+            "descrizione"=>$data["descrizione"],
+            "ingredienti"=>$data["ingredienti"],
+            "prezzo"=>$data["prezzo"],
+            "is_visible"=>$data["is_visible"],
+            "image"=>$data["image"],
+            "restaurant_id"=>$data["restaurant_id"],
+        ]);
+
+        return view('pages.products.edit', compact('product'));
     }
 
     /**
@@ -47,7 +63,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showBE($id)
     {
         $product = Product::findOrFail($id);
 
@@ -61,7 +77,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editBE($id)
     {
        $product=Product::findOrFail($id);
        return view('pages.products.edit', compact('product'));
@@ -74,7 +90,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateBE(Request $request, $id)
     {
         $data=$request->all();
         $product=Product::findOrFail($id);
@@ -89,7 +105,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyBE($id)
     {
         //
     }

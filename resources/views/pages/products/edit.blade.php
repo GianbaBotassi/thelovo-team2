@@ -35,6 +35,11 @@
             </div>
         </div>
 
+
+        <label for="image">immagine:</label>
+        <input type="text" name="image" id="image" placeholder="inserisci il path dell'immagine che voi inserire"
+            value="{{ $product->image }}">
+
         <input type="submit" value="update">
     </form>
 @endsection
