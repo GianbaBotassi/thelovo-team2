@@ -19,8 +19,6 @@
                     <input type="submit" value='delete'>
                 </form>
 
-
-
             </li>
         @endforeach
     </ul>

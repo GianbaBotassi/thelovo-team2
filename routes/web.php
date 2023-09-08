@@ -56,6 +56,6 @@ Route::post('/products', [ProductController::class, 'storeBE'])->middleware(['au
 Route::get('/edit-product/{id}', [ProductController::class, 'editBE'])->middleware(['auth', 'verified'])->name('products.edit');
 Route::put('/update-product/{id}', [ProductController::class, 'updateBE'])->middleware(['auth', 'verified'])->name('products.update');
 
-//
+// Route destroy
 Route::delete('/delete-product/{id}', [ProductController::class, 'destroyBE'])->middleware(['auth', 'verified'])->name('products.delete');
 
