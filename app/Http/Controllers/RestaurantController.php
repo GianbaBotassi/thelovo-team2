@@ -24,10 +24,7 @@ class RestaurantController extends Controller
 
         // Crea json tutti i ristoranti
 
-        return view('welcome', compact('restaurants'));
-        // return response()->json([
-        //     "restaurants" => $restaurants
-        // ]);
+        return view('home', compact('restaurants'));
     }
 
     /**

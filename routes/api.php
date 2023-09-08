@@ -3,8 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RestaurantController;
-use App\Http\Controllers\UserController;
+
 use App\http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +26,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route api CRUD restaurants idex and show ( with id )
 Route::get('restaurants', [RestaurantController::class, 'index']);
 
-Route::get('users', [UserController::class, 'index']);
-
 Route::get('/show-restaurant/{id}', [RestaurantController::class, 'show'])->name('show-restaurant');
 
 //Route api CRUD restaurants create and store
@@ -33,6 +33,3 @@ Route::get('/show-restaurant/{id}', [RestaurantController::class, 'show'])->name
 Route::get('/create/{id}', [RestaurantController::class, 'create']);
 Route::post('/restaurants-create/{id}', [RestaurantController::class, 'store']);
 
-// Route::post('/user-create', [UserController::class, 'store']);
-
-// Route::post('/user-login', [AuthenticatedSessionController::class, 'store']);

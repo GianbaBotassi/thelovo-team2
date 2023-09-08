@@ -16,6 +16,15 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+                        <hr>
+                        {{-- <ul>
+                            @foreach (auth()->user()->restaurant->products as $product)
+                                <li> {{ $product->nome }} </li>
+                            @endforeach
+                        </ul> --}}
+                        {{ auth()->user()->nome }}
+                        <a href="{{ route('products.index') }}">vai a vedere i prodotti</a>
+                        <hr>
                         @if (!auth()->user()->restaurant)
                             <p class="text-center offset-4 col-4">
                                 Questo è il tuo pannello di amministrazione, da qua potrai inserire un ristorante.
