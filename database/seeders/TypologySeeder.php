@@ -72,7 +72,7 @@ class TypologySeeder extends Seeder
 
 
         // Array con relazione tra ristorante(key) e tipologie (value)
-        $relation = [
+        $relations = [
             1 => [1, 6, 7],
             2 => [1],
             3 => [9],
@@ -86,7 +86,7 @@ class TypologySeeder extends Seeder
         ];
 
         // Ciclo le chiavi e i valori inserendo per ogni relazione una row nella tabella ponte restaurant-typology
-        foreach ($relation as $restaurantId => $typologyId) {
+        foreach ($relations as $restaurantId => $typologyId) {
             $restaurant = Restaurant::find($restaurantId);
 
             $restaurant->typologies()->attach($typologyId);

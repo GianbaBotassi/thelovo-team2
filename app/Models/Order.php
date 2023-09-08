@@ -21,7 +21,8 @@ class Order extends Model
     ];
 
     // collegamento tra i prodotti e gli ordini ( Many to Many )
-    function product(){
+    function products()
+    {
         return $this->belongsToMany(Product::class);
     }
 }
