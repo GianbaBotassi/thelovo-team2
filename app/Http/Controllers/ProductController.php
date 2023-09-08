@@ -112,4 +112,18 @@ class ProductController extends Controller
         $product->delete();
         return view('dashboard');
     }
+
+
+
+    // FRONT END
+
+    public function indexFE()
+    {
+        $products = Product::all();
+
+        return response()->json([
+            "products" => $products
+        ]);
+    }
+
 }

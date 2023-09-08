@@ -18,18 +18,21 @@ use App\http\Controllers\Auth\AuthenticatedSessionController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//Route api CRUD restaurants create and store
+// DA VEDERE COME FARLE FUNZIONARE
+// Route::get('/create/{id}', [RestaurantController::class, 'create']);
+// Route::post('/restaurants-create/{id}', [RestaurantController::class, 'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 // Route api CRUD restaurants idex and show ( with id )
-Route::get('restaurants', [RestaurantController::class, 'index']);
+Route::get('restaurants', [RestaurantController::class, 'indexFE']);
 
-Route::get('/show-restaurant/{id}', [RestaurantController::class, 'show'])->name('show-restaurant');
+Route::get('/show-restaurant/{id}', [RestaurantController::class, 'showFE'])->name('show-restaurant');
 
-//Route api CRUD restaurants create and store
-// DA VEDERE COME FARLE FUNZIONARE
-Route::get('/create/{id}', [RestaurantController::class, 'create']);
-Route::post('/restaurants-create/{id}', [RestaurantController::class, 'store']);
 
+// route api
+
+Route::get('products', [ProductController::class, 'indexFE']);

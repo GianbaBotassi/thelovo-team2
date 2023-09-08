@@ -151,4 +151,28 @@ class RestaurantController extends Controller
     {
         //
     }
+
+
+
+    // FRONT END
+
+    public function indexFE()
+    {
+        $restaurants = Restaurant::all();
+
+        return response()->json([
+            "restaurants" => $restaurants
+        ]);
+    }
+
+    public function showFE($id)
+    {
+        $restaurant = Restaurant::with('typologies')->findOrFail($id);
+
+
+        return response()->json([
+            "restaurant" => $restaurant
+        ]);
+
+    }
 }
