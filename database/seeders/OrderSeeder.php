@@ -30,5 +30,17 @@ class OrderSeeder extends Seeder
 
         $order -> save();
 
+             // Array con relazione tra ristorante(key) e tipologie (value)
+             $relations = [
+                1 => [1, 3, 16],
+
+            ];
+
+            // Ciclo le chiavi e i valori inserendo per ogni relazione una row nella tabella ponte restaurant-typology
+            foreach ($relations as $orderId => $productId) {
+                $order = Order::find($orderId);
+
+                $order->products()->attach($productId);
+            }
     }
 }

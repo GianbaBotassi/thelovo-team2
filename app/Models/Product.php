@@ -27,8 +27,8 @@ class Product extends Model
     }
 
     // collegamento tra i prodotti e gli ordini
-    function product()
+    function orders()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Order::class);
     }
 }
