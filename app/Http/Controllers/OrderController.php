@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Product;
 
 class OrderController extends Controller
 {
@@ -12,11 +13,32 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+       // get all students with names which starts with 'g'
+        // $students = Student :: where('name', 'like', 'g%')
+        //             // order by date of birth descendent
+        //             -> orderBy('date_of_birth', 'desc')
+        //             // limit max number of resulting students (10)
+        //             -> limit(10)
+        //             -> get();
     public function indexBE()
     {
-        $orders=Order::all();
+
+        $id=Auth::user()->id;
+
+        // prendi tutti gli ordini insieme hai prodotti,
+        // fai un confronto tra i restauyrat_id e l'id passato dall'utente autenticato
+        // prendi solo e unicamente quelli che hanno il restaurant_id
+        // uguale all'id dello user autenticato
+        $orders = Order::with('products')
+        ->whereHas('products', function ($query) use ($id) {
+            $query->where('restaurant_id', $id);
+        })
+        ->get();
+
         return view('pages.orders.index', compact('orders'));
     }
+
 
     /**
      * Show the form for creating a new resource.

@@ -1,35 +1,33 @@
 @extends('layouts.app')
 @section('content')
-    <hr>
-    ORDINI
-    <hr>
-    {{-- @if (restaurantId = auth()->user()->r)
-    @endif --}}<?php
-    // $products = auth()->user()->restaurant;
-    $restaurantId = auth()->user()->restaurant->id;
-
-    $prodRestId = $order
-dd()
-    ?>
+    <div class="container-fluid py-3 px-3">
+        <hr>
+        ORDINI
+        <hr>
 
 
-    @foreach ($orders as $order)
-
-
-        @if ($restaurantID ===  )
-            {{ $order->nome }} ha ordinato
+        @foreach ($orders as $order)
+            <div class="badge bg-primary">
+                {{ $order->nome }}
+            </div>
+            ha ordinato:
 
             <ul>
-
-
                 @foreach ($order->products as $product)
                     <li>
                         {{ $product->nome }}
                     </li>
                 @endforeach
             </ul>
-            <a href="{{ route('orders.show', $order->id) }}">visualizza maggiori informazioni</a>
+            <div>
+                note: {{ $order->note }}
+            </div>
+
+
+            <div>
+                all'indirizzo: {{ $order->indirizzo }}
+            </div>
             <hr>
-        @endif
-    @endforeach
+        @endforeach
+    </div>
 @endsection

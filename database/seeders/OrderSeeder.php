@@ -118,6 +118,16 @@ class OrderSeeder extends Seeder
                 'status' => 'In attesa di conferma',
                 'data' => '2023-09-26',
                 'totale' => '26.00'
+            ],
+            [
+                'nome' => 'Giovanni Martini',
+                'indirizzo' => 'Via delle Palme, 12',
+                'telefono' => '3342225678',
+                'email' => 'giovanni.m@gmail.com',
+                'note' => 'Extra formaggio sulla pizza.',
+                'status' => 'In attesa di conferma',
+                'data' => '2023-09-26',
+                'totale' => '26.00'
             ]
         ];
 
@@ -136,7 +146,8 @@ class OrderSeeder extends Seeder
             7 => [6, 13],
             8 => [15],
             9 => [9],
-            10 => [4, 17, 18]
+            10 => [4, 17, 18],
+            11 => [1]
         ];
 
         // Ciclo le chiavi e i valori inserendo per ogni relazione una row nella tabella ponte restaurant-typology
