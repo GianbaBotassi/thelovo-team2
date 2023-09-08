@@ -40,7 +40,7 @@
             </div>
 
             @foreach ($restaurant->products as $product)
-                {{ $product->nome }}
+                <a href="{{ route('orders.create') }}">{{ $product->nome }}</a>
             @endforeach
         </div>
 

@@ -11,8 +11,8 @@
 
         {{-- input descrizione --}}
         <label for="descrizione">descrizione del prodotto</label>
-        <input type="text" name="descrizione" id="descrizione" placeholder="descrizione" required>
-
+        <textarea name="descrizione" id="descrizione" placeholder="descrizione" rows="80" cols="80" required>
+        </textarea>
         {{-- input ingredienti --}}
         <label for="ingredienti"></label>
         <input type="text" name="ingredienti" id="ingredienti" placeholder="ingredienti" required>

@@ -44,8 +44,7 @@ class ProductController extends Controller
         $restaurantId = Auth::user()->id;
 
         $data['restaurant_id'] = $restaurantId;
-// dd($data);
-// dd($data['restaurant_id']);
+
         $product=Product::create([
             "nome"=>$data["nome"],
             "descrizione"=>$data["descrizione"],

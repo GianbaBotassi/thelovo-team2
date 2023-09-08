@@ -46,9 +46,9 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createBE()
     {
-        //
+        return view('pages.orders.create');
     }
 
     /**
@@ -57,9 +57,16 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeBE(Request $request)
     {
-        //
+        $data=$request->all();
+        // Aggiungere a $data questi cambi che non insersce l'utente
+        // "status",
+        // "data",
+        // "totale"
+        $order=Order::create($data);
+
+        return view('pages.restaurant.restaurant', compact('order'));
     }
 
     /**
@@ -80,7 +87,7 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editBE($id)
     {
 
     }
@@ -92,7 +99,7 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateBE(Request $request, $id)
     {
         //
     }
@@ -103,7 +110,7 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyBE($id)
     {
         //
     }
