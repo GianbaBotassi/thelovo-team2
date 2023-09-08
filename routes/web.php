@@ -65,7 +65,7 @@ Route::delete('/delete-product/{id}', [ProductController::class, 'destroyBE'])->
 
 // ROTTE PER GLI ORDERS
 // route index
-Route::get('/index-order/', [OrderController::class, 'indexBE'])->name('orders.index');
+Route::get('/index-order', [OrderController::class, 'indexBE'])->name('orders.index');
 // route show
 Route::get('/show-order/{id}', [OrderController::class, 'showBE'])->name('orders.show');
 
