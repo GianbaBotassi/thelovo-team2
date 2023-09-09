@@ -9,11 +9,7 @@
             <div class="card-header text-center">
 
 
-                {{--
-                <div class="row">
-                    <div class="my-2 py-3 col-md-5 offset-md-4 card fs-2 text-bg-info"> ID: <span class="text-danger">
-                            {{ $restaurant->id }} </span> </div>
-                </div> --}}
+                <img src="{{ asset('storage/' . $restaurant->image) }}" alt="immagine ristorante non trovata">
 
                 <div class="row">
                     <div class="col-md-5 card fs-2 ">

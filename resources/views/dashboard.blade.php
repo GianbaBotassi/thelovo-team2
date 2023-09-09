@@ -54,7 +54,9 @@
                         @else
                             {{-- immagine --}}
                             <div class="my-3">
-                                <img :src="{{ auth()->user()->restaurant->image }}" alt="immagine ristorante">
+                                {{-- <img :src="{{ auth()->user()->restaurant->image }}" alt="immagine ristorante"> --}}
+                                <img src="{{ asset('storage/' . auth()->user()->restaurant->image) }}"
+                                    alt="immagine ristorante non trovata">
                             </div>
                             {{-- nome --}}
                             <div class="my-3">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Product;
 
@@ -43,8 +44,11 @@ class ProductController extends Controller
         $data=$request->all();
         $restaurantId = Auth::user()->restaurant->id;
 
+        $img_path = Storage::put('uploads', $data['image']);
+        $data['image'] = $img_path;
+
         $data['restaurant_id'] = $restaurantId;
-// dd($data);
+
         $product=Product::create([
             "nome"=>$data["nome"],
             "descrizione"=>$data["descrizione"],
@@ -95,6 +99,10 @@ class ProductController extends Controller
     {
         $data=$request->all();
         $product=Product::findOrFail($id);
+
+        $img_path = Storage::put('uploads', $data['image']);
+        $data['image'] = $img_path;
+
         $product->update($data);
 
         return view('pages.products.index');

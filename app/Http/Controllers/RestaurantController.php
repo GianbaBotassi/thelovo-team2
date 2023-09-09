@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Restaurant;
 use App\Models\User;
@@ -57,6 +58,10 @@ class RestaurantController extends Controller
         $data = $request->all();
         $userId = Auth::user()->id;
         $data['user_id'] = $userId;
+
+        $img_path = Storage::put('uploads', $data['image']);
+        $data['image'] = $img_path;
+
         $restaurant = Restaurant::create($data);
 
         // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte

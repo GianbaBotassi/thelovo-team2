@@ -4,35 +4,51 @@
         <div class="card my-5">
 
             <div class="card-header">
-                <h1>
-                    Il prodotto mostrato è: {{ $product->nome }}
-                    <div class="btn btn-secondary">
-                        <a class="text-white text-decoration-none" href="{{ route('products.edit', $product->id) }}">modifica
-                            qui il
-                            prodotto
-
-                        </a>
+                <div class="row">
+                    <div class="col-6">
+                        <h1>
+                            {{ $product->nome }}
+                        </h1>
                     </div>
-                </h1>
+                    <div class="col-1 offset-5">
+                        <div class="btn btn-secondary">
+                            <a class="text-white text-decoration-none"
+                                href="{{ route('products.edit', $product->id) }}">modifica
+                                qui il
+                                prodotto
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
-
-
-
-
-
             <div class="card-body">
-                <p>
-                <h3>
-                    descrizione
-                </h3>
-                {{ $product->descrizione }}
-                <hr>
-                <h3>
-                    ingredienti:
-                </h3>
-                {{ $product->ingredienti }}
-                </p>
+                <div class="row">
+                    <div class="col-4">
+                        <img class="col-12" src="{{ asset('storage/' . $product->image) }}"
+                            alt="immagine prodotto non trovata">
+                    </div>
+
+                    <div class="col-6">
+                        <p>
+                        <h3>
+                            descrizione
+                        </h3>
+                        {{ $product->descrizione }}
+                        <hr>
+                        <h3>
+                            ingredienti:
+                        </h3>
+                        {{ $product->ingredienti }}
+                        </p>
+                    </div>
+                </div>
+
+
+
+
             </div>
 
         </div>

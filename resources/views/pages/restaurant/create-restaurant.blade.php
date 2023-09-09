@@ -31,7 +31,7 @@
             <div class="my-3">
                 {{-- immagine --}}
                 <label class="form-label me-3"><strong>Immagine:</strong></label>
-                <input type="text" id="image" name="image">
+                <input type="file" id="image" name="image">
             </div>
 
             <div>
