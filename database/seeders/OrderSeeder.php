@@ -26,7 +26,7 @@ class OrderSeeder extends Seeder
                 'email' => 'luigi.r@gmail.com',
                 'note' => 'Suonare al terzo campanello',
                 'status' => 'Consegnato',
-                'data' => '2023-09-21',
+                // 'data' => '2023-09-21',
                 'totale' => '120.00'
             ],
             [
@@ -36,7 +36,7 @@ class OrderSeeder extends Seeder
                 'email' => 'maria.b@gmail.com',
                 'note' => 'Aggiungere peperoncino extra.',
                 'status' => 'In preparazione',
-                'data' => '2023-09-25',
+                // 'data' => '2023-09-25',
                 'totale' => '22.00'
             ],
             [
@@ -46,7 +46,7 @@ class OrderSeeder extends Seeder
                 'email' => 'marco.v@gmail.com',
                 'note' => 'Nessun avocado nelle roll selezionate.',
                 'status' => 'In consegna',
-                'data' => '2023-09-26',
+                // 'data' => '2023-09-26',
                 'totale' => '45.00'
             ],
             [
@@ -56,7 +56,7 @@ class OrderSeeder extends Seeder
                 'email' => 'giovanna.r@gmail.com',
                 'note' => 'Consegna urgente, prego.',
                 'status' => 'In attesa di conferma',
-                'data' => '2023-09-27',
+                // 'data' => '2023-09-27',
                 'totale' => '18.00'
             ],
             [
@@ -66,7 +66,7 @@ class OrderSeeder extends Seeder
                 'email' => 'antonio.m@gmail.com',
                 'note' => 'Senza cipolle, per favore.',
                 'status' => 'In preparazione',
-                'data' => '2023-09-28',
+                // 'data' => '2023-09-28',
                 'totale' => '30.00'
             ],
             [
@@ -76,7 +76,7 @@ class OrderSeeder extends Seeder
                 'email' => 'paolo.b@gmail.com',
                 'note' => 'Chiamare quando si Ã¨ vicino.',
                 'status' => 'In preparazione',
-                'data' => '2023-09-22',
+                // 'data' => '2023-09-22',
                 'totale' => '28.00'
             ],
             [
@@ -86,7 +86,7 @@ class OrderSeeder extends Seeder
                 'email' => 'anna.r@gmail.com',
                 'note' => 'Aggiungere salsa piccante.',
                 'status' => 'In consegna',
-                'data' => '2023-09-23',
+                // 'data' => '2023-09-23',
                 'totale' => '35.00'
             ],
             [
@@ -96,7 +96,7 @@ class OrderSeeder extends Seeder
                 'email' => 'michele.f@gmail.com',
                 'note' => 'Consegna rapida richiesta.',
                 'status' => 'Consegnato',
-                'data' => '2023-09-24',
+                // 'data' => '2023-09-24',
                 'totale' => '18.00'
             ],
             [
@@ -106,7 +106,7 @@ class OrderSeeder extends Seeder
                 'email' => 'laura.e@gmail.com',
                 'note' => 'Senza cipolle, per favore.',
                 'status' => 'In preparazione',
-                'data' => '2023-09-25',
+                // 'data' => '2023-09-25',
                 'totale' => '30.00'
             ],
             [
@@ -116,7 +116,7 @@ class OrderSeeder extends Seeder
                 'email' => 'giovanni.m@gmail.com',
                 'note' => 'Extra formaggio sulla pizza.',
                 'status' => 'In attesa di conferma',
-                'data' => '2023-09-26',
+                // 'data' => '2023-09-26',
                 'totale' => '26.00'
             ],
             [
@@ -126,7 +126,7 @@ class OrderSeeder extends Seeder
                 'email' => 'giovanni.m@gmail.com',
                 'note' => 'Extra formaggio sulla pizza.',
                 'status' => 'In attesa di conferma',
-                'data' => '2023-09-26',
+                // 'data' => '2023-09-26',
                 'totale' => '26.00'
             ]
         ];

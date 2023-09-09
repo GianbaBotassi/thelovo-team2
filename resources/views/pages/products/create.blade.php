@@ -6,21 +6,30 @@
         @method('POST')
 
         {{-- input nome --}}
-        <label for="nome">nome del prodotto</label>
-        <input type="text" name="nome" id="nome" placeholder="nome" required>
+        <div>
+            <label for="nome">nome del prodotto</label>
+            <input type="text" name="nome" id="nome" placeholder="nome" required>
+            <br>
+
+        </div>
 
         {{-- input descrizione --}}
-        <label for="descrizione">descrizione del prodotto</label>
-        <textarea name="descrizione" id="descrizione" placeholder="descrizione" rows="80" cols="80" required>
-        </textarea>
+        <div>
+
+            <label for="descrizione">descrizione del prodotto</label>
+            <textarea name="descrizione" id="descrizione" placeholder="descrizione" rows="10" cols="30" required>
+            </textarea>
+            <br>
+            <br>
+        </div>
         {{-- input ingredienti --}}
         <label for="ingredienti"></label>
         <input type="text" name="ingredienti" id="ingredienti" placeholder="ingredienti" required>
-
+        <br>
         {{-- input prezzo --}}
         <label for="prezzo">prezzo</label>
         <input type="numeber" name="prezzo" id="prezzo" placeholder="prezzo" required>
-
+        <br>
         {{-- input radio check is_visible --}}
         <div class="my-3">
             <label class="form-label me-3"><strong>Disponibilità</strong></label>
@@ -39,6 +48,7 @@
         {{-- input immmagine --}}
         <label for="image">immagine</label>
         <input type="text" name="image" id="image" placeholder="image" required>
+        <br>
 
         <input type="submit" value="update">
     </form>

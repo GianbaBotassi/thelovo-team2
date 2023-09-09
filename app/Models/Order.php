@@ -16,7 +16,7 @@ class Order extends Model
         "email",
         "note",
         "status",
-        "data",
+        // "data",
         "totale"
     ];
 

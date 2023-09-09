@@ -55,18 +55,14 @@ class RestaurantController extends Controller
     public function storeBE(Request $request)
     {
         $data = $request->all();
-        // dd($data);
         $userId = Auth::user()->id;
-
-        $data['restaurant_id'] = $userId;
-
+        $data['user_id'] = $userId;
         $restaurant = Restaurant::create($data);
 
         // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
         if (array_key_exists('typology', $data))
             $restaurant->typologies()->attach($data['typology']);
 
-        // $restaurant->user()->attach();
         return redirect()->route('dashboard', $restaurant->id);
     }
 

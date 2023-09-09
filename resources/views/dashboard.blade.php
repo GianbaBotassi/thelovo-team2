@@ -8,7 +8,9 @@
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">Benvenuto {{ ucfirst(auth()->user()->name) }}</div>
+                    <div class="card-header">
+                        Benvenuto {{ ucfirst(auth()->user()->name) }}
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -18,13 +20,28 @@
                         @endif
 
                         <hr>
-                        {{-- collegamento alla pagina index degli ordini --}}
-                        <a href="{{ route('orders.index') }}">vai a vedere gli ordini</a>
+
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                {{-- collegamento alla pagina index dei prodotti --}}
+                                <a class="btn btn-primary" href="{{ route('products.index') }}">
+                                    i tuoi piatti
+                                </a>
+                            </div>
+
+
+                            <div>
+                                {{-- collegamento alla pagina index degli ordini --}}
+                                <a class="btn btn-primary" href="{{ route('orders.index') }}">
+                                    ordini ricevuti
+                                </a>
+                            </div>
+                        </div>
+
+
+
                         <hr>
-                        <hr>
-                        {{-- collegamento alla pagina index dei prodotti --}}
-                        <a href="{{ route('products.index') }}">vai a vedere i prodotti</a>
-                        <hr>
+
                         @if (!auth()->user()->restaurant)
                             <p class="text-center offset-4 col-4">
                                 Questo è il tuo pannello di amministrazione, da qua potrai inserire un ristorante.
@@ -35,31 +52,37 @@
 
                             </div>
                         @else
+                            {{-- immagine --}}
+                            <div class="my-3">
+                                <img :src="{{ auth()->user()->restaurant->image }}" alt="immagine ristorante">
+                            </div>
+                            {{-- nome --}}
                             <div class="my-3">
                                 <label class="form-label me-3" for="nome"><strong>Nome:</strong></label>
                                 {{ auth()->user()->restaurant->nome }}
-
                             </div>
+
+                            {{-- indirizzo --}}
                             <div class="my-3">
                                 <label class="form-label me-3"><strong>Indirizzo:</strong></label>
                                 {{ auth()->user()->restaurant->indirizzo }}
-
                             </div>
+
+                            {{-- partita-iva --}}
                             <div class="my-3">
                                 <label class="form-label me-3"><strong>Partita Iva:</strong></label>
                                 {{ auth()->user()->restaurant->partita_iva }}
 
                             </div>
-                            <div class="my-3">
-                                <label class="form-label me-3"><strong>Immagine:</strong></label>
-                                {{ auth()->user()->restaurant->image }}
 
-                            </div>
+                            {{-- tipologia --}}
                             <div>
-                                <label for="typology"><strong>Tipologie: </strong></label>
-                                @foreach (auth()->user()->restaurant->typologies as $typology)
-                                    {{ $typology->nome }}
-                                @endforeach
+                                <strong>Tipologie: </strong>
+                                <ul>
+                                    @foreach (auth()->user()->restaurant->typologies as $typology)
+                                        <li> {{ $typology->nome }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
 
                     </div>

@@ -41,10 +41,10 @@ class ProductController extends Controller
     public function storeBE(Request $request)
     {
         $data=$request->all();
-        $restaurantId = Auth::user()->id;
+        $restaurantId = Auth::user()->restaurant->id;
 
         $data['restaurant_id'] = $restaurantId;
-
+// dd($data);
         $product=Product::create([
             "nome"=>$data["nome"],
             "descrizione"=>$data["descrizione"],

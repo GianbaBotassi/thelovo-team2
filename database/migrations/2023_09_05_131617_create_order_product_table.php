@@ -23,7 +23,7 @@ return new class extends Migration
 
             // aggiunta della colonna quantità del prodotto, come default 1,
             // a seconda dell'esigenza al massimo si aggiunge uno
-            $table->integer('quantity')->default(1);
+            $table->integer('quantity')->unsigned()->default(1);
         });
     }
 

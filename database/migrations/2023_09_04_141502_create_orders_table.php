@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string("telefono", 20);
             $table->string("email", 64);
             $table->string("note")->nullable();
-            $table->string("status", 32);
-            $table->date("data");
-            $table->decimal("totale");
+            $table->string("status", 32)->default('in elaborazione');
+            // $table->date("data");
+            $table->decimal("totale")->default(0);
 
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

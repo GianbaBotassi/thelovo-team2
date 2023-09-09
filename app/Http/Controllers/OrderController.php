@@ -1,6 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Order;
@@ -48,6 +55,7 @@ class OrderController extends Controller
      */
     public function createBE()
     {
+
         return view('pages.orders.create');
     }
 
@@ -60,13 +68,18 @@ class OrderController extends Controller
     public function storeBE(Request $request)
     {
         $data=$request->all();
+        $order = Order::create($data);
         // Aggiungere a $data questi cambi che non insersce l'utente
         // "status",
         // "data",
         // "totale"
+
+        // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
+        if (array_key_exists('product', $data))
+            $order->typologies()->attach($data['product']);
         $order=Order::create($data);
 
-        return view('pages.restaurant.restaurant', compact('order'));
+        return redirect()->route('home');
     }
 
     /**
