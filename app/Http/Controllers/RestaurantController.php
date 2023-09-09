@@ -56,11 +56,19 @@ class RestaurantController extends Controller
     public function storeBE(Request $request)
     {
         $data = $request->all();
+
+        $data = $request->validate(
+            $this->getValidations(),
+            $this->getValidationMessages()
+        );
+
         $userId = Auth::user()->id;
         $data['user_id'] = $userId;
 
-        $img_path = Storage::put('uploads', $data['image']);
+        if(array_key_exists('image',$data)){
+              $img_path = Storage::put('uploads', $data['image']);
         $data['image'] = $img_path;
+        }
 
         $restaurant = Restaurant::create($data);
 
@@ -176,4 +184,35 @@ class RestaurantController extends Controller
         ]);
 
     }
+
+    private function getValidations()
+    {
+        // Definizione delle regole di validazione per i dati del piatto
+        return [
+            'nome' => ['required', 'min:2', 'max:64'],
+            'indirizzo' => ['max:1275'],
+            'partita_iva' => ['required', 'numeric', 'min:0'],
+            'image' => ['required','image', 'mimes:jpeg,png,jpg'],
+            'tipologia' => ['required']
+        ];
+    }
+
+    private function getValidationMessages()
+    {
+        // Definizione dei messaggi di errore personalizzati per le regole di validazione
+        return [
+            'nome.required' => 'Il nome del piatto è obbligatorio.',
+            'nome.min' => 'Il nome del piatto deve essere lungo almeno 2 caratteri.',
+            'nome.max' => 'Il nome del piatto non può superare i 64 caratteri.',
+            'indirizzo.max' => 'l\' indirizzo non può superare i 64 caratteri.',
+            'partita_iva.required' => 'La partita iva del ristorante è obbligatorio.',
+            'partita_iva.numeric' => 'La partita iva del ristorante deve essere un numero.',
+            'partita_iva.min' => 'La partita iva del ristorante non può essere negativo.',
+            'image.required' => 'E\' obbligatorio inserite un\'immagine.',
+            'image.image' => 'Il file deve essere un\'immagine valida.',
+            'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
+            'tipologia.required' => 'Il ristorante deve avere una o piu\' tipologie'
+        ];
+    }
+
 }

@@ -24,70 +24,70 @@ class RestaurantSeeder extends Seeder
                 'nome' => 'Ristorante da Mario',
                 'indirizzo' => 'Via Roma, 123',
                 'partita_iva' => '12345678901',
-                'image' => null
+                'image' => 'pizzeria.jpg'
             ],
             [
                 'user_id' => 2,
                 'nome' => 'Trattoria Bella Italia',
                 'indirizzo' => 'Piazza Venezia, 456',
                 'partita_iva' => '23456789012',
-                'image' => null
+                'image' => 'trattoria.png'
             ],
             [
                 'user_id' => 3,
                 'nome' => 'Taco Fiesta Messicano',
                 'indirizzo' => 'Piazza Maria Immacolata, 42',
                 'partita_iva' => '23123456789',
-                'image' => 'mexicanfoodparadise.jpg',
+                'image' => 'risto-messicano.jpg',
             ],
             [
                 'user_id' => 4,
                 'nome' => 'Delicious Wok Cinese',
                 'indirizzo' => 'Via Umbria, 168',
                 'partita_iva' => '63987654321',
-                'image' => 'chinese_wok.jpg',
+                'image' => 'wok-chinase.jpg',
             ],
             [
                 'user_id' => 5,
                 'nome' => 'Sushi Paradise Giapponese',
                 'indirizzo' => 'Via Dante Alighieri, 7',
                 'partita_iva' => '54123456789',
-                'image' => 'japanese_sushi.jpg',
+                'image' => 'sushi-paradise.jpg',
             ],
             [
                 'user_id' => 6,
                 'nome' => 'Belle Cuisine Francais',
                 'indirizzo' => 'Via Ugo Foscolo, 25',
                 'partita_iva' => '67123456789',
-                'image' => 'french_cuisine.jpg',
+                'image' => 'risto-french.jpeg',
             ],
             [
                 'user_id' => 7,
                 'nome' => 'Taste Of India',
                 'indirizzo' => 'Via dei martiri, 123',
                 'partita_iva' => '65987654321',
-                'image' => 'indian_spices.jpg',
+                'image' => 'risto-indiano.jpg',
             ],
             [
                 'user_id' => 8,
                 'nome' => 'Il Piatto Forte',
                 'indirizzo' => 'Via Firenze, 789',
                 'partita_iva' => '34567890124',
-                'image' => 'immgine8.jpg',
+                'image' => 'il-piatto-forte.jpeg',
             ],
             [
                 'user_id' => 9,
                 'nome' => 'Verde Voro - Ristorante Vegetariano',
                 'indirizzo' => 'Via Giovanna D Arco, 77',
                 'partita_iva' => '49123456789',
-                'image' => 'vegetariano_delights.jpg',
+                'image' => 'risto-vegetariano.jpg',
             ],
             [
                 'user_id' => 10,
                 'nome' => 'Green Bites - Ristorante Vegano',
                 'indirizzo' => 'Via IV Novembre, 55',
                 'partita_iva' => '99123456789',
-                'image' => 'vegan_delights.jpg',
+                'image' => 'risto-vegano.jpg',
             ]
         ];
 

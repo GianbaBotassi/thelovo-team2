@@ -72,7 +72,9 @@
                     </div>
 
                     <div class="card-body">
-
+                        <h3 class="text-center">
+                            qui visualizzerai le statistiche suoi tuoi piatti
+                        </h3>
                     </div>
                 </div>
             @endif

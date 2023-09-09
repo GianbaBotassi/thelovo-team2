@@ -1,59 +1,98 @@
 @extends('layouts.app')
 @section('content')
     {{-- action="{{ route('products.store') }}" --}}
-    <form class="container my-2" method="POST" enctype="multipart/form-data" action="{{ route('products.store') }}">
+    <form class="container my-2 text-center" method="POST" enctype="multipart/form-data"
+        action="{{ route('products.store') }}">
         @csrf
         @method('POST')
 
-        {{-- input nome --}}
-        <div>
-            <label for="nome">nome del prodotto</label>
-            <input type="text" name="nome" id="nome" placeholder="nome" required>
+        {{-- nome --}}
+        <div class="my-2">
+            <label for="nome">nome</label>
             <br>
-
+            <input type="text" name="nome" id="nome" placeholder="nome" required minlength="2" maxlength="64">
+            <br>
+            @error('nome')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
-        {{-- input descrizione --}}
-        <div>
-            <label for="descrizione">descrizione del prodotto</label>
-            <textarea name="descrizione" id="descrizione" placeholder="descrizione" rows="10" cols="30" required>
-            </textarea>
+
+        {{-- descrizione --}}
+        <div class="my-2">
+            <label for="descrizione">descirzione</label>
+            <br>
+            <input type="text" maxlength="1275" name="descrizione" id="descrizione">
 
             <br>
+            @error('descrizione')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
-        {{-- input ingredienti --}}
-        <label for="ingredienti"></label>
-        <input type="text" name="ingredienti" id="ingredienti" placeholder="ingredienti" required>
+        {{-- ingredienti --}}
+        <div class="my-2">
+            <label for="ingredienti">ingredienti</label>
+            <br>
+            <input type="text" maxlength="1275" name="ingredienti" id="ingredienti">
 
-        <br>
+            <br>
+            @error('ingrdienti')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
-        {{-- input prezzo --}}
-        <label for="prezzo">prezzo</label>
-        <input type="numeber" name="prezzo" id="prezzo" placeholder="prezzo" required>
+        {{-- prezzo --}}
+        <div class="my-2">
+            <label for="prezzo">prezzo</label>
+            <br>
+            <input type="number" name="prezzo" id="prezzo" placeholder="prezzo" required step="0.01" min="0.01">
+            <br>
+            @error('prezzo')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
-        <br>
-
-        {{-- input radio check is_visible --}}
+        {{-- radio check --}}
         <div class="my-3">
             <label class="form-label me-3"><strong>Disponibilità</strong></label>
-            {{-- radio si --}}
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_visible" value="0" id="si" required>
+                <input class="form-check-input" type="radio" name="is_visible" id="si">
                 <label class="form-check-label" for="si">si</label>
             </div>
-            {{-- radio no --}}
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_visible" value="1" id="no" required>
+                <input class="form-check-input" type="radio" name="is_visible">
                 <label class="form-check-label" for="no">no</label>
             </div>
+            <br>
+            @error('is_viseble')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        {{-- immagine --}}
+        <div class="my-3">
+            <label class="form-label me-3"><strong>Immagine:</strong></label>
+            <input type="file" id="image" name="image" required maxlength="255">
+            <br>
+            @error('image')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
-        {{-- input immmagine --}}
-        <label for="image">immagine</label>
-        <input type="file" name="image" id="image">
-        <br>
+        {{-- tasto submit --}}
+        <div class="my-2">
+            <input type="submit" value="crea">
+        </div>
 
-        <input type="submit" value="update">
+        {{-- Alert --}}
+        {{-- @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif --}}
     </form>
 @endsection

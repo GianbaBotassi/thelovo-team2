@@ -55,8 +55,8 @@
                             {{-- immagine --}}
                             <div class="my-3">
                                 {{-- <img :src="{{ auth()->user()->restaurant->image }}" alt="immagine ristorante"> --}}
-                                <img src="{{ asset('storage/' . auth()->user()->restaurant->image) }}"
-                                    alt="immagine ristorante non trovata">
+                                <img src="{{ asset('storage/' . auth()->user()->restaurant->image) }}" width="450px"
+                                    height="300 px" alt="immagine ristorante non trovata">
                             </div>
                             {{-- nome --}}
                             <div class="my-3">

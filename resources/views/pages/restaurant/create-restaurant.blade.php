@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <form class="container my-2" method="POST" action="{{ route('store-restaurant') }}" enctype="multipart/form-data">
+    <form class="container my-2 text-center" method="POST" action="{{ route('store-restaurant') }}"
+        enctype="multipart/form-data">
         @csrf
         @method('POST')
 
@@ -10,32 +11,58 @@
             <h1 class="py-2">Nuovo ristorante</h1>
 
 
-            <div class="my-3">
-                {{-- Nome --}}
-                <label class="form-label me-3" for="nome"><strong>Nome:</strong></label>
-                <input type="text" id="nome" name="nome">
+            {{-- nome --}}
+            <div class="my-2">
+                <label for="nome">nome</label>
+                <br>
+                <input type="text" name="nome" id="nome" placeholder="nome" required minlength="4" maxlength="64">
+                <br>
+                @error('nome')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
-            <div class="my-3">
-                {{-- indirizzo --}}
-                <label class="form-label me-3"><strong>Indirizzo:</strong></label>
-                <input type="text" id="indirizzo" name="indirizzo">
+
+            {{-- indirizzo --}}
+            <div class="my-2">
+                <label for="indirizzo">indirizzo</label>
+                <br>
+                <input type="text" name="indirizzo" id="indirizzo" placeholder="indirizzo" required minlength="10"
+                    maxlength="64">
+                <br>
+                @error('indirizzo')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
-            <div class="my-3">
-                {{-- Partita iva --}}
-                <label class="form-label me-3"><strong>Partita Iva:</strong></label>
-                <input type="text" id="partita_iva" name="partita_iva">
+            {{-- partita iva --}}
+            <div class="my-2">
+                <label for="partita_iva">partita iva</label>
+                <br>
+                <input type="number" name="partita_iva" id="partita_iva" placeholder="partita iva" required required
+                    minlength="2" maxlength="11">
+                <br>
+                @error('partita_iva')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
-            <div class="my-3">
-                {{-- immagine --}}
-                <label class="form-label me-3"><strong>Immagine:</strong></label>
-                <input type="file" id="image" name="image">
+
+
+
+            {{-- immagine --}}
+            <div class="my-2">
+                <label for="image">immagine</label>
+                <br>
+                <input type="file" name="image" id="image">
+                <br>
+                @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
-            <div>
-                {{-- tipologia --}}
+            {{-- tipologia --}}
+            <div class="my-2">
                 <label for="typology"><strong>Tipologie: </strong></label>
                 @foreach ($typologies as $typology)
                     <div>
@@ -45,15 +72,16 @@
                         <label for="typology{{ $typology->id }}">{{ $typology->nome }}</label>
                     </div>
                 @endforeach
+                <br>
+
             </div>
 
-            {{-- <label class="my-2" for="user_picture"><strong>Carica la tua immagine profilo</strong></label>
-            <input type="file" name="user_picture" id="user_picture">
-            <label class="my-2"><strong>Tecnologie:</strong></label> --}}
         </div>
 
         <div class="d-flex justify-content-center gap-4 mt-3">
+            {{-- Bottone per la creazione del ristorante --}}
             <button type="submit" class="btn btn-primary">Crea ristorante</button>
+
             {{-- Bottone per tornare a index --}}
             <div class="text-center pt-1">
                 <a class="btn btn-secondary text-light" href="{{ route('dashboard') }}">Indietro</a>
@@ -61,7 +89,7 @@
         </div>
 
         {{-- Alert --}}
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -69,7 +97,6 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
     </form>
-
 @endsection

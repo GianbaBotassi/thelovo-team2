@@ -42,6 +42,11 @@ class ProductController extends Controller
     public function storeBE(Request $request)
     {
         $data=$request->all();
+
+        $data = $request->validate(
+            $this->getValidations(),
+            $this->getValidationMessages()
+        );
         $restaurantId = Auth::user()->restaurant->id;
 
         $img_path = Storage::put('uploads', $data['image']);
@@ -71,8 +76,6 @@ class ProductController extends Controller
     public function showBE($id)
     {
         $product = Product::findOrFail($id);
-
-
         return view('pages.products.show', compact('product'));
     }
 
@@ -98,6 +101,11 @@ class ProductController extends Controller
     public function updateBE(Request $request, $id)
     {
         $data=$request->all();
+        $data = $request->validate(
+            $this->getValidations(),
+            $this->getValidationMessages()
+        );
+
         $product=Product::findOrFail($id);
 
         $img_path = Storage::put('uploads', $data['image']);
@@ -119,6 +127,40 @@ class ProductController extends Controller
         $product=Product::findOrFail($id);
         $product->delete();
         return view('dashboard');
+    }
+
+    // FUNZIONI DI VALIDAZIONE
+
+    private function getValidations()
+    {
+        // Definizione delle regole di validazione per i dati del piatto
+        return [
+            'nome' => ['required', 'min:2', 'max:64'],
+            'descrizione' => ['max:1275'],
+            'ingredienti' => ['max:1275'],
+            'prezzo' => ['required', 'numeric', 'min:0'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg'],
+            'is_visible' => ['required']
+        ];
+    }
+
+    private function getValidationMessages()
+    {
+        // Definizione dei messaggi di errore personalizzati per le regole di validazione
+        return [
+            'nome.required' => 'Il nome del piatto è obbligatorio.',
+            'nome.min' => 'Il nome del piatto deve essere lungo almeno 2 caratteri.',
+            'nome.max' => 'Il nome del piatto non può superare i 64 caratteri.',
+            'descrizione.max' => 'La descrizione non può superare i 1275 caratteri.',
+            'ingredienti.max' => 'La lista di ingrdienti non può superare i 1275 caratteri.',
+            'prezzo.required' => 'Il prezzo del piatto è obbligatorio.',
+            'prezzo.numeric' => 'Il prezzo del piatto deve essere un numero.',
+            'prezzo.min' => 'Il prezzo del piatto non può essere negativo.',
+            'image.required' => 'L\'immagine è richiesta.',
+            'image.image' => 'Il file deve essere un\'immagine valida.',
+            'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
+            'is_visible.required' => 'La visibilità del piatto è obbligatoria.'
+        ];
     }
 
 

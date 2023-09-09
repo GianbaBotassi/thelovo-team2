@@ -18,11 +18,11 @@ return new class extends Migration
             $table->id();
 
             $table->string("nome");
-            $table->string("descrizione");
-            $table->string("ingredienti");
+            $table->string("descrizione")->nullable();
+            $table->string("ingredienti")->nullable();
             $table->decimal("prezzo");
             $table->tinyInteger("is_visible")->default(1);
-            $table->string("image");
+            $table->string("image")->nullable();
 
             $table->foreignId("restaurant_id")->constrained();
 

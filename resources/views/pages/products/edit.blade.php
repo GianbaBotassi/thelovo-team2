@@ -1,24 +1,59 @@
 @extends('layouts.app')
 @section('content')
     {{-- action="{{ route('products.update') }}" --}}
-    <form class="container my-2" method="POST" enctype="multipart/form-data"
-        action="{{ route('products.update', $product->id) }}">
+    <form class="container my-2 text-center" method="POST" enctype="multipart/form-data"
+        action="{{ route('products.update', $product->id) }}" required>
         @csrf
         @method('PUT')
 
-        <label for="nome"></label>
-        <input type="text" name="nome" id="nome" placeholder="nome" value="{{ $product->nome }}">
+        {{-- nome --}}
+        <div class="my-2">
+            <label for="nome">nome</label>
+            <br>
+            <input type="text" name="nome" id="nome" placeholder="nome" value="{{ $product->nome }}" required
+                minlength="2" maxlength="64">
+            <br>
+            @error('nome')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
-        <label for="descrizione"></label>
-        <input type="text" name="descrizione" id="descrizione" placeholder="descrizione"
-            value="{{ $product->descrizione }}">
+        {{-- descrizione --}}
+        <div class="my-2">
+            <label for="descrizione">descirzione</label>
+            <br>
+            <input type="text" maxlength="1275" name="descrizione" id="descrizione" value="{{ $product->descrizione }}">
 
-        <label for="ingredienti"></label>
-        <input type="text" name="ingredienti" id="ingredienti" placeholder="ingredienti"
-            value="{{ $product->ingredienti }}">
+            <br>
+            @error('descrizione')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
-        <label for="prezzo"></label>
-        <input type="numeber" name="prezzo" id="prezzo" placeholder="prezzo" value="{{ $product->prezzo }}">
+        {{-- ingredienti --}}
+        <div class="my-2">
+            <label for="ingredienti">ingredienti</label>
+            <br>
+            <input type="text" maxlength="1275" name="ingredienti" id="ingredienti" value="{{ $product->ingredienti }}">
+
+            <br>
+            @error('ingrdienti')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        {{-- prezzo --}}
+        <div class="my-2">
+
+            <label for="prezzo">prezzo</label>
+            <br>
+            <input type="number" name="prezzo" id="prezzo" placeholder="prezzo" value="{{ $product->prezzo }}" required
+                required step="0.01" min="0.01">
+            <br>
+            @error('prezzo')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
         {{-- radio check --}}
         <div class="my-3">
@@ -33,13 +68,36 @@
                     id="no"{{ !$product->is_visible ? 'checked' : '' }}>
                 <label class="form-check-label" for="no">no</label>
             </div>
+            <br>
+            @error('is_viseble')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
+        {{-- immagine --}}
+        <div class="my-3">
+            <label class="form-label me-3"><strong>Immagine:</strong></label>
+            <input type="file" id="image" name="image" required maxlength="255">
+            <br>
+            @error('image')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
-        <label for="image">immagine:</label>
-        <input type="text" name="image" id="image" placeholder="inserisci il path dell'immagine che voi inserire"
-            value="{{ $product->image }}">
+        {{-- tasto submit --}}
+        <div class="my-2">
+            <input type="submit" value="crea">
+        </div>
 
-        <input type="submit" value="update">
+        {{-- Alert --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </form>
 @endsection
