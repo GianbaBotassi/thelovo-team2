@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\TypologyController;
 
 use App\http\Controllers\Auth\AuthenticatedSessionController;
 /*
@@ -33,6 +34,11 @@ Route::get('restaurants', [RestaurantController::class, 'indexFE']);
 Route::get('/show-restaurant/{id}', [RestaurantController::class, 'showFE'])->name('show-restaurant');
 
 
-// route api
+// route api products
 
 Route::get('products', [ProductController::class, 'indexFE']);
+
+
+// route api tipologies
+
+Route::get('typologies', [TypologyController::class, 'indexFE']);
