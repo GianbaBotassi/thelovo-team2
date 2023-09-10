@@ -10,7 +10,6 @@
             {{-- titolo del form --}}
             <h1 class="py-2">Nuovo ristorante</h1>
 
-
             {{-- nome --}}
             <div class="my-2">
                 <label for="nome">nome</label>
@@ -22,13 +21,11 @@
                 @enderror
             </div>
 
-
             {{-- indirizzo --}}
             <div class="my-2">
                 <label for="indirizzo">indirizzo</label>
                 <br>
-                <input type="text" name="indirizzo" id="indirizzo" placeholder="indirizzo" required minlength="10"
-                    maxlength="64">
+                <input type="text" name="indirizzo" id="indirizzo" placeholder="indirizzo" required>
                 <br>
                 @error('indirizzo')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -39,22 +36,17 @@
             <div class="my-2">
                 <label for="partita_iva">partita iva</label>
                 <br>
-                <input type="number" name="partita_iva" id="partita_iva" placeholder="partita iva" required required
-                    minlength="2" maxlength="11">
+                <input type="number" name="partita_iva" id="partita_iva" placeholder="partita iva" required>
                 <br>
                 @error('partita_iva')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
 
-
-
-
             {{-- immagine --}}
             <div class="my-2">
-                <label for="image">immagine</label>
-                <br>
-                <input type="file" name="image" id="image">
+                <label class="form-label me-3"><strong>Immagine:</strong></label>
+                <input type="file" id="image" name="image">
                 <br>
                 @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -80,7 +72,7 @@
 
         <div class="d-flex justify-content-center gap-4 mt-3">
             {{-- Bottone per la creazione del ristorante --}}
-            <button type="submit" class="btn btn-primary">Crea ristorante</button>
+            <input type="submit" class="btn btn-primary" value="Crea ristorante">
 
             {{-- Bottone per tornare a index --}}
             <div class="text-center pt-1">

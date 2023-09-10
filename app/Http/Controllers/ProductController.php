@@ -47,10 +47,17 @@ class ProductController extends Controller
             $this->getValidations(),
             $this->getValidationMessages()
         );
+
         $restaurantId = Auth::user()->restaurant->id;
 
-        $img_path = Storage::put('uploads', $data['image']);
-        $data['image'] = $img_path;
+        if(array_key_exists('image', $data)){
+            $img_path = Storage::put('uploads', $data['image']);
+            $data['image'] = $img_path;
+        }
+        else{
+            $data['image'] = 'main-image.jpg';
+        }
+
 
         $data['restaurant_id'] = $restaurantId;
 
@@ -139,7 +146,7 @@ class ProductController extends Controller
             'descrizione' => ['max:1275'],
             'ingredienti' => ['max:1275'],
             'prezzo' => ['required', 'numeric', 'min:0'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg'],
+            'image' => ['image', 'mimes:jpeg,png,jpg'],
             'is_visible' => ['required']
         ];
     }
@@ -156,7 +163,7 @@ class ProductController extends Controller
             'prezzo.required' => 'Il prezzo del piatto è obbligatorio.',
             'prezzo.numeric' => 'Il prezzo del piatto deve essere un numero.',
             'prezzo.min' => 'Il prezzo del piatto non può essere negativo.',
-            'image.required' => 'L\'immagine è richiesta.',
+            // 'image.required' => 'L\'immagine è richiesta.',
             'image.image' => 'Il file deve essere un\'immagine valida.',
             'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
             'is_visible.required' => 'La visibilità del piatto è obbligatoria.'

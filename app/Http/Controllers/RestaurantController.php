@@ -54,8 +54,8 @@ class RestaurantController extends Controller
     }
 
     public function storeBE(Request $request)
-    {
-        $data = $request->all();
+{
+        $data=$request->all();
 
         $data = $request->validate(
             $this->getValidations(),
@@ -65,18 +65,24 @@ class RestaurantController extends Controller
         $userId = Auth::user()->id;
         $data['user_id'] = $userId;
 
-        if(array_key_exists('image',$data)){
-              $img_path = Storage::put('uploads', $data['image']);
-        $data['image'] = $img_path;
+
+        if(array_key_exists('image', $data)){
+            $img_path = Storage::put('uploads', $data['image']);
+            $data['image'] = $img_path;
         }
+        else{
+            $data['image'] = 'main-image.jpg';
+        }
+
 
         $restaurant = Restaurant::create($data);
 
+        // dd($restaurant);
         // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
         if (array_key_exists('typology', $data))
             $restaurant->typologies()->attach($data['typology']);
-
-        return redirect()->route('dashboard', $restaurant->id);
+        // return redirect()->route('dashboard', $restaurant->id);
+        return view('dashboard');
     }
 
 
@@ -192,8 +198,8 @@ class RestaurantController extends Controller
             'nome' => ['required', 'min:2', 'max:64'],
             'indirizzo' => ['max:1275'],
             'partita_iva' => ['required', 'numeric', 'min:0'],
-            'image' => ['required','image', 'mimes:jpeg,png,jpg'],
-            'tipologia' => ['required']
+            // 'image' => ['image', 'mimes:jpeg,png,jpg'],
+            // 'tipologia' => ['required']
         ];
     }
 
