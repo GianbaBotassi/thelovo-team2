@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string("ingredienti")->nullable();
             $table->decimal("prezzo");
             $table->tinyInteger("is_visible")->default(1);
+            $table->tinyInteger("is_delete")->default(0);
             $table->string("image")->nullable();
 
             $table->foreignId("restaurant_id")->constrained();

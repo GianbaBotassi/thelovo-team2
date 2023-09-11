@@ -15,6 +15,7 @@ class Product extends Model
         "ingredienti",
         "prezzo",
         "is_visible",
+        "is_delete",
         "image",
         "restaurant_id"
     ];
