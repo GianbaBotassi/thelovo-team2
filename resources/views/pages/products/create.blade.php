@@ -57,15 +57,15 @@
         <div class="my-3">
             <label class="form-label me-3"><strong>Disponibilità</strong></label>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_visible" id="0" value="0">
+                <input class="form-check-input" type="radio" name="is_visible" id="1" value="1">
                 <label class="form-check-label" for="si">si</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_visible" id="1" value="1">
+                <input class="form-check-input" type="radio" name="is_visible" id="0" value="0">
                 <label class="form-check-label" for="no">no</label>
             </div>
             <br>
-            @error('is_viseble')
+            @error('is_visible')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>

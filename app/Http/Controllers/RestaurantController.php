@@ -55,34 +55,35 @@ class RestaurantController extends Controller
 
     public function storeBE(Request $request)
 {
-        $data=$request->all();
+    $data=$request->all();
+//    dd($data['typology']);
+    $data = $request->validate(
+        $this->getValidations(),
+        $this->getValidationMessages()
+    );
 
-        $data = $request->validate(
-            $this->getValidations(),
-            $this->getValidationMessages()
-        );
-
-        $userId = Auth::user()->id;
-        $data['user_id'] = $userId;
-
-
-        if(array_key_exists('image', $data)){
-            $img_path = Storage::put('uploads', $data['image']);
-            $data['image'] = $img_path;
-        }
-        else{
-            $data['image'] = 'main-image.jpg';
-        }
+    $userId = Auth::user()->id;
+    $data['user_id'] = $userId;
 
 
-        $restaurant = Restaurant::create($data);
+    if (array_key_exists('image', $data)) {
+        $img_path = Storage::put('uploads', $data['image']);
+        $data['image'] = $img_path;
+    } else {
+        $data['image'] = 'main-image.jpg';
+    }
 
-        // dd($restaurant);
-        // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
-        if (array_key_exists('typology', $data))
-            $restaurant->typologies()->attach($data['typology']);
-        // return redirect()->route('dashboard', $restaurant->id);
-        return view('dashboard');
+
+    $restaurant = Restaurant::create($data);
+
+    // dd($restaurant);
+    // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
+    if (array_key_exists('typology', $data))
+        $restaurant->typologies()->attach($data['typology']);
+    // return redirect()->route('dashboard', $restaurant->id);
+
+
+    return view('dashboard');
     }
 
 
@@ -197,9 +198,9 @@ class RestaurantController extends Controller
         return [
             'nome' => ['required', 'min:2', 'max:64'],
             'indirizzo' => ['max:1275'],
-            'partita_iva' => ['required', 'numeric', 'min:0'],
+            'partita_iva' => ['required', 'numeric', 'digits:11'],
             // 'image' => ['image', 'mimes:jpeg,png,jpg'],
-            // 'tipologia' => ['required']
+            'typology' => ['required']
         ];
     }
 
@@ -217,7 +218,7 @@ class RestaurantController extends Controller
             'image.required' => 'E\' obbligatorio inserite un\'immagine.',
             'image.image' => 'Il file deve essere un\'immagine valida.',
             'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
-            'tipologia.required' => 'Il ristorante deve avere una o piu\' tipologie'
+            'typology.required' => 'Il ristorante deve avere una o piu\' tipologie'
         ];
     }
 

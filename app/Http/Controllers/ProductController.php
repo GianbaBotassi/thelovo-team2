@@ -132,7 +132,15 @@ class ProductController extends Controller
     public function destroyBE($id)
     {
         $product=Product::findOrFail($id);
-        $product->delete();
+
+
+        // foreach ($product -> orders as $order) {
+        //     $order -> product_id = $data["product_id"];
+        //     $order -> save();
+        // }
+        // $product -> orders() -> detach();
+
+        $product -> delete();
         return view('dashboard');
     }
 

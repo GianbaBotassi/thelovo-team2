@@ -34,9 +34,10 @@
 
             {{-- partita iva --}}
             <div class="my-2">
-                <label for="partita_iva">partita iva</label>
+                <label for="partita_iva">partita iva ( 11 cifre ) </label>
                 <br>
-                <input type="number" name="partita_iva" id="partita_iva" placeholder="partita iva" required>
+                <input type="text" name="partita_iva" id="partita_iva" placeholder="partita iva" required
+                    pattern="[0-9]{11}">
                 <br>
                 @error('partita_iva')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -91,4 +92,8 @@
             </div>
         @endif --}}
     </form>
+    <script type="text/JavaScript">
+        let partita_iva = document.getElementById("partita_iva");
+                                                                    console.log(partita_iva);
+                                                                </script>
 @endsection
