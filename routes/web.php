@@ -71,6 +71,10 @@ Route::put('/update-product/{id}', [ProductController::class, 'updateBE'])->midd
 // Route destroy
 Route::PUT('/delete-product/{id}', [ProductController::class, 'destroyBE'])->middleware(['auth', 'verified'])->name('products.delete');
 
+// Rotta per destroy immagine
+Route::delete('delete-product/{id}/picture', [ProductController::class, 'destroyPicture'])->name('delete-product-picture');
+
+
 //-------------------------------------------- ROTTE PER gli ORDERS -------------------------------------------------------
 // route index
 Route::get('/index-order', [OrderController::class, 'indexBE'])->name('orders.index');

@@ -190,6 +190,22 @@ class ProductController extends Controller
         ];
     }
 
+    public function destroyPicture($id)
+    {
+        $product = Product::findOrFail($id);
+
+        // Se esiste la foto la elimino fisicamente
+        if ($product->user_picture) {
+
+            Storage::delete($product->user_picture);
+        }
+
+        // La elimino dal db
+        $product->image = null;
+        $product->save();
+
+        return redirect()->route('products.index', $product->id);
+    }
 
 
     // FRONT END

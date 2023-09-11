@@ -7,11 +7,9 @@
         @method('POST')
 
         {{-- nome --}}
-        <div class="my-2">
-            <label for="nome">nome</label>
-            <br>
-            <input type="text" name="nome" id="nome" placeholder="nome" required minlength="2" maxlength="64">
-            <br>
+        <div class="my-4 d-flex flex-column align-items-center">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" required minlength="2" maxlength="64">
             @error('nome')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -19,73 +17,70 @@
 
 
         {{-- descrizione --}}
-        <div class="my-2">
-            <label for="descrizione">descirzione</label>
-            <br>
-            <input type="text" maxlength="1275" name="descrizione" id="descrizione">
-
-            <br>
+        <div class="my-4 d-flex flex-column align-items-center">
+            <label for="descrizione">Descrizione</label>
+            <textarea name="descrizione" id="descrizione" cols="30" rows="5" maxlength="1275"></textarea>
             @error('descrizione')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
         {{-- ingredienti --}}
-        <div class="my-2">
-            <label for="ingredienti">ingredienti</label>
-            <br>
+        <div class="my-4 d-flex flex-column align-items-center">
+            <label for="ingredienti">Ingredienti</label>
             <input type="text" maxlength="1275" name="ingredienti" id="ingredienti">
-
-            <br>
             @error('ingrdienti')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
         {{-- prezzo --}}
-        <div class="my-2">
-            <label for="prezzo">prezzo</label>
-            <br>
-            <input type="number" name="prezzo" id="prezzo" placeholder="prezzo" required step="0.01" min="0.01">
-            <br>
+        <div class="my-4 d-flex flex-column align-items-center">
+            <label for="prezzo">Prezzo</label>
+            <input type="number" name="prezzo" id="prezzo" required step="0.01" min="0.01">
             @error('prezzo')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
         {{-- radio check --}}
-        <div class="my-3">
-            <label class="form-label me-3"><strong>Disponibilità</strong></label>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_visible" id="1" value="1">
-                <label class="form-check-label" for="si">si</label>
+        <div class="my-4">
+            <label class="form-label"><strong>Disponibilità</strong></label>
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="is_visible" id="1" value="1">
+                    <label class="form-check-label" for="si">si</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="is_visible" id="0" value="0">
+                    <label class="form-check-label" for="no">no</label>
+                </div>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_visible" id="0" value="0">
-                <label class="form-check-label" for="no">no</label>
-            </div>
-            <br>
+
             @error('is_visible')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
         {{-- immagine --}}
-        <div class="my-3">
+        <div class="my-4">
             <label class="form-label me-3"><strong>Immagine:</strong></label>
-            <input type="file" id="image" name="image" required>
-            <br>
+            <div>
+                <input type="file" id="image" name="image" required>
+            </div>
             @error('image')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
         {{-- tasto submit --}}
-        <div class="my-2">
+        <div class="my-2 d-flex justify-content-center gap-3">
             <input class="btn btn-primary" type="submit" value="Crea prodotto">
+            {{-- Back to product index --}}
+            <a class="btn btn-primary" href="{{ route('products.index') }}">Indietro</a>
         </div>
 
         {{-- Alert --}}
-        {{-- @if ($errors->any())
+        @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -93,6 +88,6 @@
                     @endforeach
                 </ul>
             </div>
-        @endif --}}
+        @endif
     </form>
 @endsection

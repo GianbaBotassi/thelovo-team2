@@ -18,13 +18,15 @@
     ?>
 
     <hr>
-    <h1 class="text-center">
-        Se vuoi aggiungere un nuovo prodotto <br>
-        <div>
-            <a class="btn btn-primary" href="{{ route('products.create') }}">Inserisci </a>
-            <a class="btn btn-primary my-1" href="{{ route('dashboard') }}">Indietro</a>
+    <div class="text-center">
+        <h3 class="my-3">
+            Se vuoi aggiungere un nuovo prodotto <br>
+        </h3>
+        <div class="d-flex gap-3 justify-content-center">
+            <a class="btn btn-primary" href="{{ route('products.create') }}">Crea </a>
+            <a class="btn btn-primary" href="{{ route('dashboard') }}">Indietro</a>
         </div>
-    </h1>
+    </div>
     <hr>
 
     {{-- @if (count(array_unique($array_delete)) === 1)
@@ -41,12 +43,13 @@
 
 
                         {{-- collegamento all'immagine del prodotto --}}
-                        <div class="col-4">
-                            <img src="{{ asset('storage/' . $product->image) }}" width="350px" height="200px"
+                        <div style="height: 250px" class="col-3">
+                            <img style="width: 100%;height:100%;object-fit:cover"
+                                src="{{ asset('storage/' . $product->image) }}" width="350px" height="200px"
                                 alt="immagine prodotto non trovata">
                         </div>
 
-                        <div class="row col-8">
+                        <div class="row offset-1 col-8">
                             <div class="col-10 d-flex flex-column justify-content-center">
                                 <h3>{{ $product->nome }}</h3>
                                 <p>
@@ -67,6 +70,17 @@
                                         href="{{ route('products.edit', $product->id) }}">Modifica
                                     </a>
                                 </div>
+                                @if ($product->image)
+                                    <form method="POST" action="{{ route('delete-product-picture', $product->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger py-1 px-1 text-decoration-none text-white"
+                                            type="submit" name="delete-picture" id="delete-picture"
+                                            class="btn btn-primary">
+                                            Elimina foto
+                                        </button>
+                                    </form>
+                                @endif
                             </div>
 
                         </div>
