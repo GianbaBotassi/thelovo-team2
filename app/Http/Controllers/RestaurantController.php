@@ -13,39 +13,8 @@ use App\Models\Typology;
 
 class RestaurantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function indexBE()
-    {
-        $restaurants = Restaurant::all();
 
-        return view('home', compact('restaurants'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function showBE($id)
-    {
-        $restaurant = Restaurant::with('typologies')->findOrFail($id);
-
-
-        return view('pages.restaurant.restaurant', compact('restaurant'));
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
+    // --------------------------------- BACK-END --------------------------------
     public function createBE()
     {
         $typologies = Typology::all();
@@ -54,142 +23,31 @@ class RestaurantController extends Controller
     }
 
     public function storeBE(Request $request)
-{
-    $data=$request->all();
-//    dd($data['typology']);
-    $data = $request->validate(
-        $this->getValidations(),
-        $this->getValidationMessages()
-    );
-
-    $userId = Auth::user()->id;
-    $data['user_id'] = $userId;
-
-
-    if (array_key_exists('image', $data)) {
-        $img_path = Storage::put('uploads', $data['image']);
-        $data['image'] = $img_path;
-    } else {
-        $data['image'] = 'main-image.jpg';
-    }
-
-
-    $restaurant = Restaurant::create($data);
-
-    // dd($restaurant);
-    // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
-    if (array_key_exists('typology', $data))
-        $restaurant->typologies()->attach($data['typology']);
-    // return redirect()->route('dashboard', $restaurant->id);
-
-
-    return view('dashboard');
-    }
-
-
-
-
-
-
-
-    //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
-
-    // public function createBE($id)
-    // {
-    //     $user = User::findOrFail($id);
-
-    //     // Crea json tutti i ristoranti
-    //     return response()->json([
-    //         "user" => $user
-    //     ]);
-    // }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-
-    //  DA RIFINIRE CAPIRE COME FARLA FUNZIONARE
-    // public function storeBE(Request $request, $id)
-    // {
-
-    //     // QUESTA è PER
-    //     // $data = $request->validate(
-    //     //     $this->getValidations(),
-    //     //     $this->getValidationMessages(),
-    //     // );
-    //     // $userId = Auth::user()->id;
-
-    //     $data = $request->all();
-    //     $data['user_id'] = $id;
-
-    //     $restaurant = Restaurant::create($data);
-    //     // return response()->json([
-    //     //     "user" => $user
-    //     // ]);
-
-    // }
-
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function editBE($id)
     {
-        //
-    }
+        $data = $request->all();
+        //    dd($data['typology']);
+        $data = $request->validate(
+            $this->getValidations(),
+            $this->getValidationMessages()
+        );
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function updateBE(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroyBE($id)
-    {
-        //
-    }
+        $userId = Auth::user()->id;
+        $data['user_id'] = $userId;
 
 
+        if (array_key_exists('image', $data)) {
+            $img_path = Storage::put('uploads', $data['image']);
+            $data['image'] = $img_path;
+        } else {
+            $data['image'] = 'main-image.jpg';
+        }
 
-    // FRONT END
+        $restaurant = Restaurant::create($data);
 
-    public function indexFE()
-    {
-        $restaurants = Restaurant::all();
-
-        return response()->json([
-            "restaurants" => $restaurants
-        ]);
-    }
-
-    public function showFE($id)
-    {
-        $restaurant = Restaurant::with('typologies')->findOrFail($id);
-
-
-        return response()->json([
-            "restaurant" => $restaurant
-        ]);
-
+        // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
+        if (array_key_exists('typology', $data))
+            $restaurant->typologies()->attach($data['typology']);
+        return view('dashboard');
     }
 
     private function getValidations()
@@ -199,7 +57,7 @@ class RestaurantController extends Controller
             'nome' => ['required', 'min:2', 'max:64'],
             'indirizzo' => ['max:1275'],
             'partita_iva' => ['required', 'numeric', 'digits:11'],
-            // 'image' => ['image', 'mimes:jpeg,png,jpg'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg'],
             'typology' => ['required']
         ];
     }
@@ -222,4 +80,32 @@ class RestaurantController extends Controller
         ];
     }
 
+    public function statistics()
+    {
+
+
+
+        return view('pages.restaurant.statistics');
+    }
+
+    // ---------------------------------- FRONT-END ----------------------------------
+
+    public function indexFE()
+    {
+        $restaurants = Restaurant::all();
+
+        return response()->json([
+            "restaurants" => $restaurants
+        ]);
+    }
+
+    public function showFE($id)
+    {
+        $restaurant = Restaurant::with('typologies')->findOrFail($id);
+
+
+        return response()->json([
+            "restaurant" => $restaurant
+        ]);
+    }
 }

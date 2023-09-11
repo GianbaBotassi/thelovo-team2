@@ -77,16 +77,31 @@
         {{-- immagine --}}
         <div class="my-3">
             <label class="form-label me-3"><strong>Immagine:</strong></label>
-            <input type="file" id="image" name="image" required maxlength="255">
+
+            @if ($product->image)
+                <div class="mb-3">
+                    <img width="200px" height="300px" src="{{ asset('storage/' . $product->image) }}" alt="">
+                </div>
+            @else
+                <p>Immagine non presente</p>
+            @endif
+
+            <input type="file" id="image" name="image" maxlength="255">
             <br>
             @error('image')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
-        {{-- tasto submit --}}
-        <div class="my-2">
-            <input type="submit" value="crea">
+        <div class="d-flex justify-content-center gap-3">
+
+            {{-- tasto submit --}}
+            <div class="my-2">
+                <input type="submit" value="Aggiorna">
+            </div>
+
+            {{-- Back to product show --}}
+            <a class="btn btn-primary my-1" href="{{ route('products.show', $product->id) }}">Back</a>
         </div>
 
         {{-- Alert --}}

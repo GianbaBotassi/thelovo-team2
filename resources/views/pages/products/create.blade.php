@@ -72,7 +72,7 @@
         {{-- immagine --}}
         <div class="my-3">
             <label class="form-label me-3"><strong>Immagine:</strong></label>
-            <input type="file" id="image" name="image">
+            <input type="file" id="image" name="image" required>
             <br>
             @error('image')
                 <div class="alert alert-danger">{{ $message }}</div>

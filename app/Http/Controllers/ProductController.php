@@ -42,7 +42,7 @@ class ProductController extends Controller
      */
     public function storeBE(Request $request)
     {
-        $data=$request->all();
+        $data = $request->all();
 
         $data = $request->validate(
             $this->getValidations(),
@@ -51,25 +51,24 @@ class ProductController extends Controller
 
         $restaurantId = Auth::user()->restaurant->id;
 
-        if(array_key_exists('image', $data)){
+        if (array_key_exists('image', $data)) {
             $img_path = Storage::put('uploads', $data['image']);
             $data['image'] = $img_path;
-        }
-        else{
+        } else {
             $data['image'] = 'main-image.jpg';
         }
 
 
         $data['restaurant_id'] = $restaurantId;
 
-        $product=Product::create([
-            "nome"=>$data["nome"],
-            "descrizione"=>$data["descrizione"],
-            "ingredienti"=>$data["ingredienti"],
-            "prezzo"=>$data["prezzo"],
-            "is_visible"=>$data["is_visible"],
-            "image"=>$data["image"],
-            "restaurant_id"=>$data["restaurant_id"],
+        $product = Product::create([
+            "nome" => $data["nome"],
+            "descrizione" => $data["descrizione"],
+            "ingredienti" => $data["ingredienti"],
+            "prezzo" => $data["prezzo"],
+            "is_visible" => $data["is_visible"],
+            "image" => $data["image"],
+            "restaurant_id" => $data["restaurant_id"],
         ]);
 
         return redirect('/index-product');
@@ -96,8 +95,9 @@ class ProductController extends Controller
      */
     public function editBE($id)
     {
-       $product=Product::findOrFail($id);
-       return view('pages.products.edit', compact('product'));
+
+        $product = Product::findOrFail($id);
+        return view('pages.products.edit', compact('product'));
     }
 
     /**
@@ -109,16 +109,18 @@ class ProductController extends Controller
      */
     public function updateBE(Request $request, $id)
     {
-        $data=$request->all();
+        $data = $request->all();
         $data = $request->validate(
             $this->getValidations(),
             $this->getValidationMessages()
         );
 
-        $product=Product::findOrFail($id);
+        $product = Product::findOrFail($id);
 
-        $img_path = Storage::put('uploads', $data['image']);
-        $data['image'] = $img_path;
+        if (array_key_exists('image', $data)) {
+            $img_path = Storage::put('uploads', $data['image']);
+            $data['image'] = $img_path;
+        }
 
         $product->update($data);
 
@@ -133,8 +135,8 @@ class ProductController extends Controller
      */
     public function destroyBE(Request $request, $id)
     {
-        $data=$request->all();
-        $product=Product::findOrFail($id);
+        $data = $request->all();
+        $product = Product::findOrFail($id);
 
         $data['is_visible'] = 0;
         $data['is_delete'] = 1;
@@ -164,7 +166,7 @@ class ProductController extends Controller
             'descrizione' => ['max:1275'],
             'ingredienti' => ['max:1275'],
             'prezzo' => ['required', 'numeric', 'min:0'],
-            'image' => ['image', 'mimes:jpeg,png,jpg'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg'],
             'is_visible' => ['required']
         ];
     }
@@ -181,7 +183,7 @@ class ProductController extends Controller
             'prezzo.required' => 'Il prezzo del piatto è obbligatorio.',
             'prezzo.numeric' => 'Il prezzo del piatto deve essere un numero.',
             'prezzo.min' => 'Il prezzo del piatto non può essere negativo.',
-            // 'image.required' => 'L\'immagine è richiesta.',
+            'image.required' => 'L\'immagine è richiesta.',
             'image.image' => 'Il file deve essere un\'immagine valida.',
             'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
             'is_visible.required' => 'La visibilità del piatto è obbligatoria.'
@@ -200,5 +202,4 @@ class ProductController extends Controller
             "products" => $products
         ]);
     }
-
 }

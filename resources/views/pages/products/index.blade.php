@@ -19,9 +19,11 @@
 
     <hr>
     <h1 class="text-center">
-
         Se vuoi aggiungere un nuovo prodotto <br>
-        <a class="btn btn-primary" href="{{ route('products.create') }}">clicca qui </a>
+        <div>
+            <a class="btn btn-primary" href="{{ route('products.create') }}">clicca qui </a>
+            <a class="btn btn-primary my-1" href="{{ route('dashboard', $product->id) }}">Back</a>
+        </div>
     </h1>
     <hr>
 

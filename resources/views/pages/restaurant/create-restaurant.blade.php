@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <form class="container my-2 text-center" method="POST" action="{{ route('store-restaurant') }}"
+    <form id="restaurant-form" class="container my-2 text-center" method="POST" action="{{ route('store-restaurant') }}"
         enctype="multipart/form-data">
         @csrf
         @method('POST')
@@ -14,7 +14,8 @@
             <div class="my-2">
                 <label for="nome">nome</label>
                 <br>
-                <input type="text" name="nome" id="nome" placeholder="nome" required minlength="4" maxlength="64">
+                <input type="text" name="nome" id="nome" placeholder="nome" required minlength="4"
+                    maxlength="64">
                 <br>
                 @error('nome')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -47,7 +48,7 @@
             {{-- immagine --}}
             <div class="my-2">
                 <label class="form-label me-3"><strong>Immagine:</strong></label>
-                <input type="file" id="image" name="image">
+                <input type="file" id="image" name="image" required>
                 <br>
                 @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -65,6 +66,9 @@
                         <label for="typology{{ $typology->id }}">{{ $typology->nome }}</label>
                     </div>
                 @endforeach
+                @error('typology[]')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <br>
 
             </div>
@@ -83,7 +87,7 @@
 
         {{-- Alert --}}
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="alert alert-danger mt-3">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -92,8 +96,16 @@
             </div>
         @endif
     </form>
-    <script type="text/JavaScript">
-        let partita_iva = document.getElementById("partita_iva");
-            console.log(partita_iva);
-        </script>
+    <script type="text/javascript">
+        document.getElementById('restaurant-form').addEventListener('submit', function(e) {
+            // Seleziona tutte le checkbox con name="typology[]"
+            var checkboxes = document.querySelectorAll('input[name="typology[]"]:checked');
+            console.log(checkboxes);
+            if (checkboxes.length === 0) {
+                // Mostra un messaggio di errore se nessuna tipologia è stata selezionata
+                e.preventDefault(); // Impedisci l'invio del modulo
+                alert("Seleziona almeno una tipologia.");
+            }
+        });
+    </script>
 @endsection

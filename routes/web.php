@@ -19,7 +19,7 @@ use App\Http\Controllers\OrderController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home')->name('home');
 });
 
 Route::get('/dashboard', function () {
@@ -49,7 +49,10 @@ Route::get('/show-restaurant/{id}', [RestaurantController::class, 'showBE'])->na
 Route::get('/create', [RestaurantController::class, 'createBE'])->name('create-restaurant');
 Route::post('/store-restaurant', [RestaurantController::class, 'storeBE'])->name('store-restaurant');
 
-// ROTTE PER I PRODOTTI
+// Rotta per statistiche
+Route::get('/statistics', [RestaurantController::class, 'statistics'])->name('restaurant.statistics');
+
+//-------------------------------------------- ROTTE PER I PRODOTTI -------------------------------------------------------
 // Route index
 Route::get('/index-product', [ProductController::class, 'indexBE'])->name('products.index');
 
@@ -68,7 +71,7 @@ Route::put('/update-product/{id}', [ProductController::class, 'updateBE'])->midd
 // Route destroy
 Route::PUT('/delete-product/{id}', [ProductController::class, 'destroyBE'])->middleware(['auth', 'verified'])->name('products.delete');
 
-// ROTTE PER GLI ORDERS
+//-------------------------------------------- ROTTE PER gli ORDERS -------------------------------------------------------
 // route index
 Route::get('/index-order', [OrderController::class, 'indexBE'])->name('orders.index');
 // route show

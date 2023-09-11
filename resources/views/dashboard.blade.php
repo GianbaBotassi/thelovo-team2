@@ -31,13 +31,11 @@
 
                             </div>
                         @else
-                            <hr>
-
                             <div class="d-flex justify-content-around">
                                 <div>
                                     {{-- collegamento alla pagina index dei prodotti --}}
                                     <a class="btn btn-primary" href="{{ route('products.index') }}">
-                                        i tuoi piatti
+                                        Menu
                                     </a>
                                 </div>
 
@@ -45,7 +43,13 @@
                                 <div>
                                     {{-- collegamento alla pagina index degli ordini --}}
                                     <a class="btn btn-primary" href="{{ route('orders.index') }}">
-                                        ordini ricevuti
+                                        Ordini ricevuti
+                                    </a>
+                                </div>
+                                <div>
+                                    {{-- collegamento alla pagina index degli ordini --}}
+                                    <a class="btn btn-primary" href="{{ route('restaurant.statistics') }}">
+                                        Statistiche
                                     </a>
                                 </div>
                             </div>

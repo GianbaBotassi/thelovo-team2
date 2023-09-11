@@ -3,44 +3,25 @@
     <div class="container text-center">
         {{-- quello che vede l'utente non registrato e non autenticato --}}
         @guest
-            <h1>
-                Benvenuto!!
-            </h1>
+            <div class="my-3">
+                <h1>
+                    Benvenuto/a..
+                </h1>
+                <p> se hai già un tuo ristorante fai il Login, altrimenti registrati con la tua email.</p>
+            </div>
 
-            <div class="card">
+            <div class="card d-inline-block">
                 <div class="card-header">
-                    <div class="my-4 d-flex justify-content-around">
-                        <a href="{{ route('register') }}" class="btn btn-light col-2">
-                            registrati
+                    <div class="my-4 d-flex justify-content-center gap-4">
+                        <a class="btn btn-secondary" href="{{ route('register') }}" class="btn btn-light col-2">
+                            Registrazione
                         </a>
-                        <a href="{{ route('login') }}" class="btn btn-light col-2">
-                            log in
+                        <a class="btn btn-secondary" href="{{ route('login') }}" class="btn btn-light col-2">
+                            Login
                         </a>
                     </div>
                     <div>
-                        {{-- show dei ristoranti in base alla tipologia --}}
-                        {{-- <form action="">
-                            <select name="typology" id="typology">
-                                @foreach ($restaurant as )
 
-                                @endforeach
-                                <option value="">
-                                    {{ $typology->nome }}
-                                </option>
-                            </select>
-                        </form> --}}
-                    </div>
-                </div>
-
-                <div class="card-body">
-                    <div class="row">
-
-                        @foreach ($restaurants as $restaurant)
-                            <div class="card my-2 py-3 col-md-">
-                                <a href="{{ route('restaurant.restaurant', $restaurant->id) }}">{{ $restaurant->nome }}</a>
-
-                            </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
