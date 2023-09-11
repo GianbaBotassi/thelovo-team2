@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="row offset-1 col-8">
-                            <div class="col-10 d-flex flex-column justify-content-center">
+                            <div class="col-10 d-flex flex-column justify-content-center gap-4">
                                 <h3>{{ $product->nome }}</h3>
                                 <p>
                                     {{ $product->descrizione }}
