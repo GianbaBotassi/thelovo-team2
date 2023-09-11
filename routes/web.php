@@ -66,7 +66,7 @@ Route::get('/edit-product/{id}', [ProductController::class, 'editBE'])->middlewa
 Route::put('/update-product/{id}', [ProductController::class, 'updateBE'])->middleware(['auth', 'verified'])->name('products.update');
 
 // Route destroy
-Route::delete('/delete-product/{id}', [ProductController::class, 'destroyBE'])->middleware(['auth', 'verified'])->name('products.delete');
+Route::PUT('/delete-product/{id}', [ProductController::class, 'destroyBE'])->middleware(['auth', 'verified'])->name('products.delete');
 
 // ROTTE PER GLI ORDERS
 // route index

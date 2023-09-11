@@ -1,5 +1,22 @@
 @extends('layouts.app')
 @section('content')
+    <?php
+    // foreach (auth()->user()->restaurant->products as $product_delete) {
+    //     $array_delete = '$product_delete;'
+    // }
+    $array_delete = [1];
+    foreach (auth()->user()->restaurant->products as $product) {
+        if ($product->is_delete) {
+            $array_delete[] = 1;
+        } else {
+            $array_delete[] = 0;
+        }
+    }
+    // $array_delete = 'ciao';
+    
+    // dd($array_delete);
+    ?>
+
     <hr>
     <h1 class="text-center">
 
@@ -8,46 +25,49 @@
     </h1>
     <hr>
 
-    <ul>
-        @foreach (auth()->user()->restaurant->products as $product)
-            <li class="card">
+    @if (count(array_unique($array_delete)) === 1)
+        <h1 class="text-center">
+            non ci sono prodotti
+        </h1>
+    @else
+        <ul>
 
-                <div class="row">
+            @foreach (auth()->user()->restaurant->products as $product)
+                @if (!$product->is_delete)
+                    <li class="card">
 
-                    {{-- collegamento all'immagine del prodotto --}}
-                    <div class="col-4">
-                        <img src="{{ asset('storage/' . $product->image) }}" width="450px" height="300 px"
-                            alt="immagine prodotto non trovata">
-                    </div>
-
-                    <div class="col-8">
-
+                        <div class="row">
 
 
-                        <a class="btn btn-primary my-3"
-                            href="{{ route('products.show', $product->id) }}">{{ $product->nome }}</a>
+                            {{-- collegamento all'immagine del prodotto --}}
+                            <div class="col-4">
+                                <img src="{{ asset('storage/' . $product->image) }}" width="450px" height="300 px"
+                                    alt="immagine prodotto non trovata">
+                            </div>
 
+                            <div class="col-8">
+                                <a class="btn btn-primary my-3"
+                                    href="{{ route('products.show', $product->id) }}">{{ $product->nome }}</a>
+                                <div class="card py-2 px-2">
 
+                                    {{ $product->descrizione }}
+                                </div>
 
-                        <div class="card py-2 px-2">
+                                <div class="my-3">
+                                    {{-- tasto per rimure l'immagine --}}
+                                    <form method="post" action="{{ route('products.delete', $product->id) }}">
+                                        @csrf
+                                        @method('PUT')
 
-                            {{ $product->descrizione }}
+                                        <input type="submit" value='delete'>
+                                    </form>
+                                </div>
+
+                            </div>
                         </div>
-
-                        <div class="my-3">
-                            {{-- tasto per rimure l'immagine --}}
-                            <form method="post" action="{{ route('products.delete', $product->id) }}">
-                                @csrf
-                                @method('DELETE')
-
-                                <input type="submit" value='delete'>
-                            </form>
-                        </div>
-
-                    </div>
-
-                </div>
-            </li>
-        @endforeach
-    </ul>
+                    </li>
+                @endif
+            @endforeach
+        </ul>
+    @endif
 @endsection

@@ -17,8 +17,9 @@ class ProductController extends Controller
      */
     public function indexBE()
     {
-        $products = Product::all();
+        // $products = Product::all();
 
+        $products = auth()->user()->restaurant->products()->where('is_delete', false)->get();
         return view('pages.products.index', compact('products'));
     }
 
@@ -71,7 +72,8 @@ class ProductController extends Controller
             "restaurant_id"=>$data["restaurant_id"],
         ]);
 
-        return view('pages.products.index', compact('product'));
+        return redirect('/index-product');
+        // return view('pages.products.index');
     }
 
     /**
@@ -129,19 +131,27 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroyBE($id)
+    public function destroyBE(Request $request, $id)
     {
+        $data=$request->all();
         $product=Product::findOrFail($id);
 
+        $data['is_visible'] = 0;
+        $data['is_delete'] = 1;
+
+        $product->update($data);
+
+        // dd($data);
 
         // foreach ($product -> orders as $order) {
         //     $order -> product_id = $data["product_id"];
         //     $order -> save();
         // }
         // $product -> orders() -> detach();
+        // $product -> delete();
 
-        $product -> delete();
-        return view('dashboard');
+        // return view('pages.products.index');
+        return redirect('/index-product');
     }
 
     // FUNZIONI DI VALIDAZIONE
