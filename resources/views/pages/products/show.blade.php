@@ -10,16 +10,14 @@
                             {{ $product->nome }}
                         </h1>
                     </div>
-                    <div class="col-1 offset-4 d-flex">
+                    <div class="col-1 offset-4 d-flex gap-3">
                         <div class="btn btn-secondary">
                             <a class="text-white text-decoration-none"
-                                href="{{ route('products.edit', $product->id) }}">modifica
-                                qui il
-                                prodotto
+                                href="{{ route('products.edit', $product->id) }}">Modifica il prodotto
                             </a>
                         </div>
                         <div>
-                            <a class="btn btn-primary my-1" href="{{ route('products.index', $product->id) }}">Back</a>
+                            <a class="btn btn-primary my-1" href="{{ route('products.index', $product->id) }}">Indietro</a>
                         </div>
                     </div>
                 </div>

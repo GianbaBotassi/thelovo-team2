@@ -59,17 +59,17 @@
         <div class="my-3">
             <label class="form-label me-3"><strong>Disponibilità</strong></label>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_visible" value="0" id="si"
+                <input class="form-check-input" type="radio" name="is_visible" value="1" id="si"
                     {{ $product->is_visible ? 'checked' : '' }}>
                 <label class="form-check-label" for="si">si</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_visible" value="1"
+                <input class="form-check-input" type="radio" name="is_visible" value="0"
                     id="no"{{ !$product->is_visible ? 'checked' : '' }}>
                 <label class="form-check-label" for="no">no</label>
             </div>
             <br>
-            @error('is_viseble')
+            @error('is_visible')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
@@ -101,7 +101,7 @@
             </div>
 
             {{-- Back to product show --}}
-            <a class="btn btn-primary my-1" href="{{ route('products.show', $product->id) }}">Back</a>
+            <a class="btn btn-primary my-1" href="{{ route('products.index', $product->id) }}">Indietro</a>
         </div>
 
         {{-- Alert --}}

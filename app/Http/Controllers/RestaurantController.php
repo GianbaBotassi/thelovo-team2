@@ -15,6 +15,12 @@ class RestaurantController extends Controller
 {
 
     // --------------------------------- BACK-END --------------------------------
+
+    public function indexBE()
+    {
+        return view('home');
+    }
+
     public function createBE()
     {
         $typologies = Typology::all();

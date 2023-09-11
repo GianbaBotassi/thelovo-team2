@@ -21,55 +21,59 @@
     <h1 class="text-center">
         Se vuoi aggiungere un nuovo prodotto <br>
         <div>
-            <a class="btn btn-primary" href="{{ route('products.create') }}">clicca qui </a>
-            <a class="btn btn-primary my-1" href="{{ route('dashboard', $product->id) }}">Back</a>
+            <a class="btn btn-primary" href="{{ route('products.create') }}">Inserisci </a>
+            <a class="btn btn-primary my-1" href="{{ route('dashboard') }}">Indietro</a>
         </div>
     </h1>
     <hr>
 
-    @if (count(array_unique($array_delete)) === 1)
+    {{-- @if (count(array_unique($array_delete)) === 1)
         <h1 class="text-center">
             non ci sono prodotti
         </h1>
-    @else
-        <ul>
+    @else --}}
+    <ul>
+        @foreach (auth()->user()->restaurant->products as $product)
+            @if (!$product->is_delete)
+                <li class="card">
 
-            @foreach (auth()->user()->restaurant->products as $product)
-                @if (!$product->is_delete)
-                    <li class="card">
-
-                        <div class="row">
+                    <div class="row p-3 my-2">
 
 
-                            {{-- collegamento all'immagine del prodotto --}}
-                            <div class="col-4">
-                                <img src="{{ asset('storage/' . $product->image) }}" width="450px" height="300 px"
-                                    alt="immagine prodotto non trovata">
-                            </div>
-
-                            <div class="col-8">
-                                <a class="btn btn-primary my-3"
-                                    href="{{ route('products.show', $product->id) }}">{{ $product->nome }}</a>
-                                <div class="card py-2 px-2">
-
-                                    {{ $product->descrizione }}
-                                </div>
-
-                                <div class="my-3">
-                                    {{-- tasto per rimure l'immagine --}}
-                                    <form method="post" action="{{ route('products.delete', $product->id) }}">
-                                        @csrf
-                                        @method('PUT')
-
-                                        <input type="submit" value='delete'>
-                                    </form>
-                                </div>
-
-                            </div>
+                        {{-- collegamento all'immagine del prodotto --}}
+                        <div class="col-4">
+                            <img src="{{ asset('storage/' . $product->image) }}" width="350px" height="200px"
+                                alt="immagine prodotto non trovata">
                         </div>
-                    </li>
-                @endif
-            @endforeach
-        </ul>
-    @endif
+
+                        <div class="row col-8">
+                            <div class="col-10 d-flex flex-column justify-content-center">
+                                <h3>{{ $product->nome }}</h3>
+                                <p>
+                                    {{ $product->descrizione }}
+                                </p>
+                                <h5>{{ $product->prezzo }} €</h5>
+                            </div>
+                            <div class="col-2 d-flex flex-column justify-content-center gap-3 align-items-center">
+                                {{-- tasto per rimure l'immagine --}}
+                                <form method="post" action="{{ route('products.delete', $product->id) }}">
+                                    @csrf
+                                    @method('PUT')
+
+                                    <input class="btn btn-danger" type="submit" value='Elimina'>
+                                </form>
+                                <div class="btn btn-secondary">
+                                    <a class="text-white text-decoration-none"
+                                        href="{{ route('products.edit', $product->id) }}">Modifica
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+            @endif
+        @endforeach
+    </ul>
+    {{-- @endif --}}
 @endsection

@@ -81,7 +81,7 @@
 
         {{-- tasto submit --}}
         <div class="my-2">
-            <input type="submit" value="crea">
+            <input class="btn btn-primary" type="submit" value="Crea prodotto">
         </div>
 
         {{-- Alert --}}
