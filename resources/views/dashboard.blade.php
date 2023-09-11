@@ -38,8 +38,6 @@
                                         Menu
                                     </a>
                                 </div>
-
-
                                 <div>
                                     {{-- collegamento alla pagina index degli ordini --}}
                                     <a class="btn btn-primary" href="{{ route('orders.index') }}">
@@ -55,39 +53,49 @@
                             </div>
 
                             <hr>
-                            {{-- immagine --}}
-                            <div class="my-3">
-                                {{-- <img :src="{{ auth()->user()->restaurant->image }}" alt="immagine ristorante"> --}}
-                                <img src="{{ asset('storage/' . auth()->user()->restaurant->image) }}" width="450px"
-                                    height="300 px" alt="immagine ristorante non trovata">
-                            </div>
-                            {{-- nome --}}
-                            <div class="my-3">
-                                <label class="form-label me-3" for="nome"><strong>Nome:</strong></label>
-                                {{ auth()->user()->restaurant->nome }}
-                            </div>
 
-                            {{-- indirizzo --}}
-                            <div class="my-3">
-                                <label class="form-label me-3"><strong>Indirizzo:</strong></label>
-                                {{ auth()->user()->restaurant->indirizzo }}
-                            </div>
+                            <div class="row">
 
-                            {{-- partita-iva --}}
-                            <div class="my-3">
-                                <label class="form-label me-3"><strong>Partita Iva:</strong></label>
-                                {{ auth()->user()->restaurant->partita_iva }}
+                                <div class="col-5">
 
-                            </div>
+                                    {{-- immagine --}}
+                                    <div class="my-3">
+                                        {{-- <img :src="{{ auth()->user()->restaurant->image }}" alt="immagine ristorante"> --}}
+                                        <img src="{{ asset('storage/' . auth()->user()->restaurant->image) }}"
+                                            width="450px" height="300 px" alt="immagine ristorante non trovata">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    {{-- nome --}}
+                                    <div class="my-3">
+                                        <label class="form-label me-3" for="nome"><strong>Nome
+                                                ristorante:</strong></label>
+                                        {{ auth()->user()->restaurant->nome }}
+                                    </div>
 
-                            {{-- tipologia --}}
-                            <div>
-                                <strong>Tipologie: </strong>
-                                <ul>
-                                    @foreach (auth()->user()->restaurant->typologies as $typology)
-                                        <li> {{ $typology->nome }}</li>
-                                    @endforeach
-                                </ul>
+                                    {{-- indirizzo --}}
+                                    <div class="my-3">
+                                        <label class="form-label me-3"><strong>Indirizzo:</strong></label>
+                                        {{ auth()->user()->restaurant->indirizzo }}
+                                    </div>
+
+                                    {{-- partita-iva --}}
+                                    <div class="my-3">
+                                        <label class="form-label me-3"><strong>Partita Iva:</strong></label>
+                                        {{ auth()->user()->restaurant->partita_iva }}
+
+                                    </div>
+
+                                    {{-- tipologia --}}
+                                    <div>
+                                        <strong>Tipologie: </strong>
+                                        <ul>
+                                            @foreach (auth()->user()->restaurant->typologies as $typology)
+                                                <li> {{ $typology->nome }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
 
                     </div>

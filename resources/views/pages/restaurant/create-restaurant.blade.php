@@ -14,8 +14,7 @@
             <div class="my-2">
                 <label for="nome">nome</label>
                 <br>
-                <input type="text" name="nome" id="nome" placeholder="nome" required minlength="4"
-                    maxlength="64">
+                <input type="text" name="nome" id="nome" required minlength="4" maxlength="64">
                 <br>
                 @error('nome')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -26,7 +25,7 @@
             <div class="my-2">
                 <label for="indirizzo">indirizzo</label>
                 <br>
-                <input type="text" name="indirizzo" id="indirizzo" placeholder="indirizzo" required>
+                <input type="text" name="indirizzo" id="indirizzo" required>
                 <br>
                 @error('indirizzo')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -37,8 +36,7 @@
             <div class="my-2">
                 <label for="partita_iva">partita iva ( 11 cifre ) </label>
                 <br>
-                <input type="text" name="partita_iva" id="partita_iva" placeholder="partita iva" required
-                    pattern="[0-9]{11}">
+                <input type="text" name="partita_iva" id="partita_iva" required pattern="[0-9]{11}">
                 <br>
                 @error('partita_iva')
                     <div class="alert alert-danger">{{ $message }}</div>
