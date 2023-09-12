@@ -29,14 +29,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Route api CRUD restaurants idex and show ( with id )
-Route::get('restaurants', [RestaurantController::class, 'indexFE']);
+Route::get('restaurant', [RestaurantController::class, 'restTypologies']);
 
 Route::get('/show-restaurant/{id}', [RestaurantController::class, 'showFE'])->name('show-restaurant');
 
 
 // route api products
 
-Route::get('products', [ProductController::class, 'indexFE']);
+// Route::get('products', [ProductController::class, 'indexFE']);
 
 
 // route api tipologies

@@ -75,14 +75,14 @@ class TypologySeeder extends Seeder
         $relations = [
             1 => [1, 6, 7],
             2 => [1],
-            3 => [9],
-            4 => [1, 2],
-            5 => [3, 2],
-            6 => [7, 8],
-            7 => [1, 2],
-            8 => [4, 5],
-            9 => [3, 2],
-            10 => [3, 6]
+            3 => [8],
+            4 => [3, 9],
+            5 => [6, 9],
+            6 => [2, 6, 7],
+            7 => [5, 6],
+            8 => [1],
+            9 => [6],
+            10 => [1, 7]
         ];
 
         // Ciclo le chiavi e i valori inserendo per ogni relazione una row nella tabella ponte restaurant-typology

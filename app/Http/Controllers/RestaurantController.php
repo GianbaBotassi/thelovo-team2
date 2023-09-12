@@ -114,4 +114,13 @@ class RestaurantController extends Controller
             "restaurant" => $restaurant
         ]);
     }
+    public function restTypologies()
+    {
+        // Recupera tutti i ristoranti con le relative tipologie
+        $restaurants = Restaurant::with('typologies')->get();
+
+
+
+        return response()->json($restaurants);
+    }
 }
