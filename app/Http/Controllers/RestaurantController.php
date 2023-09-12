@@ -107,7 +107,7 @@ class RestaurantController extends Controller
 
     public function showFE($id)
     {
-        $restaurant = Restaurant::with('typologies')->findOrFail($id);
+        $restaurant = Restaurant::with('products')->findOrFail($id);
 
 
         return response()->json([
