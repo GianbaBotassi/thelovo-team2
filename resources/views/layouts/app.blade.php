@@ -94,6 +94,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('dashboard') }}">{{ __('Home') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost:5174/"> Spesa </a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
