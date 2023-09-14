@@ -8,6 +8,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\TypologyController;
 
+use App\Http\Controllers\OrderController;
+
 use App\http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +42,8 @@ Route::get('/show-restaurant/{id}', [RestaurantController::class, 'showFE'])->na
 
 
 // route api tipologies
-
 Route::get('typologies', [TypologyController::class, 'indexFE']);
+
+
+// route api Order
+Route::post('orders', [OrderController::class, 'storeFE']);

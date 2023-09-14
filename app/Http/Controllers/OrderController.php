@@ -76,8 +76,7 @@ class OrderController extends Controller
 
         // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
         if (array_key_exists('product', $data))
-            $order->typologies()->attach($data['product']);
-        $order=Order::create($data);
+            $order->products()->attach($data['product']);
 
         return redirect()->route('home');
     }
@@ -126,5 +125,25 @@ class OrderController extends Controller
     public function destroyBE($id)
     {
         //
+    }
+
+
+    // ORDER STORE FRONT END
+    public function storeFE(Request $request)
+    {
+        $data=$request->all();
+        // aggiungo lo stato
+        $data['status'] = 'in corso';
+        // aggiungo il totale
+        $data['totale'] = 100;
+        // creo l'ordine
+        $order = Order::create($data);
+
+
+        // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
+        if (array_key_exists('product', $data)){
+
+            $order->products()->attach($data['product']);
+        }
     }
 }
