@@ -52,7 +52,7 @@ class ProductSeeder extends Seeder
                 'ingredienti' => 'Mozzarella, Pane integrale, Pomodoro, Origano',
                 'prezzo' => 7.99,
                 'is_visible' => true,
-                'image' => 'Mozzarella-carr-mario.jpg',
+                'image' => 'Mozzarella-carrozza.jpg',
                 'restaurant_id' => 1,
             ],
             [
@@ -89,15 +89,6 @@ class ProductSeeder extends Seeder
                 'prezzo' => 5.50,
                 'is_visible' => true,
                 'image' => 'Carbonara-pasta-mario.jpg',
-                'restaurant_id' => 1,
-            ],
-            [
-                'nome' => 'Boscaiola',
-                'descrizione' => 'La pizza dei boschi',
-                'ingredienti' => 'Prosciutto, Funghi, Pomodoro, Mozzarella, Origano',
-                'prezzo' => 7.99,
-                'is_visible' => true,
-                'image' => 'Boscaiola-pizza-mario.jpg',
                 'restaurant_id' => 1,
             ],
             [
@@ -1087,5 +1078,3 @@ class ProductSeeder extends Seeder
         Product::insert($products);
     }
 }
-
-    
