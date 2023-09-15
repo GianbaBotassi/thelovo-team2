@@ -21,28 +21,28 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-       // get all students with names which starts with 'g'
-        // $students = Student :: where('name', 'like', 'g%')
-        //             // order by date of birth descendent
-        //             -> orderBy('date_of_birth', 'desc')
-        //             // limit max number of resulting students (10)
-        //             -> limit(10)
-        //             -> get();
+    // get all students with names which starts with 'g'
+    // $students = Student :: where('name', 'like', 'g%')
+    //             // order by date of birth descendent
+    //             -> orderBy('date_of_birth', 'desc')
+    //             // limit max number of resulting students (10)
+    //             -> limit(10)
+    //             -> get();
     public function indexBE()
     {
 
-        $id=Auth::user()->id;
+        $id = Auth::user()->id;
 
         // prendi tutti gli ordini insieme hai prodotti,
         // fai un confronto tra i restauyrat_id e l'id passato dall'utente autenticato
         // prendi solo e unicamente quelli che hanno il restaurant_id
         // uguale all'id dello user autenticato
         $orders = Order::with('products')
-        ->whereHas('products', function ($query) use ($id) {
-            $query->where('restaurant_id', $id);
-        })
-        -> orderBy('created_at', 'desc')
-        ->get();
+            ->whereHas('products', function ($query) use ($id) {
+                $query->where('restaurant_id', $id);
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('pages.orders.index', compact('orders'));
     }
@@ -67,7 +67,7 @@ class OrderController extends Controller
      */
     public function storeBE(Request $request)
     {
-        $data=$request->all();
+        $data = $request->all();
         $order = Order::create($data);
         // Aggiungere a $data questi cambi che non insersce l'utente
         // "status",
@@ -89,7 +89,7 @@ class OrderController extends Controller
      */
     public function showBE($id)
     {
-        $order=Order::findOrFail($id);
+        $order = Order::findOrFail($id);
         return view('pages.orders.show', compact('order'));
     }
 
@@ -101,7 +101,6 @@ class OrderController extends Controller
      */
     public function editBE($id)
     {
-
     }
 
     /**
@@ -131,17 +130,15 @@ class OrderController extends Controller
     // ORDER STORE FRONT END
     public function storeFE(Request $request)
     {
-        $data=$request->all();
+        $data = $request->all();
         // aggiungo lo stato
         $data['status'] = 'in corso';
-        // aggiungo il totale
-        $data['totale'] = 100;
         // creo l'ordine
         $order = Order::create($data);
 
 
         // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
-        if (array_key_exists('product', $data)){
+        if (array_key_exists('product', $data)) {
 
             $order->products()->attach($data['product']);
         }
