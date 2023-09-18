@@ -238,7 +238,7 @@ class ProductSeeder extends Seeder
             [
                 'nome' => 'Insalata di fagioli',
                 'descrizione' => 'Una fresca insalata piccante',
-                'ingredienti' => 'Fagioli, Mais, Insalata, Peperoni, Peperoncino',
+                'ingredienti' => 'Fagioli, Cipolla, Insalata, Peperoni, Peperoncino',
                 'prezzo' => 3.99,
                 'is_visible' => true,
                 'image' => 'Insalata-fagioli-fiesta.jpg',
