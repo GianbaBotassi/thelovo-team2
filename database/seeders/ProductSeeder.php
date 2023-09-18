@@ -48,7 +48,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'nome' => 'Mozzarella in carrozza',
-                'descrizione' => 'Mozarella fresca fritta e ricoperta di bricciole di pane',
+                'descrizione' => 'Mozzarella fresca fritta e ricoperta di bricciole di pane',
                 'ingredienti' => 'Mozzarella, Pane integrale, Pomodoro, Origano',
                 'prezzo' => 7.99,
                 'is_visible' => true,
@@ -139,7 +139,7 @@ class ProductSeeder extends Seeder
             [
                 'nome' => 'Risotto marino',
                 'descrizione' => 'Un risotto con pesce',
-                'ingredienti' => 'Riso, Merluzzo, Gamberi, Prezzemolo, Peperoncino',
+                'ingredienti' => 'Riso, Gamberi, Prezzemolo, Peperoncino, Cozze, Vongole',
                 'prezzo' => 6.66,
                 'is_visible' => true,
                 'image' => 'Risotto-mare-trattoria.jpg',
