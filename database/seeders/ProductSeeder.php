@@ -281,15 +281,6 @@ class ProductSeeder extends Seeder
                 'restaurant_id' => 3,
             ],
             [
-                'nome' => 'Coq au Vin',
-                'descrizione' => 'Piatto francese con pollo cotto nel vino rosso con funghi e cipolle.',
-                'ingredienti' => 'Pollo, vino rosso, funghi, cipolle',
-                'prezzo' => 16.99,
-                'is_visible' => true,
-                'image' => '',
-                'restaurant_id' => 4,
-            ],
-            [
                 'nome' => 'Noodles al Curry Verde',
                 'descrizione' => 'Noodles tailandesi in salsa di curry verde con gamberetti e verdure.',
                 'ingredienti' => 'Noodles, curry verde, gamberetti, verdure',
@@ -310,7 +301,7 @@ class ProductSeeder extends Seeder
             [
                 'nome' => 'Riso alla cantonese',
                 'descrizione' => 'Riso con piselli',
-                'ingredienti' => 'Riso, Uova, Piselli, Pancetta',
+                'ingredienti' => 'Riso, Uova, Piselli, Prosciutto cotto',
                 'prezzo' => 8.40,
                 'is_visible' => true,
                 'image' => 'Riso-cantonese-wok.jpg',
@@ -319,7 +310,7 @@ class ProductSeeder extends Seeder
             [
                 'nome' => 'Maiale in agrodolce',
                 'descrizione' => 'Maiale insaporito con erbe e salsa agrodolce',
-                'ingredienti' => 'Maiale, Salsa agrodolce, Rosmarino, Salvia',
+                'ingredienti' => 'Maiale, Salsa agrodolce, Rosmarino, Salvia, Peperoni',
                 'prezzo' => 9.99,
                 'is_visible' => true,
                 'image' => 'Maiale-agrodolce-wok.jpg',
