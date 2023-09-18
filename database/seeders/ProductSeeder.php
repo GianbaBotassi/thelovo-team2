@@ -835,7 +835,7 @@ class ProductSeeder extends Seeder
             [
                 'nome' => 'Lasagne Vegetariane',
                 'descrizione' => 'Strati di pasta con ricotta, spinaci, pomodoro e formaggio.',
-                'ingredienti' => 'Pasta, ricotta, spinaci, pomodoro, formaggio',
+                'ingredienti' => 'Pasta, mozzarella, zucchine, pomodoro, formaggio, melanzane',
                 'prezzo' => 15.49,
                 'is_visible' => true,
                 'image' => 'Lasagne_Vegetariane.jpg',
@@ -875,7 +875,7 @@ class ProductSeeder extends Seeder
             [
                 'nome' => 'Tofu al Curry',
                 'descrizione' => 'Tofu cubetti cotti in una salsa di curry cremosa con verdure.',
-                'ingredienti' => 'Tofu, curry, verdure',
+                'ingredienti' => 'Tofu, curry, verdure, cipollotti, carote, patate',
                 'prezzo' => 16.49,
                 'is_visible' => true,
                 'image' => 'Tofu_Curry.jpg',
@@ -889,16 +889,6 @@ class ProductSeeder extends Seeder
                 'prezzo' => 12.99,
                 'is_visible' => true,
                 'image' => 'Falafel_Salad.jpg',
-                'restaurant_id' => 9,
-            ],
-
-            [
-                'nome' => 'Risotto ai funghi',
-                'descrizione' => 'Risotto cremoso con funghi porcini e prezzemolo.',
-                'ingredienti' => 'Riso, funghi porcini, brodo, prezzemolo',
-                'prezzo' => 16.99,
-                'is_visible' => true,
-                'image' => 'Risotto.jpg',
                 'restaurant_id' => 9,
             ],
             [
