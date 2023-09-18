@@ -686,48 +686,48 @@ class ProductSeeder extends Seeder
                 'restaurant_id' => 7,
             ],
             [
-                'nome' => 'Misto di carne',
-                'descrizione' => 'Fettina, sovracoscia, bombette e spiedini con contorno melanzane, zucchine, pomodori, sedano, noci e maionese.',
-                'ingredienti' => 'Fettina, sovracoscia, bombette e spiedini',
-                'prezzo' => 7.99,
+                'nome' => 'Ravioli al Tartufo Nero',
+                'descrizione' => 'Ravioli ripieni di ricotta e tartufo nero, con salsa al burro e tartufo.',
+                'ingredienti' => 'Ravioli, Crema di ricotta e tartufo nero, Burro, Tartufo nero',
+                'prezzo' => 16.00, // Prezzo approssimativo
                 'is_visible' => true,
-                'image' => 'carne.jpg',
+                'image' => 'Ravioli-al-Tartufo-Nero.jpg', // Immagine del piatto
                 'restaurant_id' => 8,
             ],
             [
-                'nome' => 'Risotto ai Funghi',
-                'descrizione' => 'Piatto italiano con riso, funghi porcini e formaggio parmigiano.',
-                'ingredienti' => 'Riso, funghi porcini, formaggio parmigiano',
-                'prezzo' => 35.99,
+                'nome' => 'Cotoletta alla Milanese',
+                'descrizione' => "Costoletta di vitello impanata e fritta, servita con limone.",
+                'ingredienti' => "Costoletta di vitello, Pangrattato, Uova, Olio d'oliva, Limone",
+                'prezzo' => 14.50, // Prezzo approssimativo
                 'is_visible' => true,
-                'image' => 'Risotto-ai-funghi.jpg',
+                'image' => 'Cotoletta-alla-Milanese.jpg', // Immagine del piatto
                 'restaurant_id' => 8,
             ],
             [
-                'nome' => 'Lasagna al Forno',
-                'descrizione' => 'Uno strato di pasta al forno ricoperto di ricotta, carne macinata, pomodoro e formaggio fuso.',
-                'ingredienti' => 'Pasta, carne macinata, ricotta, pomodoro, formaggio',
-                'prezzo' => 14.99,
+                'nome' => 'Parmigiana di melanzane',
+                'descrizione' => 'Fette di melanzane fritte con salsa di pomodoro, mozzarella e basilico, gratinate al forno.',
+                'ingredienti' => "Melanzane, Salsa di pomodoro, Mozzarella, Basilico, Olio d'oliva",
+                'prezzo' => 10.50, // Prezzo approssimativo
                 'is_visible' => true,
-                'image' => 'lasagna.jpg',
+                'image' => 'Melanzane-alla-Parmigiana.jpg', // Immagine del piatto
                 'restaurant_id' => 8,
             ],
             [
-                'nome' => 'Pizza Margherita',
-                'descrizione' => 'Una pizza classica italiana con mozzarella, pomodoro e basilico.',
-                'ingredienti' => 'Mozzarella, pomodoro, basilico',
-                'prezzo' => 11.99,
+                'nome' => 'Gnocchi al Pesto',
+                'descrizione' => "Gnocchi di patate con salsa al basilico, pinoli e formaggio.",
+                'ingredienti' => "Gnocchi di patate, Basilico, Pinoli, Pecorino, Parmigiano, Aglio, Olio d'oliva",
+                'prezzo' => 12.50, // Prezzo approssimativo
                 'is_visible' => true,
-                'image' => 'pizza_margherita.jpg',
+                'image' => 'Gnocchi-al-Pesto.jpg', // Immagine del piatto
                 'restaurant_id' => 8,
             ],
             [
-                'nome' => 'Risotto ai Funghi Porcini',
-                'descrizione' => 'Risotto cremoso preparato con funghi porcini freschi e parmigiano.',
-                'ingredienti' => 'Riso, funghi porcini, brodo, parmigiano',
-                'prezzo' => 16.99,
+                'nome' => 'Saltimbocca alla Romana',
+                'descrizione' => 'Fettine di vitello avvolte in prosciutto crudo e salvia, cucinate in salsa di vino bianco e burro.',
+                'ingredienti' => 'Fettine di vitello, Prosciutto crudo, Foglie di salvia, Vino bianco secco, Burro, Sale e pepe',
+                'prezzo' => 15.00,
                 'is_visible' => true,
-                'image' => 'risotto_funghi.jpg',
+                'image' => 'Saltimbocca-alla-Romana.jpg',
                 'restaurant_id' => 8,
             ],
             [
@@ -746,15 +746,6 @@ class ProductSeeder extends Seeder
                 'prezzo' => 24.99,
                 'is_visible' => true,
                 'image' => 'ossobuco.jpg',
-                'restaurant_id' => 8,
-            ],
-            [
-                'nome' => 'Tiramisù',
-                'descrizione' => 'Un dolce italiano classico con biscotti savoiardi, caffè, mascarpone e cacao.',
-                'ingredienti' => 'Savoiardi, caffè, mascarpone, cacao',
-                'prezzo' => 8.99,
-                'is_visible' => true,
-                'image' => 'tiramisu.jpg',
                 'restaurant_id' => 8,
             ],
             [
@@ -782,6 +773,15 @@ class ProductSeeder extends Seeder
                 'prezzo' => 15.99,
                 'is_visible' => true,
                 'image' => 'ravioli_burro_salvia.jpg',
+                'restaurant_id' => 8,
+            ],
+            [
+                'nome' => 'Cannoli Siciliani',
+                'descrizione' => "Gusci di cannolo croccanti riempiti di ricotta, cioccolato e scorza d'arancia candita.",
+                'ingredienti' => "Gusci di cannolo, Ricotta, Zucchero a velo, Cioccolato, Scorza d'arancia candita",
+                'prezzo' => 8.50,
+                'is_visible' => true,
+                'image' => 'Cannoli-Siciliani.jpg',
                 'restaurant_id' => 8,
             ],
             [
