@@ -964,15 +964,6 @@ class ProductSeeder extends Seeder
                 'restaurant_id' => 10,
             ],
             [
-                'nome' => 'Risotto ai Funghi Porcini',
-                'descrizione' => 'Risotto cremoso preparato con funghi porcini freschi e senza latticini.',
-                'ingredienti' => 'Riso, funghi porcini, brodo vegetale',
-                'prezzo' => 16.99,
-                'is_visible' => true,
-                'image' => 'risotto_funghi_vegano.jpg',
-                'restaurant_id' => 10,
-            ],
-            [
                 'nome' => 'Tacos di Barbabietola',
                 'descrizione' => 'Tacos gustosi con barbabietola arrostita, guacamole e salsa piccante.',
                 'ingredienti' => 'Barbabietola, guacamole, salsa piccante, tortilla',
@@ -998,15 +989,6 @@ class ProductSeeder extends Seeder
                 'is_visible' => true,
                 'image' => 'insalata_frutta_vegana.jpg',
                 'restaurant_id' => 10,
-            ],
-            [
-                'nome' => 'Curry Massaman',
-                'descrizione' => 'Curry thailandese con carne, patate e arachidi.',
-                'ingredienti' => 'Carne, patate, arachidi',
-                'prezzo' => 12.99,
-                'is_visible' => true,
-                'image' => 'curry-indiano.jpeg',
-                'restaurant_id' => 3,
             ],
         ];
 
