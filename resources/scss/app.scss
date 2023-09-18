@@ -1,1 +1,61 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+body{
+    background-image: url('storage/Sfondo.jpg');
+}
+
+#logo {
+    height: 230px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    margin-left: 200px;
+    background-color: #992631;
+    margin: -30px 0 0 100px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border: 5px solid black;
+
+    img {
+      margin-left: 4px;
+      margin-top: -5px;
+      height: 230px;
+    }
+  }
+
+  header{
+    width: 110%;
+    margin: 0 auto;
+    margin-left: -5%;
+    padding: 40px 0px;
+  }
+  header>.navbar{
+
+    color: antiquewhite;
+    height: 145px;
+    background-image: url('storage/Sfondo_sezione_tipologie.jpg');
+    background-size: cover;
+    background-position: bottom;
+  }
+.nav-item>a{
+    font-size: 1.5rem;
+    color: #e0cfb5;
+    // color: #982931;
+}
+
+.card{
+
+    padding: 0 0 20px 40px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+
+    background-size: cover;
+    color: #e0cfb5;
+    background-image: url('storage/Sfondo_ristoranti_home.avif');
+    border-radius: 30px;
+    -webkit-box-shadow: 10px 11px 24px 6px #000000;
+    -moz-box-shadow: 10px 11px 24px 6px #000000;
+    -o-box-shadow: 10px 11px 24px 6px #000000;
+    box-shadow: 10px 11px 24px 6px #565555;
+}
+

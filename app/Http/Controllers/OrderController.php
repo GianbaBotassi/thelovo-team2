@@ -41,7 +41,7 @@ class OrderController extends Controller
             ->whereHas('products', function ($query) use ($id) {
                 $query->where('restaurant_id', $id);
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'asc')
             ->get();
 
         return view('pages.orders.index', compact('orders'));
@@ -132,7 +132,7 @@ class OrderController extends Controller
     {
         $data = $request->all();
         // aggiungo lo stato
-        $data['status'] = 'in corso';
+        // $data['status'] = 'in attesa di conferma';
         // creo l'ordine
         $order = Order::create($data);
 

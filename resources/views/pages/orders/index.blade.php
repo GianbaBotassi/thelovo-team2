@@ -1,27 +1,30 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid py-3 px-3">
-        <h1 class="text-center my-3">
+    <div class="container-fluid">
+        <h1 class="text-center my-4 ">
             Riepilogo ordini
         </h1>
 
 
 
-        <div class="row">
-            @foreach ($orders as $order)
-                <div class="card offset-2 col-3">
+        <div class="riga">
 
-                    {{-- nome del cliente --}}
-                    <div>
+            @foreach ($orders as $order)
+                <div class="card">
+                    <div class="card-header">
+
+                        {{-- nome del cliente --}}
+
                         <strong>nome cliente:</strong>
-                        <span class="badge bg-primary">
+                        <span>
                             {{ $order->nome }}
                         </span>
+                        <br>
 
-                    </div>
 
-                    {{-- satus dell'ordine --}}
-                    <div>
+
+                        {{-- satus dell'ordine --}}
+
                         <strong>stato dell'ordine</strong>
                         @if ($order->status === 'Consegnato')
                             <span class="badge bg-success">
@@ -32,24 +35,51 @@
                                 {{ $order->status }}
                             </span>
                         @endif
+                        <br>
+
+
                     </div>
 
-                    {{-- indirizzo --}}
-                    <div>
-                        <strong>Indirizzo:</strong> {{ $order->indirizzo }}
-                    </div>
+                    <div class="card-body">
 
-                    {{-- note --}}
-                    <div>
-                        note: {{ $order->note }}
-                    </div>
 
-                    <a class="btn btn-dark " href="{{ route('orders.show', $order->id) }}">
-                        visualizza maggiori informazioni
-                    </a>
+
+                        {{-- data --}}
+                        <div>
+                            <strong>ricevuto:</strong> {{ $order->created_at }}
+                        </div>
+                        {{-- indirizzo --}}
+                        <div>
+                            <strong>Indirizzo:</strong> {{ $order->indirizzo }}
+                        </div>
+
+                        {{-- note --}}
+                        <div>
+                            note: {{ $order->note }}
+                        </div>
+
+                        <a class="btn " href="{{ route('orders.show', $order->id) }}">
+                            visualizza maggiori informazioni
+                        </a>
+                    </div>
                 </div>
             @endforeach
         </div>
 
     </div>
+
+    <style>
+        .riga {
+            display: flex;
+            flex-wrap: wrap;
+            width: 90%;
+            margin: 15px auto;
+            gap: 10px;
+
+        }
+
+        .card {
+            width: calc((100%/3) - 10px);
+        }
+    </style>
 @endsection

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string("email", 64);
             $table->string("note")->nullable();
             $table->string("status", 32)->default('in elaborazione');
-            // $table->date("data");
+            $table->date("data")->nullable();
             $table->decimal("totale")->default(0);
 
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
