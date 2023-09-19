@@ -23,8 +23,8 @@
             Se vuoi aggiungere un nuovo prodotto <br>
         </h3>
         <div class="d-flex gap-3 justify-content-center">
-            <a class="btn btn-primary" href="{{ route('products.create') }}">Crea </a>
-            <a class="btn btn-primary" href="{{ route('dashboard') }}">Indietro</a>
+            <a class="btn btn-warning" href="{{ route('products.create') }}">Crea </a>
+            <a class="btn btn-warning" href="{{ route('dashboard') }}">Indietro</a>
         </div>
     </div>
     <hr>

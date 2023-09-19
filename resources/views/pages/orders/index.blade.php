@@ -11,11 +11,11 @@
 
             @foreach ($orders as $order)
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card_sup">
 
                         {{-- nome del cliente --}}
 
-                        <strong>nome cliente:</strong>
+                        <strong>Nome Cliente:</strong>
                         <span>
                             {{ $order->nome }}
                         </span>
@@ -25,7 +25,7 @@
 
                         {{-- satus dell'ordine --}}
 
-                        <strong>stato dell'ordine</strong>
+                        <strong>Stato dell'ordine</strong>
                         @if ($order->status === 'Consegnato')
                             <span class="badge bg-success">
                                 {{ $order->status }}
@@ -46,7 +46,7 @@
 
                         {{-- data --}}
                         <div>
-                            <strong>ricevuto:</strong> {{ $order->created_at }}
+                            <strong>Ricevuto:</strong> {{ $order->created_at }}
                         </div>
                         {{-- indirizzo --}}
                         <div>
@@ -55,13 +55,13 @@
 
                         {{-- note --}}
                         <div>
-                            note: {{ $order->note }}
+                            <strong>Note:</strong> {{ $order->note }}
                         </div>
 
-                        <a href="{{ route('orders.show', $order->id) }}">
-                            visualizza maggiori informazioni
-                        </a>
                     </div>
+                    <a href="{{ route('orders.show', $order->id) }}">
+                        Visualizza Maggiori Informazioni
+                    </a>
                 </div>
             @endforeach
         </div>

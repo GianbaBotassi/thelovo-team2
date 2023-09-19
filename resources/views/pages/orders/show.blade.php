@@ -5,21 +5,24 @@
     <link rel="stylesheet" href="scss/app.scss">
 @endsection --}}
 @section('content')
-    <div class="container">
+    <div class="container order">
 
 
         <div class="card my-5">
 
 
-            <div class="card-header">
-                ORDINE n {{ $order->id }} di {{ $order->nome }}
+            <div class="card_sup">
+                <h1>
+
+                    ORDINE n {{ $order->id }} di {{ $order->nome }}
+                </h1>
             </div>
 
             <div class="card-body">
 
-                <div>
+                <div class="indirizzo">
                     <strong>
-                        da consegnare all'indirizzo
+                        Da consegnare all'indirizzo
                     </strong>
                     {{-- indirizzo --}}
                     {{ $order->indirizzo }}
@@ -29,17 +32,17 @@
                 <div>
 
                     <h4>
-                        recapiti di contatto:
+                        Recapiti:
                     </h4>
                     {{-- telefono --}}
                     <strong>
-                        tel.
+                        Tel.
                     </strong>
                     {{ $order->telefono }}
                     <br>
                     {{-- email --}}
                     <strong>
-                        email:
+                        Email:
                     </strong>
                     {{ $order->email }}
 
@@ -48,7 +51,7 @@
 
 
                 <div>
-                    <h4>riepilogo dell'ordine</h4>
+                    <h4>Riepilogo dell'ordine</h4>
                     <div>
                         <ul>
                             {{-- lista dei prodotti ordinati --}}
@@ -60,19 +63,17 @@
                         </ul>
 
                         {{-- note dell'ordine --}}
-                        <div>
+                        <div class="note_order">
                             <h4>
-                                note
+                                Note
                             </h4>
-                            <div class="card py-3 px-3">
-                                {{ $order->note }}
-                            </div>
+                            {{ $order->note }}
                         </div>
 
                         {{-- Totale prezzo ordine --}}
-                        <div>
+                        <div class="price">
                             <strong>
-                                totale pagamento:
+                                Totale pagamento:
                                 {{ $order->totale }}
                             </strong>
                         </div>

@@ -40,14 +40,27 @@ body{
     font-size: 1.5rem;
     color: #e0cfb5;
 }
+a{
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    margin: 15px;
+}
+.nav-item>a:hover{
+    color: #992631;
+}
+a:hover{
+    color: #992631;
+}
 
 .card{
     margin-top: 10px;
     margin-bottom: 40px;
-
+    border: 3px solid black;
     background-size: cover;
-    color: #e0cfb5;
-    background-image: url('/storage/Sfondo_ristoranti_home.avif');
+    color: #000000;
+    background: linear-gradient(360deg, #005F73, #e0cfb5);
+    // background-image: url('/storage/Sfondo_ristoranti_home.avif');
     border-radius: 30px;
     -webkit-box-shadow: 10px 11px 24px 6px #000000;
     -moz-box-shadow: 10px 11px 24px 6px #000000;
@@ -55,3 +68,33 @@ body{
     box-shadow: 10px 11px 24px 6px #565555;
 }
 
+.img_restaurant>img{
+    border-radius: 20px;
+}
+
+.card_sup{
+    padding: 15px;
+    font-size: 20px;
+
+}
+
+.note_order{
+    border: 1.5px solid black;
+    margin: 15px;
+    padding: 5px;
+    min-height: 100px;
+}
+
+.card-body{
+    padding: 30px;
+}
+
+.price{
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.indirizzo{
+    margin-bottom: 15px;
+    font-size: 25px;
+}

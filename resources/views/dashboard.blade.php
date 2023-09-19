@@ -2,14 +2,15 @@
 
 @section('content')
     <div class="container">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Dashboard') }}
-        </h2>
+
         <div class="row justify-content-center">
             <div class="col">
-                <div class="card">
+                <div class="card p-4">
                     <div class="card-header">
-                        Benvenuto/a {{ ucfirst(auth()->user()->name) }}!
+                        <h1>
+                            Benvenuto/a {{ ucfirst(auth()->user()->name) }}!
+
+                        </h1>
                     </div>
 
                     <div class="card-body">
@@ -18,7 +19,6 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
 
 
                         @if (!auth()->user()->restaurant)
@@ -35,7 +35,7 @@
 
                             </div>
                         @else
-                            <div class="d-flex justify-content-around">
+                            <div class="d-flex justify-content-around m-4">
                                 <div>
                                     {{-- collegamento alla pagina index dei prodotti --}}
                                     <a class="btn btn-warning" href="{{ route('products.index') }}">
@@ -48,27 +48,25 @@
                                         Ordini ricevuti
                                     </a>
                                 </div>
-                                <div>
-                                    {{-- collegamento alla pagina index degli ordini --}}
+                                {{-- <div>
+
                                     <a class="btn btn-warning" href="{{ route('restaurant.statistics') }}">
                                         Statistiche
                                     </a>
-                                </div>
+                                </div> --}}
                             </div>
 
-                            <hr>
+
 
                             <div class="row">
-
                                 <div class="col-5">
-
                                     {{-- immagine --}}
-                                    <div class="my-3">
-                                        {{-- <img :src="{{ auth()->user()->restaurant->image }}" alt="immagine ristorante"> --}}
+                                    <div class="img_restaurant my-3">
                                         <img src="{{ asset('storage/' . auth()->user()->restaurant->image) }}"
                                             width="450px" height="300 px" alt="immagine ristorante non trovata">
                                     </div>
                                 </div>
+
                                 <div class="col-7">
                                     {{-- nome --}}
                                     <div class="my-3">
