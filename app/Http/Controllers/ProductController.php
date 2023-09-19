@@ -166,7 +166,7 @@ class ProductController extends Controller
             'descrizione' => ['max:1275'],
             'ingredienti' => ['max:1275'],
             'prezzo' => ['required', 'numeric', 'min:0'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg'],
+            'image' => ['image', 'mimes:jpeg,png,jpg'],
             'is_visible' => ['required']
         ];
     }
@@ -183,7 +183,7 @@ class ProductController extends Controller
             'prezzo.required' => 'Il prezzo del piatto è obbligatorio.',
             'prezzo.numeric' => 'Il prezzo del piatto deve essere un numero.',
             'prezzo.min' => 'Il prezzo del piatto non può essere negativo.',
-            'image.required' => 'L\'immagine è richiesta.',
+
             'image.image' => 'Il file deve essere un\'immagine valida.',
             'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
             'is_visible.required' => 'La visibilità del piatto è obbligatoria.'

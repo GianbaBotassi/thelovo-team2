@@ -44,9 +44,15 @@
 
                         {{-- collegamento all'immagine del prodotto --}}
                         <div style="height: 250px" class="col-3">
-                            <img style="width: 100%;height:100%;object-fit:cover"
-                                src="{{ asset('storage/' . $product->image) }}" width="350px" height="200px"
-                                alt="immagine prodotto non trovata">
+                            @if ($product->image)
+                                <img style="width: 100%;height:100%;object-fit:cover"
+                                    src="{{ asset('storage/' . $product->image) }}" width="350px" height="200px"
+                                    alt="immagine prodotto non trovata">
+                            @else
+                                <img style="width: 100%;height:100%;object-fit:cover"
+                                    src="{{ asset('storage/' . 'main-image.jpg') }}" width="350px" height="200px"
+                                    alt="immagine prodotto non trovata">
+                            @endif
                         </div>
 
                         <div class="row offset-1 col-8">
