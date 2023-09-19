@@ -79,7 +79,7 @@ Route::delete('delete-product/{id}/picture', [ProductController::class, 'destroy
 // route index
 Route::get('/index-order', [OrderController::class, 'indexBE'])->name('orders.index');
 // route show
-Route::get('/show-order/{id}', [OrderController::class, 'showBE'])->name('orders.show');
+Route::get('/show/{id}', [OrderController::class, 'showBE'])->name('orders.show');
 
 // Route create and store
 Route::get('/create-order', [OrderController::class, 'createBE'])->name('orders.create');

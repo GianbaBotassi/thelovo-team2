@@ -1,4 +1,9 @@
 @extends('layouts.app')
+{{--
+@section('scss')
+    <link rel="preload" href="scss/app.scss" as="style">
+    <link rel="stylesheet" href="scss/app.scss">
+@endsection --}}
 @section('content')
     <div class="container">
 
@@ -7,7 +12,6 @@
 
 
             <div class="card-header">
-
                 ORDINE n {{ $order->id }} di {{ $order->nome }}
             </div>
 
@@ -15,7 +19,6 @@
 
                 <div>
                     <strong>
-
                         da consegnare all'indirizzo
                     </strong>
                     {{-- indirizzo --}}
@@ -24,11 +27,11 @@
 
                 {{-- recapiti di contatto --}}
                 <div>
-                    <hr>
+
                     <h4>
                         recapiti di contatto:
                     </h4>
-                    {{-- telefon --}}
+                    {{-- telefono --}}
                     <strong>
                         tel.
                     </strong>
@@ -39,18 +42,8 @@
                         email:
                     </strong>
                     {{ $order->email }}
-                    <hr>
+
                 </div>
-                {{--
-                'nome' => 'Luigi Rossi',
-                'indirizzo' => 'Via dei camosci, 2',
-                'telefono' => '3332330645',
-                'email' => 'luigi.r@gmail.com',
-                'note' => 'Suonare al terzo campanello',
-                'status' => 'Consegnato',
-                // 'data' => '2023-09-21',
-                'totale' => '120.00'
-                 --}}
 
 
 
@@ -72,8 +65,6 @@
                                 note
                             </h4>
                             <div class="card py-3 px-3">
-
-
                                 {{ $order->note }}
                             </div>
                         </div>
@@ -92,6 +83,10 @@
 
 
         </div>
-        {{-- chiusura container --}}
+
     </div>
+
+    <style>
+
+    </style>
 @endsection

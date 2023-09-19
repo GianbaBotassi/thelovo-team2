@@ -11,6 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 
+    {{-- <link rel="preload" href="{{ mix('scss/app.scss') }}" as="style">
+    <link rel="stylesheet" href="{{ mix('scss/app.scss') }}"> --}}
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -99,5 +102,30 @@
     </div>
 
 </body>
+
+<style>
+    /*
+    header {
+        width: 110%;
+        margin: 0 auto;
+        margin-left: -5%;
+        padding: 40px 0px;
+    }
+
+    header>.navbar {
+
+        color: antiquewhite;
+        height: 145px;
+        background-image: url('storage/Sfondo_sezione_tipologie.jpg');
+        background-size: cover;
+        background-position: bottom;
+    }
+
+    .nav-item>a {
+        font-size: 1.5rem;
+        color: #e0cfb5;
+        // color: #982931;
+    } */
+</style>
 
 </html>

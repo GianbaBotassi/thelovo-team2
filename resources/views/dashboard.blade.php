@@ -38,19 +38,19 @@
                             <div class="d-flex justify-content-around">
                                 <div>
                                     {{-- collegamento alla pagina index dei prodotti --}}
-                                    <a class="btn btn-primary" href="{{ route('products.index') }}">
+                                    <a class="btn btn-warning" href="{{ route('products.index') }}">
                                         Menu
                                     </a>
                                 </div>
                                 <div>
                                     {{-- collegamento alla pagina index degli ordini --}}
-                                    <a class="btn btn-primary" href="{{ route('orders.index') }}">
+                                    <a class="btn btn-warning" href="{{ route('orders.index') }}">
                                         Ordini ricevuti
                                     </a>
                                 </div>
                                 <div>
                                     {{-- collegamento alla pagina index degli ordini --}}
-                                    <a class="btn btn-primary" href="{{ route('restaurant.statistics') }}">
+                                    <a class="btn btn-warning" href="{{ route('restaurant.statistics') }}">
                                         Statistiche
                                     </a>
                                 </div>

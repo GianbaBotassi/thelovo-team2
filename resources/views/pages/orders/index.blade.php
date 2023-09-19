@@ -58,7 +58,7 @@
                             note: {{ $order->note }}
                         </div>
 
-                        <a class="btn " href="{{ route('orders.show', $order->id) }}">
+                        <a href="{{ route('orders.show', $order->id) }}">
                             visualizza maggiori informazioni
                         </a>
                     </div>
@@ -79,6 +79,7 @@
         }
 
         .card {
+            padding: 10px;
             width: calc((100%/3) - 10px);
         }
     </style>
