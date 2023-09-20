@@ -115,8 +115,6 @@
 
 <style lang="scss" scoped>
     form {
-        font-size: 1.4rem;
-
         .typology {
             width: 600px;
             display: flex;

@@ -37,7 +37,7 @@
     <ul>
         @foreach (auth()->user()->restaurant->products as $product)
             @if (!$product->is_delete)
-                <li class="card">
+                <li class="card container">
 
                     <div class="row p-3 my-2">
 
@@ -70,7 +70,7 @@
                                     @csrf
                                     @method('PUT')
 
-                                    <input class="btn btn-danger" type="submit" value='Elimina'>
+                                    <input class="btn btn-danger" type="submit" value='Elimina prodotto'>
                                 </form>
                                 <div class="btn btn-warning text-center">
                                     <a class="text-white text-decoration-none m-0"
