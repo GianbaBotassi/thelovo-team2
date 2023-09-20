@@ -52,7 +52,7 @@
 
                         {{-- data --}}
                         <div>
-                            <strong>Ricevuto:</strong> {{ $order->created_at }}
+                            <strong>Ricevuto:</strong> {{ $order->created_at->format('Y-m-d H:i') }}
                         </div>
                         {{-- indirizzo --}}
                         <div>

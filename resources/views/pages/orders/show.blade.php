@@ -59,7 +59,7 @@
                             {{-- lista dei prodotti ordinati --}}
                             @foreach ($order->products as $product)
                                 <li>
-                                    {{ $product->nome }}
+                                    {{ $product->nome }} x {{ $order->quantity }}
                                 </li>
                             @endforeach
                         </ul>
