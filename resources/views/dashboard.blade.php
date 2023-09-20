@@ -35,7 +35,7 @@
 
                             </div>
                         @else
-                            <div class="d-flex justify-content-around m-4">
+                            <div id="nav-menu-order" class="d-flex justify-content-around m-4">
                                 <div>
                                     {{-- collegamento alla pagina index dei prodotti --}}
                                     <a class="btn btn-warning" href="{{ route('products.index') }}">
@@ -112,3 +112,9 @@
     </div>
     </div>
 @endsection
+
+<style scoped>
+    #nav-menu-order a {
+        font-size: 1.4rem;
+    }
+</style>

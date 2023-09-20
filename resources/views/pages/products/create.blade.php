@@ -7,8 +7,8 @@
         @method('POST')
 
         {{-- nome --}}
-        <div class="my-4 d-flex flex-column align-items-center">
-            <label for="nome">Nome</label>
+        <div class="my-2 d-flex flex-column align-items-center">
+            <label for="nome"><strong>Nome prodotto</strong></label>
             <input type="text" name="nome" id="nome" required minlength="2" maxlength="64">
             @error('nome')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -18,8 +18,8 @@
 
         {{-- descrizione --}}
         <div class="my-4 d-flex flex-column align-items-center">
-            <label for="descrizione">Descrizione</label>
-            <textarea name="descrizione" id="descrizione" cols="30" rows="5" maxlength="1275"></textarea>
+            <label for="descrizione"><strong>Descrizione</strong></label>
+            <textarea name="descrizione" id="descrizione" cols="47" rows="4" maxlength="1275"></textarea>
             @error('descrizione')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -27,8 +27,8 @@
 
         {{-- ingredienti --}}
         <div class="my-4 d-flex flex-column align-items-center">
-            <label for="ingredienti">Ingredienti</label>
-            <input type="text" maxlength="1275" name="ingredienti" id="ingredienti">
+            <label for="ingredienti"><strong>Ingredienti</strong></label>
+            <input style="width:600px" type="text" maxlength="1275" name="ingredienti" id="ingredienti">
             @error('ingrdienti')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -36,7 +36,7 @@
 
         {{-- prezzo --}}
         <div class="my-4 d-flex flex-column align-items-center">
-            <label for="prezzo">Prezzo</label>
+            <label for="prezzo"><strong>Prezzo</strong></label>
             <input type="number" name="prezzo" id="prezzo" required step="0.01" min="0.01">
             @error('prezzo')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -49,11 +49,11 @@
             <div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="is_visible" id="1" value="1">
-                    <label class="form-check-label" for="si">si</label>
+                    <label class="form-check-label" for="si">Si</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="is_visible" id="0" value="0">
-                    <label class="form-check-label" for="no">no</label>
+                    <label class="form-check-label" for="no">No</label>
                 </div>
             </div>
 
@@ -73,8 +73,10 @@
         </div>
 
         {{-- tasto submit --}}
-        <div class="my-2 d-flex justify-content-center gap-3">
-            <input class="btn btn-primary" type="submit" value="Crea prodotto">
+        <div class="my-2 d-flex justify-content-center align-items-center gap-3">
+            <div>
+                <input class="btn btn-success" type="submit" value="Crea prodotto">
+            </div>
             {{-- Back to product index --}}
             <a class="btn btn-primary" href="{{ route('products.index') }}">Indietro</a>
         </div>
@@ -91,3 +93,9 @@
         @endif
     </form>
 @endsection
+
+<style scoped>
+    form {
+        font-size: 1.4rem
+    }
+</style>

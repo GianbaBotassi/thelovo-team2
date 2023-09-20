@@ -19,12 +19,12 @@
 
     <hr>
     <div class="text-center">
-        <h3 class="my-3">
-            Se vuoi aggiungere un nuovo prodotto <br>
-        </h3>
-        <div class="d-flex gap-3 justify-content-center">
-            <a class="btn btn-warning" href="{{ route('products.create') }}">Crea </a>
-            <a class="btn btn-warning" href="{{ route('dashboard') }}">Indietro</a>
+        <h2 class="my-3">
+            Clicca su crea per aggiungere un nuovo prodotto. <br>
+        </h2>
+        <div id="nav-crea" class="d-flex gap-3 justify-content-center">
+            <a class="btn btn-success" href="{{ route('products.create') }}">Crea </a>
+            <a class="btn btn-primary" href="{{ route('dashboard') }}">Indietro</a>
         </div>
     </div>
     <hr>
@@ -56,15 +56,15 @@
                         </div>
 
                         <div class="row offset-1 col-8">
-                            <div class="col-10 d-flex flex-column justify-content-center gap-4">
+                            <div class="col-10 d-flex flex-column justify-content-center gap-3">
                                 <h3>{{ $product->nome }}</h3>
                                 <p>
-                                    <strong>Descrizione:</strong> {{ $product->descrizione }}.
+                                    <strong>Descrizione:</strong> {{ $product->descrizione }}
                                 </p>
                                 <h6><strong>Disponibile:</strong> {{ $product->is_visible ? 'Si' : 'No' }}</h6>
                                 <h5><strong>Prezzo:</strong> {{ $product->prezzo }} €</h5>
                             </div>
-                            <div class="col-2 d-flex flex-column justify-content-center gap-3 align-items-center">
+                            <div class="col-2 d-flex flex-column justify-content-center gap-2 align-items-center">
                                 {{-- tasto per rimure l'immagine --}}
                                 <form method="post" action="{{ route('products.delete', $product->id) }}">
                                     @csrf
@@ -72,13 +72,14 @@
 
                                     <input class="btn btn-danger" type="submit" value='Elimina'>
                                 </form>
-                                <div class="btn btn-secondary">
-                                    <a class="text-white text-decoration-none"
+                                <div class="btn btn-warning text-center">
+                                    <a class="text-white text-decoration-none m-0"
                                         href="{{ route('products.edit', $product->id) }}">Modifica
                                     </a>
                                 </div>
                                 @if ($product->image)
-                                    <form method="POST" action="{{ route('delete-product-picture', $product->id) }}">
+                                    <form class="mt-3" method="POST"
+                                        action="{{ route('delete-product-picture', $product->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger py-1 px-1 text-decoration-none text-white"
@@ -98,3 +99,9 @@
     </ul>
     {{-- @endif --}}
 @endsection
+
+<style scoped>
+    #nav-crea a {
+        font-size: 1.3rem
+    }
+</style>
