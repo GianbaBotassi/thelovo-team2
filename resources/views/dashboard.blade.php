@@ -22,11 +22,11 @@
 
 
                         @if (!auth()->user()->restaurant)
-                            <p class="text-center offset-4 col-4">
+                            <h5 class="text-center offset-3 col-6">
                                 Questo è il tuo pannello di amministrazione, <br>
-                                sembra che tu non abbia ancora registrato un ristorante <br>
-                                da qua potrai inserire un ristorante.
-                            </p>
+                                sembra che tu non abbia ancora registrato il tuo ristorante <br>
+                                da qua potrai procedere alla creazione.
+                            </h5>
                             <div class="container d-flex justify-content-around py-4">
                                 <a class="btn btn-warning text-light" style="font-size: 2rem"
                                     href="{{ route('create-restaurant') }}">
@@ -35,7 +35,7 @@
 
                             </div>
                         @else
-                            <div class="d-flex justify-content-around m-4">
+                            <div id="nav-menu-order" class="d-flex justify-content-around m-4">
                                 <div>
                                     {{-- collegamento alla pagina index dei prodotti --}}
                                     <a class="btn btn-warning" href="{{ route('products.index') }}">
@@ -112,3 +112,9 @@
     </div>
     </div>
 @endsection
+
+<style scoped>
+    #nav-menu-order a {
+        font-size: 1.4rem;
+    }
+</style>

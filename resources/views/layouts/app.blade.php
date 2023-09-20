@@ -29,7 +29,7 @@
         <header>
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
-                    <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                    <a class="navbar-brand d-flex align-items-center" href="{{ url('dashboard') }}">
                         <div class="logo_laravel">
                             <div id="logo">
                                 <img src="{{ asset('storage/' . 'Logo3.svg') }}">
@@ -50,7 +50,7 @@
                                 <a class="nav-link" href="{{ url('dashboard') }}">{{ __('Home') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:5174/"> Spesa </a>
+                                <a class="nav-link" href="http://localhost:5174/" target="_blank"> Spesa </a>
                             </li>
                         </ul>
 
@@ -63,7 +63,7 @@
                                 </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Sign in') }}</a>
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                     </li>
                                 @endif
                             @else
