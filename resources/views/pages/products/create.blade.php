@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     {{-- action="{{ route('products.store') }}" --}}
-    <form class="container mb-2 text-center" method="POST" enctype="multipart/form-data"
+    <form class="container mb-2 text-center form-piatto" method="POST" enctype="multipart/form-data"
         action="{{ route('products.store') }}">
         @csrf
         @method('POST')
@@ -93,3 +93,10 @@
         @endif --}}
     </form>
 @endsection
+
+
+<style>
+    .form-piatto {
+        font-size: 1.4rem;
+    }
+</style>

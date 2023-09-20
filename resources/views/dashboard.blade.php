@@ -61,28 +61,28 @@
                             <div class="row">
                                 <div class="col-7">
                                     {{-- immagine --}}
-                                    <div class="img_restaurant my-3">
+                                    <div class="img_restaurant my-3 mx-2">
                                         <img src="{{ asset('storage/' . auth()->user()->restaurant->image) }}"
-                                            width="100%" alt="immagine ristorante non trovata">
+                                            width="70%" alt="immagine ristorante non trovata">
                                     </div>
                                 </div>
 
                                 <div class="col-5">
                                     {{-- nome --}}
-                                    <div class="my-3">
+                                    <div class="my-2">
                                         <label class="form-label me-3" for="nome"><strong>Nome
                                                 ristorante:</strong></label>
                                         {{ auth()->user()->restaurant->nome }}
                                     </div>
 
                                     {{-- indirizzo --}}
-                                    <div class="my-3">
+                                    <div class="my-2">
                                         <label class="form-label me-3"><strong>Indirizzo:</strong></label>
                                         {{ auth()->user()->restaurant->indirizzo }}
                                     </div>
 
                                     {{-- partita-iva --}}
-                                    <div class="my-3">
+                                    <div class="my-2">
                                         <label class="form-label me-3"><strong>Partita Iva:</strong></label>
                                         {{ auth()->user()->restaurant->partita_iva }}
 
@@ -91,7 +91,7 @@
                                     {{-- tipologia --}}
                                     <div>
                                         <strong>Tipologie: </strong>
-                                        <ul>
+                                        <ul class="type-dash">
                                             @foreach (auth()->user()->restaurant->typologies as $typology)
                                                 <li> {{ $typology->nome }}</li>
                                             @endforeach
