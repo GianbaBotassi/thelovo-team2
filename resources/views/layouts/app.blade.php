@@ -11,7 +11,7 @@
 
     {{-- <title>{{ config("app.name', 'L'OVO") }}</title> --}}
     <title>L'OVO</title>
-    <link rel="icon" type="favicon.ico" href="favicon.ico" />
+    <link rel="icon" type="logo-intero.ico" href="logo-intero.ico" />
 
 
     {{-- <link rel="preload" href="{{ mix('scss/app.scss') }}" as="style">
