@@ -77,7 +77,7 @@ class RestaurantSeeder extends Seeder
             ],
             [
                 'user_id' => 9,
-                'nome' => 'Verde Voro - Ristorante Vegetariano',
+                'nome' => 'Verde Voro',
                 'indirizzo' => 'Via Giovanna D Arco, 77',
                 'partita_iva' => '49123456789',
                 'image' => 'risto-vegetariano.jpg',
