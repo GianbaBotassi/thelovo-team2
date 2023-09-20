@@ -41,7 +41,7 @@ class OrderController extends Controller
             ->whereHas('products', function ($query) use ($id) {
                 $query->where('restaurant_id', $id);
             })
-            ->orderBy('created_at', 'asc')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('pages.orders.index', compact('orders'));
