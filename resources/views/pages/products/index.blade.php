@@ -17,7 +17,7 @@
     // dd($array_delete);
     ?>
 
-    <hr>
+
     <div class="text-center">
         <h2 class="my-3">
             Clicca su crea per aggiungere un nuovo prodotto. <br>
@@ -27,7 +27,7 @@
             <a class="btn btn-primary" href="{{ route('dashboard') }}">Indietro</a>
         </div>
     </div>
-    <hr>
+
 
     {{-- @if (count(array_unique($array_delete)) === 1)
         <h1 class="text-center">
