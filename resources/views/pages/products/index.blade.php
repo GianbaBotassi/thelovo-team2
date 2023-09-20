@@ -70,7 +70,7 @@
                                     @csrf
                                     @method('PUT')
 
-                                    <input class="btn btn-danger" type="submit" value='Elimina'>
+                                    <input class="btn btn-danger" type="submit" value='Elimina prodotto'>
                                 </form>
                                 <div class="btn btn-warning text-center">
                                     <a class="text-white text-decoration-none m-0"
