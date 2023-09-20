@@ -72,7 +72,7 @@
             <label class="form-label me-3"><strong>Immagine:</strong></label>
             @if ($product->image)
                 <div style=" width:150px; margin: 0 auto;" class="mb-3">
-                    <img style="width:100%; height:100%; object-fit:cover" src="{{ asset('storage/' . $product->image) }}"
+                    <img style="width:100%; object-fit:cover" src="{{ asset('storage/' . $product->image) }}"
                         alt="">
                 </div>
             @else
