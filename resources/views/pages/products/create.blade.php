@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     {{-- action="{{ route('products.store') }}" --}}
-    <form class="container my-2 text-center" method="POST" enctype="multipart/form-data"
+    <form class="container mb-2 text-center" method="POST" enctype="multipart/form-data"
         action="{{ route('products.store') }}">
         @csrf
         @method('POST')
@@ -29,7 +29,7 @@
         <div class="my-4 d-flex flex-column align-items-center">
             <label for="ingredienti"><strong>Ingredienti</strong></label>
             <input style="width:600px" type="text" maxlength="1275" name="ingredienti" id="ingredienti">
-            @error('ingrdienti')
+            @error('ingredienti')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
@@ -82,7 +82,7 @@
         </div>
 
         {{-- Alert --}}
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -90,12 +90,6 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
     </form>
 @endsection
-
-<style scoped>
-    form {
-        font-size: 1.4rem
-    }
-</style>
