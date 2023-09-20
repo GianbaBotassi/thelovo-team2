@@ -65,7 +65,7 @@
         <div class="my-4">
             <label class="form-label me-3"><strong>Immagine:</strong></label>
             <div>
-                <input type="file" id="image" name="image" required>
+                <input type="file" id="image" name="image">
             </div>
             @error('image')
                 <div class="alert alert-danger">{{ $message }}</div>
