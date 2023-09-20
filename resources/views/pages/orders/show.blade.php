@@ -8,6 +8,8 @@
     <div class="container order">
 
 
+
+        <a class="btn btn-warning" href="{{ route('orders.index') }}">Indietro</a>
         <div class="card my-5">
 
 

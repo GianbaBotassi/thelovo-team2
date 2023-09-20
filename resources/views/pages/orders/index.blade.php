@@ -1,9 +1,15 @@
 @extends('layouts.app')
 @section('content')
     <div class="container-fluid">
-        <h1 class="text-center my-4 ">
-            Riepilogo ordini
-        </h1>
+        <div>
+
+            <h1 class="text-center my-4 ">
+                Riepilogo ordini
+            </h1>
+
+            <a class="btn btn-warning" href="{{ route('dashboard') }}">Indietro</a>
+
+        </div>
 
 
 
