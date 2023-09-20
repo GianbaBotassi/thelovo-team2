@@ -1,8 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 
-body{
-    background-image: url('/storage/Sfondo.jpg');
+
+
+.background {
+    width: 80%;
+    margin: 0 auto;
+    background-image: url("/storage/Sfondo2.jpg");
+    background-size: cover;
+    background-repeat: repeat-y;
+    max-height: max-content;
 }
+
+
 
 #logo {
     height: 230px;
@@ -11,53 +20,59 @@ body{
     justify-content: center;
     margin-left: 200px;
     background-color: #992631;
-    margin: -30px 0 0 100px;
+    margin: 13px 0 0 70px;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     border: 5px solid black;
 
     img {
-      margin-left: 4px;
-      margin-top: -5px;
-      height: 230px;
+        margin-left: 4px;
+        margin-top: -5px;
+        height: 230px;
     }
-  }
+}
 
-  header{
+header {
+    width: 110%;
     margin: 0 auto;
     margin-left: -5%;
     padding: 40px 0px;
-  }
-  header>.navbar{
+}
+
+header>.navbar {
     color: antiquewhite;
     height: 145px;
     background-image: url('/storage/Sfondo_sezione_tipologie.jpg');
     background-size: cover;
     background-position: bottom;
-  }
-.nav-item>a{
+}
+
+.nav-item>a {
     font-size: 1.5rem;
     color: #e0cfb5;
 }
-a{
+
+a {
     font-size: 1.5rem;
     color: black;
     text-decoration: none;
     margin: 15px;
 }
-.nav-item>a:hover{
-    color: #992631;
-}
-a:hover{
+
+.nav-item>a:hover {
     color: #992631;
 }
 
-.dropdown-item,a{
-    margin:0;
+a:hover {
+    color: #992631;
 }
-.card{
-    width: 80%;
-    margin: 0 auto;
+
+.dropdown-item,
+a {
+    margin: 0;
+}
+
+.card {
     margin-top: 10px;
     margin-bottom: 40px;
     border: 3px solid black;
@@ -72,33 +87,33 @@ a:hover{
     box-shadow: 10px 11px 24px 6px #565555;
 }
 
-.img_restaurant>img{
+.img_restaurant>img {
     border-radius: 20px;
 }
 
-.card_sup{
+.card_sup {
     padding: 15px;
     font-size: 20px;
 
 }
 
-.note_order{
+.note_order {
     border: 1.5px solid black;
     margin: 15px;
     padding: 5px;
     min-height: 100px;
 }
 
-.card-body{
+.card-body {
     padding: 30px;
 }
 
-.price{
+.price {
     font-size: 30px;
     margin-top: 20px;
 }
 
-.indirizzo{
+.indirizzo {
     margin-bottom: 15px;
     font-size: 25px;
 }
