@@ -2,12 +2,16 @@
 @section('content')
     <div class="container-fluid">
         <div>
+            <div class="indietro">
+                <a class="btn" href="{{ route('dashboard') }}">Indietro</a>
+            </div>
 
             <h1 class="text-center my-4 ">
                 Riepilogo ordini
             </h1>
 
-            <a class="btn btn-warning" href="{{ route('dashboard') }}">Indietro</a>
+
+
 
         </div>
 
