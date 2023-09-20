@@ -28,7 +28,7 @@
         {{-- ingredienti --}}
         <div class="my-4 d-flex flex-column align-items-center">
             <label for="ingredienti"><strong>Ingredienti</strong></label>
-            <input style="width:600px" type="text" maxlength="1275" name="ingredienti" id="ingredienti">
+            <input style="width:400px" type="text" maxlength="1275" name="ingredienti" id="ingredienti">
             @error('ingredienti')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror

@@ -37,7 +37,7 @@
     <ul>
         @foreach (auth()->user()->restaurant->products as $product)
             @if (!$product->is_delete)
-                <li class="card">
+                <li class="card container">
 
                     <div class="row p-3 my-2">
 
