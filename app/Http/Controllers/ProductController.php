@@ -115,12 +115,13 @@ class ProductController extends Controller
             $this->getValidationMessages()
         );
 
-        $product = Product::findOrFail($id);
-
         if (array_key_exists('image', $data)) {
             $img_path = Storage::put('uploads', $data['image']);
             $data['image'] = $img_path;
         }
+
+        $product = Product::findOrFail($id);
+
 
         $product->update($data);
 
@@ -166,7 +167,7 @@ class ProductController extends Controller
             'descrizione' => ['max:1275'],
             'ingredienti' => ['max:1275'],
             'prezzo' => ['required', 'numeric', 'min:0'],
-            'image' => ['image', 'mimes:jpeg,png,jpg'],
+            'image' => ['max:4096'],
             'is_visible' => ['required']
         ];
     }
@@ -185,6 +186,7 @@ class ProductController extends Controller
             'prezzo.min' => 'Il prezzo del piatto non può essere negativo.',
             'image.image' => 'Il file deve essere un\'immagine valida.',
             'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
+            'image.max' => 'immagine troppo grande',
             'is_visible.required' => 'La visibilità del piatto è obbligatoria.'
         ];
     }

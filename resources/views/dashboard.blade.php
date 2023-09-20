@@ -59,15 +59,15 @@
 
 
                             <div class="row">
-                                <div class="col-5">
+                                <div class="col-7">
                                     {{-- immagine --}}
                                     <div class="img_restaurant my-3">
                                         <img src="{{ asset('storage/' . auth()->user()->restaurant->image) }}"
-                                            width="450px" height="300 px" alt="immagine ristorante non trovata">
+                                            width="100%" alt="immagine ristorante non trovata">
                                     </div>
                                 </div>
 
-                                <div class="col-7">
+                                <div class="col-5">
                                     {{-- nome --}}
                                     <div class="my-3">
                                         <label class="form-label me-3" for="nome"><strong>Nome

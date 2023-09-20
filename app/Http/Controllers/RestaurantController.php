@@ -41,15 +41,15 @@ class RestaurantController extends Controller
         $data['user_id'] = $userId;
 
 
-        if (array_key_exists('image', $data)) {
+       $restaurant = Restaurant::create($data);
+
+
+ if (array_key_exists('image', $data)) {
             $img_path = Storage::put('uploads', $data['image']);
             $data['image'] = $img_path;
         } else {
             $data['image'] = 'main-image.jpg';
         }
-
-        $restaurant = Restaurant::create($data);
-
         // Se sono state indicate tipologie nella checkbox allora le collego tabella ponte
         if (array_key_exists('typology', $data))
             $restaurant->typologies()->attach($data['typology']);
@@ -63,7 +63,7 @@ class RestaurantController extends Controller
             'nome' => ['required', 'min:2', 'max:64'],
             'indirizzo' => ['max:1275'],
             'partita_iva' => ['required', 'numeric', 'digits:11'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg'],
+            // 'image' => ['required', 'image'],
             'typology' => ['required']
         ];
     }
@@ -79,9 +79,9 @@ class RestaurantController extends Controller
             'partita_iva.required' => 'La partita iva del ristorante è obbligatorio.',
             'partita_iva.numeric' => 'La partita iva del ristorante deve essere un numero.',
             'partita_iva.min' => 'La partita iva del ristorante non può essere negativo.',
-            'image.required' => 'E\' obbligatorio inserite un\'immagine.',
-            'image.image' => 'Il file deve essere un\'immagine valida.',
-            'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
+            // 'image.required' => 'E\' obbligatorio inserite un\'immagine.',
+            // 'image.image' => 'Il file deve essere un\'immagine valida.',
+            // 'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
             'typology.required' => 'Il ristorante deve avere una o piu\' tipologie'
         ];
     }
