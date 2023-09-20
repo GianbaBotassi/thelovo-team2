@@ -1,6 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,7 +15,7 @@
 
 }
 
-main{
+main {
     min-height: 100vh;
 }
 
@@ -77,10 +77,12 @@ a:hover {
 a {
     margin: 0;
 }
-ul{
+
+ul {
     margin-bottom: 0;
     padding: 35px;
 }
+
 .card {
     margin-top: 30px;
     // margin-bottom: 40px;
@@ -125,4 +127,15 @@ ul{
 .indirizzo {
     margin-bottom: 15px;
     font-size: 25px;
+}
+
+
+.prodotti-ordinati {
+    .riep-order {
+        margin-top: 15px;
+    }
+
+    ul {
+        padding: 8px 20px;
+    }
 }

@@ -53,8 +53,10 @@
 
 
                 <div>
-                    <h4>Riepilogo dell'ordine</h4>
-                    <div>
+
+                    <div class="prodotti-ordinati">
+
+                        <h4 class="riep-order">Riepilogo dell'ordine</h4>
                         <ul>
                             {{-- lista dei prodotti ordinati --}}
                             @foreach ($order->products as $product)
