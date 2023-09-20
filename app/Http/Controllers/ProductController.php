@@ -183,7 +183,6 @@ class ProductController extends Controller
             'prezzo.required' => 'Il prezzo del piatto è obbligatorio.',
             'prezzo.numeric' => 'Il prezzo del piatto deve essere un numero.',
             'prezzo.min' => 'Il prezzo del piatto non può essere negativo.',
-
             'image.image' => 'Il file deve essere un\'immagine valida.',
             'image.mimes' => 'Il file immagine deve essere di tipo JPEG, PNG o JPG.',
             'is_visible.required' => 'La visibilità del piatto è obbligatoria.'
