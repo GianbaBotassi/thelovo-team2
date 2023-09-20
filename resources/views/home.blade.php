@@ -22,7 +22,7 @@
                     </a>
                     <br>
                     <a class="btn btn-secondary" href="{{ route('login') }}" class="btn btn-light col-2">
-                        Login
+                        Accedi
                     </a>
                 </div>
 

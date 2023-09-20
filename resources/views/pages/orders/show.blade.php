@@ -16,7 +16,7 @@
             <div class="card_sup">
                 <h1>
 
-                    ORDINE n {{ $order->id }} di {{ $order->nome }}
+                    ORDINE n. {{ $order->id }} di {{ $order->nome }}
                 </h1>
             </div>
 
@@ -76,7 +76,7 @@
                         <div class="price">
                             <strong>
                                 Totale pagamento:
-                                {{ $order->totale }}
+                                € {{ $order->totale }}
                             </strong>
                         </div>
 
