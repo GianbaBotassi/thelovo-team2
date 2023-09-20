@@ -59,9 +59,10 @@
                             <div class="col-10 d-flex flex-column justify-content-center gap-4">
                                 <h3>{{ $product->nome }}</h3>
                                 <p>
-                                    {{ $product->descrizione }}
+                                    <strong>Descrizione:</strong> {{ $product->descrizione }}.
                                 </p>
-                                <h5>{{ $product->prezzo }} €</h5>
+                                <h6><strong>Disponibile:</strong> {{ $product->is_visible ? 'Si' : 'No' }}</h6>
+                                <h5><strong>Prezzo:</strong> {{ $product->prezzo }} €</h5>
                             </div>
                             <div class="col-2 d-flex flex-column justify-content-center gap-3 align-items-center">
                                 {{-- tasto per rimure l'immagine --}}
