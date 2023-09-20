@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -26,7 +27,6 @@ class OrderSeeder extends Seeder
                 'email' => 'luigi.r@gmail.com',
                 'note' => 'Suonare al terzo campanello',
                 'status' => 'Consegnato',
-                // 'data' => '2023-09-21',
                 'totale' => '120.00'
             ],
             [
@@ -36,7 +36,6 @@ class OrderSeeder extends Seeder
                 'email' => 'maria.b@gmail.com',
                 'note' => 'Aggiungere peperoncino extra.',
                 'status' => 'In preparazione',
-                // 'data' => '2023-09-25',
                 'totale' => '22.00'
             ],
             [
@@ -46,7 +45,6 @@ class OrderSeeder extends Seeder
                 'email' => 'marco.v@gmail.com',
                 'note' => 'Nessun avocado nelle roll selezionate.',
                 'status' => 'In consegna',
-                // 'data' => '2023-09-26',
                 'totale' => '45.00'
             ],
             [
@@ -56,7 +54,6 @@ class OrderSeeder extends Seeder
                 'email' => 'giovanna.r@gmail.com',
                 'note' => 'Consegna urgente, prego.',
                 'status' => 'In attesa di conferma',
-                // 'data' => '2023-09-27',
                 'totale' => '18.00'
             ],
             [
@@ -66,7 +63,6 @@ class OrderSeeder extends Seeder
                 'email' => 'antonio.m@gmail.com',
                 'note' => 'Senza cipolle, per favore.',
                 'status' => 'In preparazione',
-                // 'data' => '2023-09-28',
                 'totale' => '30.00'
             ],
             [
@@ -76,7 +72,6 @@ class OrderSeeder extends Seeder
                 'email' => 'paolo.b@gmail.com',
                 'note' => 'Chiamare quando si Ã¨ vicino.',
                 'status' => 'In preparazione',
-                // 'data' => '2023-09-22',
                 'totale' => '28.00'
             ],
             [
@@ -86,7 +81,6 @@ class OrderSeeder extends Seeder
                 'email' => 'anna.r@gmail.com',
                 'note' => 'Aggiungere salsa piccante.',
                 'status' => 'In consegna',
-                // 'data' => '2023-09-23',
                 'totale' => '35.00'
             ],
             [
@@ -96,7 +90,6 @@ class OrderSeeder extends Seeder
                 'email' => 'michele.f@gmail.com',
                 'note' => 'Consegna rapida richiesta.',
                 'status' => 'Consegnato',
-                // 'data' => '2023-09-24',
                 'totale' => '18.00'
             ],
             [
@@ -106,7 +99,6 @@ class OrderSeeder extends Seeder
                 'email' => 'laura.e@gmail.com',
                 'note' => 'Senza cipolle, per favore.',
                 'status' => 'In preparazione',
-                // 'data' => '2023-09-25',
                 'totale' => '30.00'
             ],
             [
@@ -116,7 +108,6 @@ class OrderSeeder extends Seeder
                 'email' => 'giovanni.m@gmail.com',
                 'note' => 'Extra formaggio sulla pizza.',
                 'status' => 'In attesa di conferma',
-                // 'data' => '2023-09-26',
                 'totale' => '26.00'
             ],
             [
@@ -126,7 +117,6 @@ class OrderSeeder extends Seeder
                 'email' => 'giovanni.m@gmail.com',
                 'note' => 'Extra formaggio sulla pizza.',
                 'status' => 'In attesa di conferma',
-                // 'data' => '2023-09-26',
                 'totale' => '26.00'
             ]
         ];
@@ -135,19 +125,19 @@ class OrderSeeder extends Seeder
         Order::insert($orders);
 
 
-        // Array con relazione tra ristorante(key) e tipologie (value)
+        // Array con relazione tra ordine(key) e prodotti (value)
         $relations = [
-            1 => [1, 3, 16],
-            2 => [7, 11],
-            3 => [19],
-            4 => [5, 14],
-            5 => [8, 10],
-            6 => [20],
-            7 => [6, 13],
-            8 => [15],
-            9 => [9],
-            10 => [4, 17, 18],
-            11 => [1]
+            1 => [1, 3, 5],
+            2 => [2, 5, 9],
+            3 => [6, 7, 8],
+            4 => [12, 13, 14],
+            5 => [12, 14, 15],
+            6 => [13],
+            7 => [22, 23],
+            8 => [24],
+            9 => [26],
+            10 => [30],
+            11 => [31, 33, 34]
         ];
 
         // Ciclo le chiavi e i valori inserendo per ogni relazione una row nella tabella ponte restaurant-typology

@@ -18,7 +18,7 @@
 
                 <div class="my-4 d-flex justify-content-center gap-4">
                     <a class="btn btn-secondary" href="{{ route('register') }}" class="btn btn-light col-2">
-                        Sign in
+                        Registrati
                     </a>
                     <br>
                     <a class="btn btn-secondary" href="{{ route('login') }}" class="btn btn-light col-2">
