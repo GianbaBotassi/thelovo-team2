@@ -22,11 +22,11 @@
 
 
                         @if (!auth()->user()->restaurant)
-                            <p class="text-center offset-4 col-4">
+                            <h5 class="text-center offset-3 col-6">
                                 Questo è il tuo pannello di amministrazione, <br>
-                                sembra che tu non abbia ancora registrato un ristorante <br>
-                                da qua potrai inserire un ristorante.
-                            </p>
+                                sembra che tu non abbia ancora registrato il tuo ristorante <br>
+                                da qua potrai procedere alla creazione.
+                            </h5>
                             <div class="container d-flex justify-content-around py-4">
                                 <a class="btn btn-warning text-light" style="font-size: 2rem"
                                     href="{{ route('create-restaurant') }}">

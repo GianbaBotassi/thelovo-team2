@@ -8,11 +8,11 @@
 
         <div class="d-flex flex-column align-items-center">
             {{-- titolo del form --}}
-            <h1 class="py-2">Nuovo ristorante</h1>
+            <h1 class="py-2"><strong>Nuovo ristorante</strong></h1>
 
             {{-- nome --}}
             <div class="my-2">
-                <label for="nome">nome</label>
+                <label for="nome"><strong>Nome</strong></label>
                 <br>
                 <input type="text" name="nome" id="nome" required minlength="4" maxlength="64">
                 <br>
@@ -23,7 +23,7 @@
 
             {{-- indirizzo --}}
             <div class="my-2">
-                <label for="indirizzo">indirizzo</label>
+                <label for="indirizzo"><strong>Indirizzo</strong></label>
                 <br>
                 <input type="text" name="indirizzo" id="indirizzo" required>
                 <br>
@@ -34,7 +34,7 @@
 
             {{-- partita iva --}}
             <div class="my-2">
-                <label for="partita_iva">partita iva ( 11 cifre ) </label>
+                <label for="partita_iva"><strong>Partita iva ( 11 cifre )</strong> </label>
                 <br>
                 <input type="text" name="partita_iva" id="partita_iva" required pattern="[0-9]{11}">
                 <br>
@@ -56,14 +56,17 @@
             {{-- tipologia --}}
             <div class="my-2">
                 <label for="typology"><strong>Tipologie: </strong></label>
-                @foreach ($typologies as $typology)
-                    <div>
-                        {{-- checbox per la tipologia --}}
-                        <input type="checkbox" name="typology[]" id="typology{{ $typology->id }}"
-                            value="{{ $typology->id }}">
-                        <label for="typology{{ $typology->id }}">{{ $typology->nome }}</label>
-                    </div>
-                @endforeach
+                <div class="typology">
+
+                    @foreach ($typologies as $typology)
+                        <div>
+                            {{-- checbox per la tipologia --}}
+                            <input type="checkbox" name="typology[]" id="typology{{ $typology->id }}"
+                                value="{{ $typology->id }}">
+                            <label for="typology{{ $typology->id }}">{{ $typology->nome }}</label>
+                        </div>
+                    @endforeach
+                </div>
                 @error('typology[]')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -73,13 +76,15 @@
 
         </div>
 
-        <div class="d-flex justify-content-center gap-4 mt-3">
+        <div class="d-flex justify-content-center align-items-center gap-4 mt-3">
             {{-- Bottone per la creazione del ristorante --}}
-            <input type="submit" class="btn btn-primary" value="Crea ristorante">
+            <div>
+                <input type="submit" class="btn btn-primary py-2" value="Crea ristorante">
+            </div>
 
             {{-- Bottone per tornare a index --}}
             <div class="text-center pt-1">
-                <a class="btn btn-secondary text-light" href="{{ route('dashboard') }}">Indietro</a>
+                <a class="btn btn-secondary text-light py-2" href="{{ route('dashboard') }}">Indietro</a>
             </div>
         </div>
 
@@ -107,3 +112,22 @@
         });
     </script>
 @endsection
+
+<style lang="scss" scoped>
+    form {
+        font-size: 1.4rem;
+
+        .typology {
+            width: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+
+            div {
+                width: calc(25% - 5px);
+            }
+        }
+    }
+</style>

@@ -6,14 +6,14 @@
 
 
             {{-- <div class="card d-inline-block"> --}}
-            <div class="card" style="height: 50vh; width: 50%; margin: 0 auto;">
+            <div class="card" style=" width: 50%; margin: 0 auto;">
 
                 <div class="my-3">
                     <h1>
                         Benvenuto/a!!
                     </h1>
-                    <p> se hai già un tuo ristorante fai il Login, <br>
-                        altrimenti registrati con la tua email.</p>
+                    <h5> Se hai già un tuo ristorante fai il Login, <br>
+                        altrimenti registrati con la tua email.</h5>
                 </div>
 
                 <div class="my-4 d-flex justify-content-center gap-4">
@@ -42,10 +42,10 @@
                 <div>
 
 
-                    <p class="text-center offset-4 col-4">
+                    <h5 class="text-center offset-4 col-4">
                         Sembra che tu non abbia ancora un ristorante collegato al tuo utente
                         registralo e inizia
-                    </p>
+                    </h5>
                     {{-- <div class="container d-flex justify-content-around py-4"> --}}
                     <a class="btn btn-info text-light" style="font-size: 2rem" href="{{ route('create-restaurant') }}">
                         Crea Ristorante
